@@ -1,0 +1,1588 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My JEE Timetable 2025</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════
+   CSS VARIABLES — LIGHT & DARK THEME
+══════════════════════════════════════ */
+:root, [data-theme="light"] {
+  --bg: #f7f3ee;
+  --bg2: #f0ebe3;
+  --card: #fffdf9;
+  --card2: #faf8f4;
+  --ink: #1c1610;
+  --ink-soft: #5a4a38;
+  --ink-muted: #9a8878;
+  --border: #e5d8c8;
+  --shadow: rgba(80,50,20,0.07);
+  --gold: #d4900a;
+  --gold-light: #fef0d0;
+  --nav-bg: rgba(28,22,16,0.97);
+  --nav-text: #f7f3ee;
+  --toggle-track: #ccc;
+  --scrollbar: #d8c8b0;
+  --input-bg: #faf8f4;
+
+  --sleep:    #e8e4f4; --sleep-b:    #7060b0; --sleep-t:    #4a3880;
+  --tuition:  #fef0d0; --tuition-b:  #d4900a; --tuition-t:  #8a5c00;
+  --commute:  #f0ece4; --commute-b:  #b0a090; --commute-t:  #6a5a48;
+  --school:   #e4f0fc; --school-b:   #2878c8; --school-t:   #104880;
+  --freshen:  #e4f4ec; --freshen-b:  #38a060; --freshen-t:  #185830;
+  --live:     #fde8e0; --live-b:     #d84820; --live-t:     #8a2010;
+  --recorded: #fce8f0; --recorded-b: #c03060; --recorded-t: #801838;
+  --backlog:  #e8f0e4; --backlog-b:  #5a9040; --backlog-t:  #2a5818;
+  --revision: #fef4d8; --revision-b: #c09010; --revision-t: #7a5800;
+  --dpp:      #e8f4f8; --dpp-b:      #2090b0; --dpp-t:      #0a5870;
+  --free:     #f0fce8; --free-b:     #60c040; --free-t:     #286010;
+  --break:    #f4f4f4; --break-b:    #a0a0a0; --break-t:    #505050;
+  --sleep2:   #ede8f8; --sleep2-b:   #6050a8; --sleep2-t:   #3a2870;
+  --exam:     #fde8f8; --exam-b:     #a030a0; --exam-t:     #601860;
+}
+
+[data-theme="dark"] {
+  --bg: #121018;
+  --bg2: #1a1624;
+  --card: #1e1a2a;
+  --card2: #251f32;
+  --ink: #ede8ff;
+  --ink-soft: #b8aed0;
+  --ink-muted: #7a7090;
+  --border: #2e2840;
+  --shadow: rgba(0,0,0,0.35);
+  --gold: #f0a830;
+  --gold-light: #3a2c10;
+  --nav-bg: rgba(10,8,18,0.97);
+  --nav-text: #ede8ff;
+  --toggle-track: #3a3050;
+  --scrollbar: #3a3050;
+  --input-bg: #251f32;
+
+  --sleep:    #1e1a34; --sleep-b:    #7060b0; --sleep-t:    #b0a0e0;
+  --tuition:  #2a2010; --tuition-b:  #d4900a; --tuition-t:  #f0b840;
+  --commute:  #1e1c18; --commute-b:  #8a7a6a; --commute-t:  #b0a090;
+  --school:   #101828; --school-b:   #2878c8; --school-t:   #80b8f0;
+  --freshen:  #101e18; --freshen-b:  #38a060; --freshen-t:  #70d098;
+  --live:     #28100a; --live-b:     #d84820; --live-t:     #f08060;
+  --recorded: #281020; --recorded-b: #c03060; --recorded-t: #e870a0;
+  --backlog:  #101e10; --backlog-b:  #5a9040; --backlog-t:  #90c870;
+  --revision: #241e08; --revision-b: #c09010; --revision-t: #e0c050;
+  --dpp:      #081820; --dpp-b:      #2090b0; --dpp-t:      #60c8e8;
+  --free:     #101e08; --free-b:     #60c040; --free-t:     #90e060;
+  --break:    #1a1a1a; --break-b:    #606060; --break-t:    #a0a0a0;
+  --sleep2:   #1a1430; --sleep2-b:   #6050a8; --sleep2-t:   #a090e0;
+  --exam:     #281028; --exam-b:     #c050c0; --exam-t:     #e090e0;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  font-family: 'Outfit', sans-serif;
+  color: var(--ink);
+  min-height: 100vh;
+  transition: background 0.3s, color 0.3s;
+}
+
+::-webkit-scrollbar { width: 7px; height: 7px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--scrollbar); border-radius: 10px; }
+
+/* ══════════════════════════════════════
+   TOP NAVIGATION BAR
+══════════════════════════════════════ */
+#top-nav {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--nav-bg);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(212,144,10,0.2);
+  padding: 0 2rem;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 52px;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.25);
+  animation: slideDown 0.4s ease both;
+}
+@keyframes slideDown { from { transform: translateY(-100%); opacity:0; } to { transform:none; opacity:1; } }
+
+.nav-brand {
+  font-family: 'Fraunces', serif; font-size: 1rem;
+  color: var(--nav-text); display: flex; align-items: center; gap: 0.5rem;
+}
+.nav-brand em { font-style: normal; color: var(--gold); }
+
+.nav-links { display: flex; gap: 0.2rem; align-items: center; }
+
+.nav-link {
+  font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;
+  color: rgba(247,243,238,0.5); text-decoration: none;
+  padding: 0.35rem 0.7rem; border-radius: 6px;
+  transition: all 0.2s; cursor: pointer; border: none;
+  background: none; font-family: 'Outfit', sans-serif;
+}
+.nav-link:hover { color: var(--nav-text); background: rgba(255,255,255,0.08); }
+.nav-link.active { color: var(--gold); background: rgba(212,144,10,0.12); }
+
+.nav-right { display: flex; align-items: center; gap: 1rem; }
+.nav-clock { font-family: 'Fraunces', serif; font-size: 1.05rem; color: var(--gold); min-width: 55px; text-align: right; }
+
+/* Dark/Light toggle */
+.theme-toggle {
+  display: flex; align-items: center; gap: 0.4rem; cursor: pointer;
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 20px; padding: 0.25rem 0.6rem;
+  transition: all 0.2s; user-select: none;
+}
+.theme-toggle:hover { background: rgba(255,255,255,0.12); }
+.theme-toggle span { font-size: 0.9rem; transition: transform 0.3s; }
+.theme-toggle .tt-label { font-size: 0.6rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; color: rgba(247,243,238,0.55); }
+
+/* ══════════════════════════════════════
+   PAGE SECTIONS — TAB BASED
+══════════════════════════════════════ */
+.page-section { display: none; animation: fadeUp 0.35s ease both; }
+.page-section.active { display: block; }
+
+/* ══════════════════════════════════════
+   STATUS BAR
+══════════════════════════════════════ */
+#status-bar {
+  background: var(--ink);
+  color: var(--nav-text);
+  padding: 0.85rem 2rem;
+  display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap;
+  border-bottom: 2px solid rgba(212,144,10,0.3);
+  position: relative; overflow: hidden;
+}
+[data-theme="dark"] #status-bar { background: #0d0b18; }
+#status-bar::before {
+  content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+  width: 3px; background: var(--gold);
+}
+#progress-bar-wrap { position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: rgba(255,255,255,0.07); }
+#progress-bar-fill { height: 100%; background: linear-gradient(90deg, var(--gold), #f7c040); transition: width 30s linear; }
+
+.sb-live-dot {
+  width: 7px; height: 7px; border-radius: 50%; background: #60c040;
+  box-shadow: 0 0 0 0 rgba(96,192,64,0.5); animation: pulse-dot 2s infinite; flex-shrink: 0;
+}
+@keyframes pulse-dot {
+  0%   { box-shadow: 0 0 0 0 rgba(96,192,64,0.6); }
+  70%  { box-shadow: 0 0 0 6px rgba(96,192,64,0); }
+  100% { box-shadow: 0 0 0 0 rgba(96,192,64,0); }
+}
+.sb-label { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 1px; color: rgba(247,243,238,0.4); margin-bottom: 0.1rem; }
+.sb-task { font-size: 0.95rem; font-weight: 600; color: var(--nav-text); flex: 1; }
+.sb-day-chip {
+  font-size: 0.68rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 20px;
+  background: rgba(212,144,10,0.2); color: var(--gold); text-transform: uppercase;
+  letter-spacing: 0.5px; border: 1px solid rgba(212,144,10,0.3);
+}
+.sb-badge {
+  font-size: 0.65rem; font-weight: 700; padding: 0.22rem 0.6rem;
+  border-radius: 20px; text-transform: uppercase; letter-spacing: 0.4px; flex-shrink: 0;
+}
+.sb-badge.on-track  { background: #38a060; color: #fff; }
+.sb-badge.heads-up  { background: var(--gold); color: #fff; }
+.sb-badge.free-now  { background: #2090b0; color: #fff; }
+.sb-badge.sleep-now { background: #7060b0; color: #fff; }
+.sb-next { font-size: 0.7rem; color: rgba(247,243,238,0.45); display: flex; align-items: center; gap: 0.3rem; flex-shrink: 0; }
+.sb-next span { color: rgba(247,243,238,0.7); font-weight: 500; }
+
+/* ══════════════════════════════════════
+   MAIN CONTENT
+══════════════════════════════════════ */
+.main-wrap { padding: 2rem; max-width: 1600px; margin: 0 auto; }
+
+/* HEADER */
+.header { margin-bottom: 2rem; animation: fadeDown 0.5s ease 0.15s both; }
+.header-top {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  flex-wrap: wrap; gap: 1rem;
+  padding-bottom: 1.2rem; border-bottom: 2px solid var(--border); margin-bottom: 1.2rem;
+}
+h1 { font-family: 'Fraunces', serif; font-size: 2.6rem; line-height: 1; color: var(--ink); letter-spacing: -0.5px; }
+h1 em { font-style: normal; color: var(--gold); }
+.subtitle { font-size: 0.78rem; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 1px; margin-top: 0.35rem; }
+
+.countdown-pill {
+  background: var(--ink); color: var(--gold);
+  font-family: 'Fraunces', serif; font-size: 0.9rem;
+  padding: 0.4rem 1rem; border-radius: 30px;
+  display: flex; align-items: center; gap: 0.5rem;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.2); flex-shrink: 0;
+}
+[data-theme="dark"] .countdown-pill { background: #0d0b18; border: 1px solid var(--border); }
+.cp-label { font-family: 'Outfit', sans-serif; font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.5px; color: rgba(247,243,238,0.5); }
+
+.legend { display: flex; flex-wrap: wrap; gap: 0.45rem; align-items: center; }
+.leg {
+  display: flex; align-items: center; gap: 0.3rem;
+  font-size: 0.7rem; color: var(--ink-soft); font-weight: 500;
+  background: var(--card); border: 1px solid var(--border);
+  padding: 0.2rem 0.55rem; border-radius: 20px;
+}
+.leg-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+/* ══════════════════════════════════════
+   METRICS ROW
+══════════════════════════════════════ */
+.metrics-row {
+  display: grid; grid-template-columns: repeat(7, 1fr);
+  gap: 0.75rem; margin-bottom: 1.8rem;
+}
+.metric-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 14px; padding: 0.85rem 1rem;
+  box-shadow: 0 2px 10px var(--shadow);
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative; overflow: hidden;
+}
+.metric-card::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+  height: 2px; background: var(--mc-accent, var(--gold)); opacity: 0.5;
+}
+.metric-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px var(--shadow); }
+.mc-label { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.7px; color: var(--ink-muted); margin-bottom: 0.25rem; }
+.mc-val { font-family: 'Fraunces', serif; font-size: 1.1rem; color: var(--ink); line-height: 1.1; }
+.mc-sub { font-size: 0.65rem; color: var(--ink-muted); margin-top: 0.2rem; line-height: 1.35; }
+.mc-icon { font-size: 1rem; margin-bottom: 0.2rem; }
+
+/* ══════════════════════════════════════
+   SECTION TITLES
+══════════════════════════════════════ */
+.section-title {
+  font-family: 'Fraunces', serif; font-size: 1.05rem; color: var(--ink);
+  margin-bottom: 1rem; display: flex; align-items: center; gap: 0.6rem;
+}
+.section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+/* ══════════════════════════════════════
+   SCHEDULE GRID
+══════════════════════════════════════ */
+.schedule-grid {
+  display: grid; grid-template-columns: repeat(7, 1fr);
+  gap: 0.75rem; margin-bottom: 1.8rem;
+}
+.day-col {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 16px; overflow: hidden;
+  box-shadow: 0 2px 12px var(--shadow);
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex; flex-direction: column;
+}
+.day-col:hover { transform: translateY(-3px); box-shadow: 0 10px 28px var(--shadow); }
+.day-col.today {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 2px rgba(212,144,10,0.3), 0 10px 28px rgba(212,144,10,0.16);
+  transform: translateY(-5px);
+}
+.day-col.today .day-head { background: linear-gradient(135deg, var(--gold-light), var(--card)); }
+.today-badge {
+  display: none; font-size: 0.58rem; font-weight: 700; color: var(--gold);
+  text-transform: uppercase; letter-spacing: 0.3px;
+  background: rgba(212,144,10,0.12); padding: 0.1rem 0.4rem;
+  border-radius: 10px; border: 1px solid rgba(212,144,10,0.25); margin-top: 0.2rem;
+}
+.day-col.today .today-badge { display: inline-block; }
+.day-head { padding: 0.8rem; border-bottom: 1px solid var(--border); text-align: center; background: var(--card2); }
+.day-name { font-family: 'Fraunces', serif; font-size: 0.95rem; color: var(--ink); }
+.day-tag {
+  display: inline-block; margin-top: 0.22rem; font-size: 0.58rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.3px; padding: 0.1rem 0.45rem; border-radius: 20px;
+}
+.tag-heavy   { background: #fde8e0; color: #c03010; }
+.tag-school  { background: #e4f0fc; color: #1060a8; }
+.tag-weekend { background: #e4f4ec; color: #206040; }
+.tag-rest    { background: #f0fce8; color: #286010; }
+[data-theme="dark"] .tag-heavy   { background: #30100a; color: #f08060; }
+[data-theme="dark"] .tag-school  { background: #0a1828; color: #80b8f0; }
+[data-theme="dark"] .tag-weekend { background: #0a1e10; color: #70d098; }
+[data-theme="dark"] .tag-rest    { background: #0a1a08; color: #90e060; }
+
+.day-load-bar { height: 3px; background: var(--border); position: relative; overflow: hidden; }
+.day-load-fill { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 0 2px 2px 0; transition: width 1s ease; }
+
+/* Toggle panel */
+.toggle-panel {
+  display: flex; flex-direction: column; gap: 0.28rem;
+  padding: 0.45rem 0.6rem; border-bottom: 1px solid var(--border);
+  background: rgba(0,0,0,0.03);
+}
+[data-theme="dark"] .toggle-panel { background: rgba(255,255,255,0.03); }
+.toggle-row { display: flex; align-items: center; justify-content: space-between; gap: 0.4rem; }
+.toggle-label { font-size: 0.6rem; font-weight: 600; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.3px; }
+
+.switch { position: relative; display: inline-block; width: 32px; height: 17px; }
+.switch input { opacity: 0; width: 0; height: 0; }
+.slider {
+  position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0;
+  background-color: var(--toggle-track); transition: .3s; border-radius: 17px;
+}
+.slider:before {
+  position: absolute; content: ""; height: 11px; width: 11px;
+  left: 3px; bottom: 3px; background-color: white; transition: .3s; border-radius: 50%;
+}
+input:checked + .slider { background-color: #38a060; }
+input:checked + .slider:before { transform: translateX(15px); }
+input.school-slider:checked  + .slider { background-color: #2878c8; }
+input.tuition-slider:checked + .slider { background-color: var(--gold); }
+
+/* Blocks */
+.blocks { padding: 0.55rem; display: flex; flex-direction: column; gap: 0.35rem; flex: 1; }
+.block {
+  border-radius: 9px; padding: 0.48rem 0.58rem; border-left: 3px solid transparent;
+  transition: transform 0.15s, opacity 0.3s, max-height 0.35s, padding 0.3s;
+  cursor: default; overflow: hidden; position: relative;
+}
+.block:hover { transform: translateX(3px); }
+.block.hidden-block { opacity: 0; pointer-events: none; max-height: 0 !important; padding-top: 0; padding-bottom: 0; margin: 0; border: none; }
+.block.current-block { outline: 2px solid var(--gold); outline-offset: -1px; animation: blockPulse 3s ease infinite; }
+@keyframes blockPulse {
+  0%, 100% { outline-color: rgba(212,144,10,0.8); }
+  50% { outline-color: rgba(212,144,10,0.3); }
+}
+
+.freed-block {
+  background: var(--freshen); border-left: 3px solid var(--freshen-b);
+  border-radius: 9px; padding: 0.48rem 0.58rem;
+  display: none; animation: fadeUp 0.3s ease both;
+}
+.freed-block.visible { display: block; }
+.freed-block .bt { font-size: 0.58rem; font-weight: 600; letter-spacing: 0.2px; margin-bottom: 0.1rem; opacity: 0.7; color: var(--freshen-t); }
+.freed-block .bn { font-size: 0.7rem; font-weight: 600; color: var(--freshen-t); }
+.freed-block .bs { font-size: 0.62rem; margin-top: 0.1rem; opacity: 0.65; color: var(--freshen-t); }
+
+.bt { font-size: 0.58rem; font-weight: 600; letter-spacing: 0.2px; margin-bottom: 0.12rem; opacity: 0.7; }
+.bn { font-size: 0.7rem; font-weight: 600; line-height: 1.3; }
+.bs { font-size: 0.6rem; margin-top: 0.08rem; opacity: 0.65; }
+
+.b-sleep    { background: var(--sleep);    border-color: var(--sleep-b);    color: var(--sleep-t); }
+.b-tuition  { background: var(--tuition);  border-color: var(--tuition-b);  color: var(--tuition-t); }
+.b-commute  { background: var(--commute);  border-color: var(--commute-b);  color: var(--commute-t); }
+.b-school   { background: var(--school);   border-color: var(--school-b);   color: var(--school-t); }
+.b-freshen  { background: var(--freshen);  border-color: var(--freshen-b);  color: var(--freshen-t); }
+.b-live     { background: var(--live);     border-color: var(--live-b);     color: var(--live-t); }
+.b-recorded { background: var(--recorded); border-color: var(--recorded-b); color: var(--recorded-t); }
+.b-backlog  { background: var(--backlog);  border-color: var(--backlog-b);  color: var(--backlog-t); }
+.b-revision { background: var(--revision); border-color: var(--revision-b); color: var(--revision-t); }
+.b-dpp      { background: var(--dpp);      border-color: var(--dpp-b);      color: var(--dpp-t); }
+.b-free     { background: var(--free);     border-color: var(--free-b);     color: var(--free-t); }
+.b-break    { background: var(--break);    border-color: var(--break-b);    color: var(--break-t); }
+.b-sleep2   { background: var(--sleep2);   border-color: var(--sleep2-b);   color: var(--sleep2-t); }
+.b-exam     { background: var(--exam);     border-color: var(--exam-b);     color: var(--exam-t); }
+
+.free-badge {
+  margin: 0 0.6rem 0.6rem;
+  background: linear-gradient(135deg, var(--gold-light), var(--card));
+  border: 1px dashed var(--gold);
+  border-radius: 9px; padding: 0.38rem 0.6rem; text-align: center;
+}
+.fb-val { font-family: 'Fraunces', serif; font-size: 0.95rem; color: var(--gold); }
+.fb-lbl { font-size: 0.58rem; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.3px; }
+.divider { height: 1px; background: var(--border); margin: 0.2rem 0; }
+
+/* ══════════════════════════════════════
+   WEEK TRACKER
+══════════════════════════════════════ */
+.week-tracker {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 14px; padding: 1.1rem 1.4rem; margin-bottom: 1.8rem;
+  box-shadow: 0 2px 10px var(--shadow);
+}
+.wt-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: 0.8rem; }
+.wt-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.4rem; }
+.wt-label { font-size: 0.72rem; font-weight: 600; color: var(--ink-soft); }
+.wt-count { font-family: 'Fraunces', serif; font-size: 0.9rem; color: var(--ink); }
+.wt-count .wt-max { font-size: 0.7rem; color: var(--ink-muted); font-family: 'Outfit', sans-serif; }
+.progress-track { height: 8px; background: var(--border); border-radius: 10px; overflow: hidden; }
+.progress-fill { height: 100%; border-radius: 10px; transition: width 0.8s ease; background: linear-gradient(90deg, #d84820, #d4900a); }
+.progress-fill.green { background: linear-gradient(90deg, #38a060, #60c040); }
+.progress-fill.blue  { background: linear-gradient(90deg, #2090b0, #40b8d8); }
+.wt-input-row { display: flex; align-items: center; gap: 0.5rem; margin-top: 0.5rem; }
+.wt-btn {
+  width: 26px; height: 26px; border-radius: 6px;
+  border: 1px solid var(--border); background: var(--bg);
+  font-size: 0.9rem; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--ink-soft); transition: all 0.15s; font-family: 'Outfit', sans-serif; flex-shrink: 0;
+}
+.wt-btn:hover { background: var(--card); border-color: var(--gold); color: var(--gold); }
+.wt-val-display { font-family: 'Fraunces', serif; font-size: 1.1rem; color: var(--ink); min-width: 28px; text-align: center; }
+.wt-mini-label { font-size: 0.62rem; color: var(--ink-muted); }
+
+/* ══════════════════════════════════════
+   NOTES
+══════════════════════════════════════ */
+.notes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.8rem; margin-bottom: 1.8rem; }
+.note-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 14px; padding: 1rem 1.1rem; box-shadow: 0 2px 8px var(--shadow);
+}
+.note-card h3 { font-family: 'Fraunces', serif; font-size: 0.9rem; margin-bottom: 0.6rem; color: var(--ink); }
+.note-card ul { list-style: none; display: flex; flex-direction: column; gap: 0.3rem; }
+.note-card li { font-size: 0.72rem; color: var(--ink-soft); display: flex; align-items: flex-start; gap: 0.35rem; line-height: 1.45; }
+.note-card li::before { content: '→'; color: var(--gold); font-weight: 700; flex-shrink: 0; }
+
+/* ══════════════════════════════════════
+   IRON RULES
+══════════════════════════════════════ */
+.rules-wrap {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 16px; padding: 1.2rem 1.4rem;
+  box-shadow: 0 2px 10px var(--shadow); margin-bottom: 2rem;
+}
+.rules-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.65rem; }
+.rule {
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: 11px; padding: 0.65rem 0.75rem;
+  font-size: 0.7rem; color: var(--ink-soft); line-height: 1.45;
+  transition: border-color 0.2s, background 0.2s; cursor: default;
+}
+.rule:hover { border-color: var(--gold); background: var(--gold-light); }
+.rule strong { display: block; font-size: 0.75rem; color: var(--ink); margin-bottom: 0.25rem; font-family: 'Fraunces', serif; }
+.rule-num {
+  display: inline-block; width: 18px; height: 18px;
+  background: var(--ink); color: var(--gold);
+  border-radius: 50%; font-size: 0.62rem; font-weight: 700;
+  text-align: center; line-height: 18px; margin-right: 0.3rem; font-family: 'Fraunces', serif;
+}
+
+/* ══════════════════════════════════════
+   STRESS TEST
+══════════════════════════════════════ */
+.stress-section {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 18px; padding: 1.5rem 1.6rem;
+  box-shadow: 0 4px 24px var(--shadow); margin-bottom: 2rem;
+}
+.stress-intro { font-size: 0.78rem; color: var(--ink-muted); margin-bottom: 1.2rem; line-height: 1.6; }
+.scenarios-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin-bottom: 1.2rem; }
+.scenario-card {
+  border: 2px solid var(--border); border-radius: 13px; padding: 0.9rem 1rem;
+  cursor: pointer; transition: all 0.2s; background: var(--bg); user-select: none;
+}
+.scenario-card:hover  { border-color: var(--gold); background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(212,144,10,0.1); }
+.scenario-card.active { border-color: #d84820; background: var(--live); box-shadow: 0 2px 12px rgba(216,72,32,0.12); }
+.sc-icon  { font-size: 1.5rem; margin-bottom: 0.4rem; }
+.sc-title { font-family: 'Fraunces', serif; font-size: 0.88rem; color: var(--ink); margin-bottom: 0.2rem; }
+.sc-sub   { font-size: 0.66rem; color: var(--ink-muted); }
+
+#stress-result {
+  display: none; border: 1px solid var(--border); border-radius: 13px;
+  padding: 1.1rem 1.2rem; background: var(--card2);
+  margin-bottom: 1.2rem; animation: fadeUp 0.3s ease both;
+}
+#stress-result.visible { display: block; }
+.sr-header { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.9rem; }
+.sr-emoji  { font-size: 1.8rem; }
+.sr-title  { font-family: 'Fraunces', serif; font-size: 1.1rem; color: var(--ink); }
+.sr-sub    { font-size: 0.7rem; color: var(--ink-muted); }
+.sr-grid   { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+.sr-box { border-radius: 11px; padding: 0.85rem 1rem; }
+.sr-box.damage   { background: var(--live);    border-left: 3px solid var(--live-b); }
+.sr-box.recovery { background: var(--backlog); border-left: 3px solid var(--backlog-b); }
+.sr-box h4 { font-family: 'Fraunces', serif; font-size: 0.8rem; margin-bottom: 0.5rem; color: var(--ink); }
+.sr-box ul { list-style: none; display: flex; flex-direction: column; gap: 0.3rem; }
+.sr-box li { font-size: 0.7rem; color: var(--ink-soft); line-height: 1.4; }
+.sr-box.damage   li::before { content: '⚠ '; color: var(--live-b); }
+.sr-box.recovery li::before { content: '✓ '; color: var(--backlog-b); font-weight: 700; }
+
+/* ── EXAM PLANNER inside stress test ── */
+.exam-planner {
+  border: 1px solid var(--border); border-radius: 13px;
+  padding: 1.2rem 1.4rem; background: var(--card2); margin-bottom: 1.2rem;
+  animation: fadeUp 0.35s ease both;
+}
+.ep-header { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1rem; }
+.ep-emoji  { font-size: 1.8rem; }
+.ep-title  { font-family: 'Fraunces', serif; font-size: 1.1rem; color: var(--ink); }
+.ep-sub    { font-size: 0.7rem; color: var(--ink-muted); }
+
+.ep-form { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.2rem; }
+.ep-field label { display: block; font-size: 0.68rem; font-weight: 600; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.4px; margin-bottom: 0.35rem; }
+.ep-field input[type="date"], .ep-field input[type="number"], .ep-field select {
+  width: 100%; padding: 0.5rem 0.7rem; border-radius: 8px;
+  border: 1px solid var(--border); background: var(--input-bg);
+  color: var(--ink); font-family: 'Outfit', sans-serif; font-size: 0.8rem;
+  outline: none; transition: border-color 0.2s;
+}
+.ep-field input:focus, .ep-field select:focus { border-color: var(--gold); }
+.ep-calc-btn {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  background: var(--ink); color: var(--gold);
+  border: none; border-radius: 10px; padding: 0.6rem 1.2rem;
+  font-family: 'Outfit', sans-serif; font-size: 0.8rem; font-weight: 600;
+  cursor: pointer; transition: all 0.2s; letter-spacing: 0.3px;
+}
+.ep-calc-btn:hover { opacity: 0.85; transform: translateY(-1px); }
+[data-theme="dark"] .ep-calc-btn { background: #0d0b18; border: 1px solid var(--border); }
+
+.ep-results { display: none; animation: fadeUp 0.3s ease both; }
+.ep-results.visible { display: block; }
+
+.ep-summary {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.7rem; margin-bottom: 1rem;
+}
+.ep-stat-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 11px; padding: 0.7rem 0.9rem;
+  position: relative; overflow: hidden;
+}
+.ep-stat-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--ec, var(--gold)); opacity: 0.6; }
+.ep-stat-label { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--ink-muted); margin-bottom: 0.2rem; }
+.ep-stat-val   { font-family: 'Fraunces', serif; font-size: 1.3rem; color: var(--ink); }
+.ep-stat-sub   { font-size: 0.62rem; color: var(--ink-muted); margin-top: 0.1rem; }
+
+.ep-week-grid { display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 1rem; }
+.ep-week-row {
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: 10px; padding: 0.75rem 1rem;
+  display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
+}
+.ep-week-row.exam-week { background: var(--exam); border-color: var(--exam-b); }
+.ep-week-row.recovery-week { background: var(--backlog); border-color: var(--backlog-b); }
+.ep-week-row.normal-week { background: var(--card2); }
+.ep-wk-label { font-family: 'Fraunces', serif; font-size: 0.85rem; color: var(--ink); min-width: 70px; }
+.ep-wk-type  { font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.4px; padding: 0.15rem 0.5rem; border-radius: 10px; flex-shrink: 0; }
+.ep-wk-type.exam-t   { background: var(--exam-b); color: #fff; }
+.ep-wk-type.recov-t  { background: var(--backlog-b); color: #fff; }
+.ep-wk-type.normal-t { background: var(--ink-muted); color: var(--card); }
+.ep-wk-details { font-size: 0.7rem; color: var(--ink-soft); flex: 1; }
+.ep-wk-bars { display: flex; gap: 0.5rem; align-items: center; flex-shrink: 0; }
+.ep-wk-bar-wrap { display: flex; flex-direction: column; gap: 0.15rem; min-width: 80px; }
+.ep-wk-bar-label { font-size: 0.55rem; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.3px; }
+.ep-wk-bar-track { height: 5px; background: var(--border); border-radius: 5px; overflow: hidden; }
+.ep-wk-bar-fill  { height: 100%; border-radius: 5px; }
+
+.ep-damage-recovery { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+.ep-box { border-radius: 11px; padding: 0.85rem 1rem; }
+.ep-box.damage   { background: var(--live);    border-left: 3px solid var(--live-b); }
+.ep-box.recovery { background: var(--backlog); border-left: 3px solid var(--backlog-b); }
+.ep-box h4 { font-family: 'Fraunces', serif; font-size: 0.8rem; margin-bottom: 0.5rem; color: var(--ink); }
+.ep-box ul { list-style: none; display: flex; flex-direction: column; gap: 0.3rem; }
+.ep-box li { font-size: 0.7rem; color: var(--ink-soft); line-height: 1.4; }
+.ep-box.damage   li::before { content: '⚠ '; color: var(--live-b); }
+.ep-box.recovery li::before { content: '✓ '; color: var(--backlog-b); font-weight: 700; }
+
+/* ── NERD MODE ── */
+.nerd-divider {
+  display: flex; align-items: center; gap: 0.8rem; margin: 1.2rem 0;
+  font-size: 0.68rem; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.8px;
+}
+.nerd-divider::before,.nerd-divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.nerd-mode { border: 2px dashed #c09010; border-radius: 14px; padding: 1.2rem 1.4rem; background: var(--gold-light); }
+.nerd-title { font-family: 'Fraunces', serif; font-size: 1rem; color: var(--revision-t); margin-bottom: 0.4rem; display: flex; align-items: center; gap: 0.5rem; }
+.nerd-sub   { font-size: 0.7rem; color: var(--ink-muted); margin-bottom: 1rem; line-height: 1.5; }
+.nerd-grid  { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-bottom: 1.2rem; }
+.nerd-slider-group label { display: block; font-size: 0.7rem; font-weight: 600; color: var(--ink-soft); margin-bottom: 0.3rem; }
+.nerd-slider-row { display: flex; align-items: center; gap: 0.6rem; }
+.nerd-slider-row input[type=range] { flex: 1; accent-color: var(--gold); height: 4px; }
+.nerd-val { font-family: 'Fraunces', serif; font-size: 1rem; color: #d84820; min-width: 40px; text-align: right; }
+.nerd-result { background: var(--ink); color: var(--nav-text); border-radius: 13px; padding: 1rem 1.2rem; font-size: 0.78rem; line-height: 1.8; }
+[data-theme="dark"] .nerd-result { background: #0d0b18; border: 1px solid var(--border); }
+.nerd-result .nr-stat { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.08); padding: 0.18rem 0; }
+.nerd-result .nr-stat:last-child { border-bottom: none; }
+.nr-label { color: rgba(247,243,238,0.6); font-size: 0.7rem; }
+[data-theme="dark"] .nr-label { color: var(--ink-muted); }
+.nr-value { font-family: 'Fraunces', serif; font-size: 1rem; color: var(--gold); }
+.nr-value.danger { color: #d84820; }
+.nr-value.safe   { color: #60c040; }
+.nerd-verdict { margin-top: 0.8rem; padding: 0.6rem 0.8rem; border-radius: 8px; font-size: 0.76rem; font-weight: 600; text-align: center; }
+.verdict-safe   { background: #1a3a20; color: #60c040; }
+.verdict-warn   { background: #3a2a08; color: var(--gold); }
+.verdict-danger { background: #3a0a08; color: #d84820; }
+
+/* ══════════════════════════════════════
+   FOOTER BANNER
+══════════════════════════════════════ */
+.footer-banner {
+  background: var(--ink); border-radius: 16px; padding: 1.6rem 2rem;
+  display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap;
+  margin-bottom: 2rem; position: relative; overflow: hidden;
+}
+[data-theme="dark"] .footer-banner { background: #0d0b18; border: 1px solid var(--border); }
+.footer-banner::before {
+  content: 'JEE'; position: absolute; right: 1.5rem; top: 50%; transform: translateY(-50%);
+  font-family: 'Fraunces', serif; font-size: 6rem; font-weight: 900;
+  color: rgba(255,255,255,0.04); pointer-events: none; user-select: none;
+}
+.fb-quote { font-family: 'Fraunces', serif; font-size: 1.1rem; color: #f7f3ee; font-style: italic; line-height: 1.4; max-width: 600px; }
+.fb-quote em { color: var(--gold); font-style: normal; }
+.fb-author { font-size: 0.68rem; color: rgba(247,243,238,0.4); margin-top: 0.3rem; text-transform: uppercase; letter-spacing: 0.5px; }
+.fb-stats  { display: flex; gap: 1.5rem; flex-shrink: 0; }
+.fb-stat   { text-align: center; }
+.fb-stat-val { font-family: 'Fraunces', serif; font-size: 1.5rem; color: var(--gold); }
+.fb-stat-lbl { font-size: 0.6rem; color: rgba(247,243,238,0.4); text-transform: uppercase; letter-spacing: 0.5px; margin-top: 0.1rem; }
+
+/* ══════════════════════════════════════
+   ANIMATIONS
+══════════════════════════════════════ */
+@keyframes fadeDown { from { opacity:0; transform:translateY(-12px); } to { opacity:1; transform:none; } }
+@keyframes fadeUp   { from { opacity:0; transform:translateY(12px);  } to { opacity:1; transform:none; } }
+
+/* ══════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════ */
+@media (max-width: 1300px) {
+  .metrics-row    { grid-template-columns: repeat(4,1fr); }
+  .schedule-grid  { grid-template-columns: repeat(4,1fr); }
+  .rules-grid     { grid-template-columns: repeat(3,1fr); }
+}
+@media (max-width: 900px) {
+  .metrics-row    { grid-template-columns: repeat(3,1fr); }
+  .schedule-grid  { grid-template-columns: repeat(2,1fr); }
+  .scenarios-grid { grid-template-columns: repeat(2,1fr); }
+  .rules-grid     { grid-template-columns: repeat(2,1fr); }
+  .ep-form        { grid-template-columns: 1fr; }
+  .ep-summary     { grid-template-columns: repeat(2,1fr); }
+}
+@media (max-width: 600px) {
+  .main-wrap      { padding: 1rem; }
+  .schedule-grid  { grid-template-columns: 1fr; }
+  .metrics-row    { grid-template-columns: repeat(2,1fr); }
+  .notes-grid     { grid-template-columns: 1fr; }
+  .rules-grid     { grid-template-columns: 1fr; }
+  .sr-grid        { grid-template-columns: 1fr; }
+  .nerd-grid      { grid-template-columns: 1fr; }
+  .wt-grid        { grid-template-columns: 1fr; }
+  .scenarios-grid { grid-template-columns: 1fr; }
+  .ep-damage-recovery { grid-template-columns: 1fr; }
+  .ep-summary     { grid-template-columns: repeat(2,1fr); }
+  .nav-links      { display: none; }
+  h1              { font-size: 1.9rem; }
+  .fb-stats       { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════ TOP NAVIGATION ══════════════════════ -->
+<nav id="top-nav">
+  <div class="nav-brand">⚡ My <em>JEE</em> Timetable</div>
+  <div class="nav-links">
+    <button class="nav-link active" data-tab="schedule">Schedule</button>
+    <button class="nav-link" data-tab="tracker">Tracker</button>
+    <button class="nav-link" data-tab="notes">Notes</button>
+    <button class="nav-link" data-tab="rules">Iron Rules</button>
+    <button class="nav-link" data-tab="stress">Stress Test</button>
+  </div>
+  <div class="nav-right">
+    <div class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" title="Toggle dark/light mode">
+      <span id="theme-icon">🌙</span>
+      <span class="tt-label" id="theme-label">Dark</span>
+    </div>
+    <div class="nav-clock" id="nav-clock">--:--</div>
+  </div>
+</nav>
+
+<!-- ══════════════════════ STATUS BAR ══════════════════════ -->
+<div id="status-bar">
+  <div class="sb-live-dot"></div>
+  <div>
+    <div class="sb-label" id="sb-dayname">Loading…</div>
+    <div class="sb-task" id="sb-task">Detecting your current task...</div>
+  </div>
+  <div class="sb-day-chip" id="sb-day-chip">—</div>
+  <div class="sb-badge on-track" id="sb-badge">On Track</div>
+  <div class="sb-next" id="sb-next">↓ Next: <span id="sb-next-task">—</span></div>
+  <div id="progress-bar-wrap"><div id="progress-bar-fill" style="width:0%"></div></div>
+</div>
+
+<!-- ══════════════════════ MAIN CONTENT ══════════════════════ -->
+<div class="main-wrap">
+
+  <!-- HEADER (always visible) -->
+  <div class="header">
+    <div class="header-top">
+      <div>
+        <h1>My JEE <em>Timetable</em></h1>
+        <div class="subtitle">Class 12 · Lakshya Coaching · All Tuitions Morning · Target: JEE Mains + Advanced</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:0.8rem;flex-wrap:wrap;">
+        <div class="countdown-pill">
+          <div>
+            <div class="cp-label">Days to JEE Mains</div>
+            <span id="countdown-val">—</span>
+          </div>
+        </div>
+        <div class="legend">
+          <div class="leg"><div class="leg-dot" style="background:#7060b0"></div>Sleep</div>
+          <div class="leg"><div class="leg-dot" style="background:#d4900a"></div>Tuition</div>
+          <div class="leg"><div class="leg-dot" style="background:#2878c8"></div>School</div>
+          <div class="leg"><div class="leg-dot" style="background:#d84820"></div>Live Class</div>
+          <div class="leg"><div class="leg-dot" style="background:#c03060"></div>Recorded</div>
+          <div class="leg"><div class="leg-dot" style="background:#5a9040"></div>Backlog</div>
+          <div class="leg"><div class="leg-dot" style="background:#c09010"></div>Revision</div>
+          <div class="leg"><div class="leg-dot" style="background:#2090b0"></div>DPP</div>
+          <div class="leg"><div class="leg-dot" style="background:#60c040"></div>Free</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════ TAB: SCHEDULE ══════════════════ -->
+  <div id="tab-schedule" class="page-section active">
+    <div class="metrics-row">
+      <div class="metric-card" style="--mc-accent:#d84820;">
+        <div class="mc-icon">📘</div><div class="mc-label">Phase 1</div>
+        <div class="mc-val">Now → Aug</div><div class="mc-sub">Cl.12 + Tier 1 Backlog</div>
+      </div>
+      <div class="metric-card" style="--mc-accent:#2878c8;">
+        <div class="mc-icon">📗</div><div class="mc-label">Phase 2</div>
+        <div class="mc-val">Sep – Oct</div><div class="mc-sub">PYQs · Weak Chapters</div>
+      </div>
+      <div class="metric-card" style="--mc-accent:#7060b0;">
+        <div class="mc-icon">📙</div><div class="mc-label">Phase 3</div>
+        <div class="mc-val">Nov – Dec</div><div class="mc-sub">Mocks · Full Revision</div>
+      </div>
+      <div class="metric-card" style="--mc-accent:#5a9040;">
+        <div class="mc-icon">📚</div><div class="mc-label">Backlog Target</div>
+        <div class="mc-val">~146 Lecs</div><div class="mc-sub">Tier 1 done by Aug end</div>
+      </div>
+      <div class="metric-card" style="--mc-accent:#d84820;">
+        <div class="mc-icon">📺</div><div class="mc-label">Cl.12 / Week</div>
+        <div class="mc-val">12 <span style="font-size:0.7rem;font-family:Outfit;color:var(--ink-muted)">lecs</span></div>
+        <div class="mc-sub">10 live + 2 recorded extra</div>
+      </div>
+      <div class="metric-card" style="--mc-accent:#5a9040;">
+        <div class="mc-icon">🔥</div><div class="mc-label">Backlog / Week</div>
+        <div class="mc-val">7–10 <span style="font-size:0.7rem;font-family:Outfit;color:var(--ink-muted)">lecs</span></div>
+        <div class="mc-sub">Tier 1 Priority</div>
+      </div>
+      <div class="metric-card" style="--mc-accent:#2090b0;">
+        <div class="mc-icon">📝</div><div class="mc-label">DPP Slots</div>
+        <div class="mc-val">2 <span style="font-size:0.7rem;font-family:Outfit;color:var(--ink-muted)">per wk</span></div>
+        <div class="mc-sub">Wed + Fri free windows</div>
+      </div>
+    </div>
+
+    <div class="section-title">🗓️ Weekly Schedule</div>
+    <div class="schedule-grid">
+
+      <!-- MONDAY -->
+      <div class="day-col" id="day-mon" data-day="1">
+        <div class="day-head"><div class="day-name">Monday</div><div class="day-tag tag-heavy">Tuition + School</div><div class="today-badge">← Today</div></div>
+        <div class="day-load-bar"><div class="day-load-fill" style="width:88%;background:linear-gradient(90deg,#d84820,#f09060)"></div></div>
+        <div class="toggle-panel">
+          <div class="toggle-row"><span class="toggle-label">🎓 School</span><label class="switch"><input type="checkbox" class="school-toggle" data-day="mon" checked onchange="toggleBlocks(this,'mon','school')"><span class="slider school-slider"></span></label></div>
+          <div class="toggle-row"><span class="toggle-label">📐 Tuition</span><label class="switch"><input type="checkbox" class="tuition-toggle" data-day="mon" checked onchange="toggleBlocks(this,'mon','tuition')"><span class="slider tuition-slider"></span></label></div>
+        </div>
+        <div class="blocks">
+          <div class="block b-sleep" data-start="0" data-end="420"><div class="bt">Until 7:00 AM</div><div class="bn">Sleep</div><div class="bs">6–8 hrs</div></div>
+          <div class="block b-tuition tuition-block-mon" data-start="420" data-end="540"><div class="bt">7:00 – 9:00 AM</div><div class="bn">Maths Tuition</div><div class="bs">2 hrs · eat at shop</div></div>
+          <div class="freed-block freed-tuition-mon"><div class="bt">7:00 – 9:00 AM</div><div class="bn">🟢 Freed: Tuition time</div><div class="bs">+2 hrs study / extra sleep</div></div>
+          <div class="block b-commute school-block-mon tuition-block-mon" data-start="540" data-end="570"><div class="bt">9:00 – 9:30 AM</div><div class="bn">Commute → School</div></div>
+          <div class="block b-school school-block-mon" data-start="570" data-end="980"><div class="bt">9:30 AM – 4:20 PM</div><div class="bn">School</div><div class="bs">6 hrs 50 min</div></div>
+          <div class="freed-block freed-school-mon"><div class="bt">9:00 AM – 4:20 PM</div><div class="bn">🟢 Freed: No School</div><div class="bs">+7h → Backlog / Lectures</div></div>
+          <div class="block b-commute school-block-mon" data-start="980" data-end="1020"><div class="bt">4:20 – 5:00 PM</div><div class="bn">Commute Home</div></div>
+          <div class="block b-freshen" data-start="1020" data-end="1065"><div class="bt">5:00 – 5:45 PM</div><div class="bn">Freshen Up + Eat</div></div>
+          <div class="block b-live" data-start="1095" data-end="1200"><div class="bt">6:15 – 8:00 PM</div><div class="bn">Live Coaching ✅</div><div class="bs">2nd Lecture · up to 8:30</div></div>
+          <div class="block b-recorded" data-start="1200" data-end="1335"><div class="bt">After 8:00 PM</div><div class="bn">Recorded Lecture</div><div class="bs">1st Lec · 1h45–2h15</div></div>
+          <div class="block b-revision" data-start="1335" data-end="1385"><div class="bt">After Recorded</div><div class="bn">Revision + HW</div><div class="bs">50 min combined</div></div>
+          <div class="block b-break"><div class="bt">Anytime</div><div class="bn">Mental Break</div><div class="bs">10 min</div></div>
+        </div>
+        <div class="free-badge"><div class="fb-val">~45 min</div><div class="fb-lbl">Free · 8hr sleep</div></div>
+      </div>
+
+      <!-- TUESDAY -->
+      <div class="day-col" id="day-tue" data-day="2">
+        <div class="day-head"><div class="day-name">Tuesday</div><div class="day-tag tag-school">School Day</div><div class="today-badge">← Today</div></div>
+        <div class="day-load-bar"><div class="day-load-fill" style="width:78%;background:linear-gradient(90deg,#2878c8,#60a8e8)"></div></div>
+        <div class="toggle-panel">
+          <div class="toggle-row"><span class="toggle-label">🎓 School</span><label class="switch"><input type="checkbox" class="school-toggle" data-day="tue" checked onchange="toggleBlocks(this,'tue','school')"><span class="slider school-slider"></span></label></div>
+        </div>
+        <div class="blocks">
+          <div class="block b-sleep" data-start="0" data-end="540"><div class="bt">Until 9:00 AM</div><div class="bn">Sleep</div><div class="bs">6–8 hrs</div></div>
+          <div class="block b-commute school-block-tue" data-start="540" data-end="570"><div class="bt">9:00 – 9:30 AM</div><div class="bn">Commute → School</div></div>
+          <div class="block b-school school-block-tue" data-start="570" data-end="980"><div class="bt">9:30 AM – 4:20 PM</div><div class="bn">School</div><div class="bs">6 hrs 50 min</div></div>
+          <div class="freed-block freed-school-tue"><div class="bt">9:00 AM – 4:20 PM</div><div class="bn">🟢 Freed: No School</div><div class="bs">+7h → Backlog / Lectures</div></div>
+          <div class="block b-commute school-block-tue" data-start="980" data-end="1020"><div class="bt">4:20 – 5:00 PM</div><div class="bn">Commute Home</div></div>
+          <div class="block b-freshen" data-start="1020" data-end="1065"><div class="bt">5:00 – 5:45 PM</div><div class="bn">Freshen Up + Eat</div></div>
+          <div class="block b-live" data-start="1095" data-end="1200"><div class="bt">6:15 – 8:00 PM</div><div class="bn">Live Coaching ✅</div><div class="bs">2nd Lecture · up to 8:30</div></div>
+          <div class="block b-recorded" data-start="1200" data-end="1335"><div class="bt">After 8:00 PM</div><div class="bn">Recorded Lecture</div><div class="bs">1st Lec · 1h45–2h15</div></div>
+          <div class="block b-revision" data-start="1335" data-end="1385"><div class="bt">After Recorded</div><div class="bn">Revision + HW</div><div class="bs">50 min combined</div></div>
+          <div class="block b-backlog"><div class="bt">Free Window</div><div class="bn">Cl.11 Backlog Lec</div><div class="bs">1 backlog lec if time permits</div></div>
+          <div class="block b-break"><div class="bt">Anytime</div><div class="bn">Mental Break</div><div class="bs">10 min</div></div>
+        </div>
+        <div class="free-badge"><div class="fb-val">~2 hrs</div><div class="fb-lbl">Free · 8hr sleep</div></div>
+      </div>
+
+      <!-- WEDNESDAY -->
+      <div class="day-col" id="day-wed" data-day="3">
+        <div class="day-head"><div class="day-name">Wednesday</div><div class="day-tag tag-school">School Day</div><div class="today-badge">← Today</div></div>
+        <div class="day-load-bar"><div class="day-load-fill" style="width:80%;background:linear-gradient(90deg,#2878c8,#60a8e8)"></div></div>
+        <div class="toggle-panel">
+          <div class="toggle-row"><span class="toggle-label">🎓 School</span><label class="switch"><input type="checkbox" class="school-toggle" data-day="wed" checked onchange="toggleBlocks(this,'wed','school')"><span class="slider school-slider"></span></label></div>
+        </div>
+        <div class="blocks">
+          <div class="block b-sleep" data-start="0" data-end="540"><div class="bt">Until 9:00 AM</div><div class="bn">Sleep</div><div class="bs">6–8 hrs</div></div>
+          <div class="block b-commute school-block-wed" data-start="540" data-end="570"><div class="bt">9:00 – 9:30 AM</div><div class="bn">Commute → School</div></div>
+          <div class="block b-school school-block-wed" data-start="570" data-end="980"><div class="bt">9:30 AM – 4:20 PM</div><div class="bn">School</div><div class="bs">6 hrs 50 min</div></div>
+          <div class="freed-block freed-school-wed"><div class="bt">9:00 AM – 4:20 PM</div><div class="bn">🟢 Freed: No School</div><div class="bs">+7h → Backlog / Lectures</div></div>
+          <div class="block b-commute school-block-wed" data-start="980" data-end="1020"><div class="bt">4:20 – 5:00 PM</div><div class="bn">Commute Home</div></div>
+          <div class="block b-freshen" data-start="1020" data-end="1065"><div class="bt">5:00 – 5:45 PM</div><div class="bn">Freshen Up + Eat</div></div>
+          <div class="block b-dpp" data-start="1065" data-end="1095"><div class="bt">5:45 – 6:15 PM</div><div class="bn">DPP Practice</div><div class="bs">1st of 2 weekly slots</div></div>
+          <div class="block b-live" data-start="1095" data-end="1200"><div class="bt">6:15 – 8:00 PM</div><div class="bn">Live Coaching ✅</div><div class="bs">2nd Lecture · up to 8:30</div></div>
+          <div class="block b-recorded" data-start="1200" data-end="1335"><div class="bt">After 8:00 PM</div><div class="bn">Recorded Lecture</div><div class="bs">1st Lec · 1h45–2h15</div></div>
+          <div class="block b-revision" data-start="1335" data-end="1385"><div class="bt">After Recorded</div><div class="bn">Revision + HW</div><div class="bs">50 min combined</div></div>
+          <div class="block b-break"><div class="bt">Anytime</div><div class="bn">Mental Break</div><div class="bs">10 min</div></div>
+        </div>
+        <div class="free-badge"><div class="fb-val">~2 hrs</div><div class="fb-lbl">Free · 8hr sleep</div></div>
+      </div>
+
+      <!-- THURSDAY -->
+      <div class="day-col" id="day-thu" data-day="4">
+        <div class="day-head"><div class="day-name">Thursday</div><div class="day-tag tag-heavy">Tuition + School</div><div class="today-badge">← Today</div></div>
+        <div class="day-load-bar"><div class="day-load-fill" style="width:90%;background:linear-gradient(90deg,#d84820,#f09060)"></div></div>
+        <div class="toggle-panel">
+          <div class="toggle-row"><span class="toggle-label">🎓 School</span><label class="switch"><input type="checkbox" class="school-toggle" data-day="thu" checked onchange="toggleBlocks(this,'thu','school')"><span class="slider school-slider"></span></label></div>
+          <div class="toggle-row"><span class="toggle-label">📐 Tuition</span><label class="switch"><input type="checkbox" class="tuition-toggle" data-day="thu" checked onchange="toggleBlocks(this,'thu','tuition')"><span class="slider tuition-slider"></span></label></div>
+        </div>
+        <div class="blocks">
+          <div class="block b-sleep" data-start="0" data-end="420"><div class="bt">Until 7:00 AM</div><div class="bn">Sleep</div><div class="bs">6–8 hrs</div></div>
+          <div class="block b-tuition tuition-block-thu" data-start="420" data-end="525"><div class="bt">7:00 – 8:45 AM</div><div class="bn">Bengali Tuition</div><div class="bs">1 hr 45 min</div></div>
+          <div class="freed-block freed-tuition-thu"><div class="bt">7:00 – 8:45 AM</div><div class="bn">🟢 Freed: Tuition time</div><div class="bs">+1h45m study / sleep</div></div>
+          <div class="block b-commute school-block-thu tuition-block-thu" data-start="525" data-end="570"><div class="bt">8:45 – 9:30 AM</div><div class="bn">Commute → School</div><div class="bs">Eat on the way</div></div>
+          <div class="block b-school school-block-thu" data-start="570" data-end="980"><div class="bt">9:30 AM – 4:20 PM</div><div class="bn">School</div><div class="bs">6 hrs 50 min</div></div>
+          <div class="freed-block freed-school-thu"><div class="bt">9:00 AM – 4:20 PM</div><div class="bn">🟢 Freed: No School</div><div class="bs">+7h → Backlog / Lectures</div></div>
+          <div class="block b-commute school-block-thu" data-start="980" data-end="1020"><div class="bt">4:20 – 5:00 PM</div><div class="bn">Commute Home</div></div>
+          <div class="block b-freshen" data-start="1020" data-end="1065"><div class="bt">5:00 – 5:45 PM</div><div class="bn">Freshen Up + Eat</div></div>
+          <div class="block b-live" data-start="1095" data-end="1200"><div class="bt">6:15 – 8:00 PM</div><div class="bn">Live Coaching ✅</div><div class="bs">2nd Lecture · up to 8:30</div></div>
+          <div class="block b-recorded" data-start="1200" data-end="1335"><div class="bt">After 8:00 PM</div><div class="bn">Recorded Lecture</div><div class="bs">1st Lec · 1h45–2h15</div></div>
+          <div class="block b-revision" data-start="1335" data-end="1385"><div class="bt">After Recorded</div><div class="bn">Revision + HW</div><div class="bs">50 min combined</div></div>
+          <div class="block b-break"><div class="bt">Anytime</div><div class="bn">Mental Break</div><div class="bs">10 min</div></div>
+        </div>
+        <div class="free-badge"><div class="fb-val">~45 min</div><div class="fb-lbl">Free · 8hr sleep</div></div>
+      </div>
+
+      <!-- FRIDAY -->
+      <div class="day-col" id="day-fri" data-day="5">
+        <div class="day-head"><div class="day-name">Friday</div><div class="day-tag tag-heavy">Tuition + School</div><div class="today-badge">← Today</div></div>
+        <div class="day-load-bar"><div class="day-load-fill" style="width:85%;background:linear-gradient(90deg,#d84820,#f09060)"></div></div>
+        <div class="toggle-panel">
+          <div class="toggle-row"><span class="toggle-label">🎓 School</span><label class="switch"><input type="checkbox" class="school-toggle" data-day="fri" checked onchange="toggleBlocks(this,'fri','school')"><span class="slider school-slider"></span></label></div>
+          <div class="toggle-row"><span class="toggle-label">📐 Tuition</span><label class="switch"><input type="checkbox" class="tuition-toggle" data-day="fri" checked onchange="toggleBlocks(this,'fri','tuition')"><span class="slider tuition-slider"></span></label></div>
+        </div>
+        <div class="blocks">
+          <div class="block b-sleep" data-start="0" data-end="420"><div class="bt">Until 7:00 AM</div><div class="bn">Sleep</div><div class="bs">6–8 hrs</div></div>
+          <div class="block b-tuition tuition-block-fri" data-start="420" data-end="525"><div class="bt">7:00 – 8:45 AM</div><div class="bn">Maths Tuition</div><div class="bs">1 hr 45 min · morning ✅</div></div>
+          <div class="freed-block freed-tuition-fri"><div class="bt">7:00 – 8:45 AM</div><div class="bn">🟢 Freed: Tuition time</div><div class="bs">+1h45m study / sleep</div></div>
+          <div class="block b-commute school-block-fri tuition-block-fri" data-start="525" data-end="570"><div class="bt">8:45 – 9:30 AM</div><div class="bn">Commute → School</div><div class="bs">Eat on the way</div></div>
+          <div class="block b-school school-block-fri" data-start="570" data-end="980"><div class="bt">9:30 AM – 4:20 PM</div><div class="bn">School</div><div class="bs">6 hrs 50 min</div></div>
+          <div class="freed-block freed-school-fri"><div class="bt">9:00 AM – 4:20 PM</div><div class="bn">🟢 Freed: No School</div><div class="bs">+7h → Backlog / Lectures</div></div>
+          <div class="block b-commute school-block-fri" data-start="980" data-end="1020"><div class="bt">4:20 – 5:00 PM</div><div class="bn">Commute Home</div></div>
+          <div class="block b-freshen" data-start="1020" data-end="1065"><div class="bt">5:00 – 5:45 PM</div><div class="bn">Freshen Up + Eat</div></div>
+          <div class="block b-dpp" data-start="1065" data-end="1095"><div class="bt">5:45 – 6:15 PM</div><div class="bn">DPP Practice</div><div class="bs">2nd of 2 weekly slots</div></div>
+          <div class="block b-live" data-start="1095" data-end="1200"><div class="bt">6:15 – 8:00 PM</div><div class="bn">Live Coaching ✅</div><div class="bs">2nd Lecture · up to 8:30</div></div>
+          <div class="block b-recorded" data-start="1200" data-end="1335"><div class="bt">After 8:00 PM</div><div class="bn">Recorded Lecture</div><div class="bs">1st Lec · 1h45–2h15</div></div>
+          <div class="block b-revision" data-start="1335" data-end="1385"><div class="bt">After Recorded</div><div class="bn">Revision + HW</div><div class="bs">50 min combined</div></div>
+          <div class="block b-break"><div class="bt">Anytime</div><div class="bn">Mental Break</div><div class="bs">10 min</div></div>
+        </div>
+        <div class="free-badge"><div class="fb-val">~1 hr</div><div class="fb-lbl">Free · 8hr sleep</div></div>
+      </div>
+
+      <!-- SATURDAY -->
+      <div class="day-col" id="day-sat" data-day="6">
+        <div class="day-head"><div class="day-name">Saturday</div><div class="day-tag tag-weekend">Tuition + Study</div><div class="today-badge">← Today</div></div>
+        <div class="day-load-bar"><div class="day-load-fill" style="width:60%;background:linear-gradient(90deg,#5a9040,#90c860)"></div></div>
+        <div class="toggle-panel">
+          <div class="toggle-row"><span class="toggle-label">📐 Tuition</span><label class="switch"><input type="checkbox" class="tuition-toggle" data-day="sat" checked onchange="toggleBlocks(this,'sat','tuition')"><span class="slider tuition-slider"></span></label></div>
+        </div>
+        <div class="blocks">
+          <div class="block b-sleep" data-start="0" data-end="405"><div class="bt">Until 6:45 AM</div><div class="bn">Sleep</div><div class="bs">6–8 hrs</div></div>
+          <div class="block b-commute tuition-block-sat" data-start="405" data-end="420"><div class="bt">6:45 – 7:00 AM</div><div class="bn">Commute → Tuition</div><div class="bs">15 min</div></div>
+          <div class="block b-tuition tuition-block-sat" data-start="420" data-end="540"><div class="bt">7:00 – 9:00 AM</div><div class="bn">Maths Tuition</div><div class="bs">2 hrs</div></div>
+          <div class="freed-block freed-tuition-sat"><div class="bt">6:45 – 9:25 AM</div><div class="bn">🟢 Freed: Tuition time</div><div class="bs">+2.5h → extra sleep / backlog</div></div>
+          <div class="block b-commute tuition-block-sat" data-start="540" data-end="565"><div class="bt">9:00 – 9:25 AM</div><div class="bn">Commute Home</div><div class="bs">25 min</div></div>
+          <div class="divider"></div>
+          <div class="block b-backlog" data-start="570" data-end="780"><div class="bt">9:30 AM – 1:00 PM</div><div class="bn">Cl.11 Backlog Block</div><div class="bs">2–3 backlog lectures 🔥</div></div>
+          <div class="block b-recorded" data-start="780" data-end="900"><div class="bt">1:00 – 3:00 PM</div><div class="bn">Recorded Lec (Lakshya)</div><div class="bs">1 assumed Sat session</div></div>
+          <div class="block b-revision" data-start="900" data-end="950"><div class="bt">3:00 – 3:50 PM</div><div class="bn">Revision + HW</div><div class="bs">50 min</div></div>
+          <div class="block b-free" data-start="950" data-end="1440"><div class="bt">Evening</div><div class="bn">Free / Rest</div><div class="bs">Recover for Sunday</div></div>
+        </div>
+        <div class="free-badge"><div class="fb-val">~3–4 hrs</div><div class="fb-lbl">Free after study block</div></div>
+      </div>
+
+      <!-- SUNDAY -->
+      <div class="day-col" id="day-sun" data-day="0">
+        <div class="day-head"><div class="day-name">Sunday</div><div class="day-tag tag-rest">Backlog Day 🔥</div><div class="today-badge">← Today</div></div>
+        <div class="day-load-bar"><div class="day-load-fill" style="width:55%;background:linear-gradient(90deg,#5a9040,#90c860)"></div></div>
+        <div class="blocks">
+          <div class="block b-sleep" data-start="0" data-end="480"><div class="bt">Until 8:00 AM</div><div class="bn">Sleep In</div><div class="bs">8 hrs · full rest</div></div>
+          <div class="block b-backlog" data-start="480" data-end="780"><div class="bt">8:00 AM – 1:00 PM</div><div class="bn">Cl.11 Backlog Block 1</div><div class="bs">3–4 backlog lectures 🔥</div></div>
+          <div class="block b-freshen" data-start="780" data-end="840"><div class="bt">1:00 – 2:00 PM</div><div class="bn">Lunch + Break</div><div class="bs">Rest your mind</div></div>
+          <div class="block b-backlog" data-start="840" data-end="1020"><div class="bt">2:00 – 5:00 PM</div><div class="bn">Cl.11 Backlog Block 2</div><div class="bs">2–3 more lectures</div></div>
+          <div class="block b-revision" data-start="1020" data-end="1070"><div class="bt">5:00 – 5:50 PM</div><div class="bn">Weekly Revision</div><div class="bs">Consolidate the week</div></div>
+          <div class="block b-free" data-start="1070" data-end="1380"><div class="bt">Evening</div><div class="bn">Free / Hobby / Rest</div><div class="bs">You earned it 🙌</div></div>
+          <div class="block b-sleep2" data-start="1380" data-end="1440"><div class="bt">By 11:00 PM</div><div class="bn">Sleep Early</div><div class="bs">Prep for Monday tuition</div></div>
+        </div>
+        <div class="free-badge"><div class="fb-val">~5–6 hrs</div><div class="fb-lbl">Free after study blocks</div></div>
+      </div>
+
+    </div><!-- .schedule-grid -->
+  </div><!-- #tab-schedule -->
+
+  <!-- ══════════════════ TAB: TRACKER ══════════════════ -->
+  <div id="tab-tracker" class="page-section">
+    <div class="section-title">📊 This Week's Lecture Tracker</div>
+    <div class="week-tracker">
+      <div style="font-size:0.72rem;color:var(--ink-muted);margin-bottom:0.4rem;">Track your progress live. Your data is saved in this tab.</div>
+      <div class="wt-grid">
+        <div class="wt-item">
+          <div class="wt-header"><div class="wt-label">📘 Cl.12 Lectures (Live + Recorded)</div><div class="wt-count"><span id="wt-cl12-val">0</span><span class="wt-max"> / 12</span></div></div>
+          <div class="progress-track"><div class="progress-fill" id="wt-cl12-bar" style="width:0%"></div></div>
+          <div class="wt-input-row">
+            <button class="wt-btn" onclick="adjustTracker('cl12',-1)">−</button>
+            <div class="wt-val-display" id="wt-cl12-big">0</div>
+            <button class="wt-btn" onclick="adjustTracker('cl12',1)">+</button>
+            <div class="wt-mini-label">lectures done this week</div>
+          </div>
+        </div>
+        <div class="wt-item">
+          <div class="wt-header"><div class="wt-label">🔥 Cl.11 Backlog Lectures</div><div class="wt-count"><span id="wt-back-val">0</span><span class="wt-max"> / 10</span></div></div>
+          <div class="progress-track"><div class="progress-fill green" id="wt-back-bar" style="width:0%"></div></div>
+          <div class="wt-input-row">
+            <button class="wt-btn" onclick="adjustTracker('back',-1)">−</button>
+            <div class="wt-val-display" id="wt-back-big">0</div>
+            <button class="wt-btn" onclick="adjustTracker('back',1)">+</button>
+            <div class="wt-mini-label">backlog lectures done</div>
+          </div>
+        </div>
+        <div class="wt-item">
+          <div class="wt-header"><div class="wt-label">📝 DPP Sessions</div><div class="wt-count"><span id="wt-dpp-val">0</span><span class="wt-max"> / 2</span></div></div>
+          <div class="progress-track"><div class="progress-fill blue" id="wt-dpp-bar" style="width:0%"></div></div>
+          <div class="wt-input-row">
+            <button class="wt-btn" onclick="adjustTracker('dpp',-1)">−</button>
+            <div class="wt-val-display" id="wt-dpp-big">0</div>
+            <button class="wt-btn" onclick="adjustTracker('dpp',1)">+</button>
+            <div class="wt-mini-label">DPP slots completed</div>
+          </div>
+        </div>
+        <div class="wt-item" style="display:flex;align-items:center;justify-content:center;">
+          <div id="wt-summary" style="text-align:center;">
+            <div style="font-family:'Fraunces',serif;font-size:1.4rem;color:var(--ink)" id="wt-score">—</div>
+            <div style="font-size:0.65rem;color:var(--ink-muted);text-transform:uppercase;letter-spacing:0.5px;margin-top:0.2rem;">Weekly Status</div>
+            <div id="wt-verdict" style="margin-top:0.5rem;font-size:0.72rem;font-weight:600;color:var(--gold)"></div>
+            <button onclick="resetTracker()" style="margin-top:0.6rem;font-size:0.62rem;background:none;border:1px solid var(--border);color:var(--ink-muted);padding:0.2rem 0.6rem;border-radius:6px;cursor:pointer;font-family:'Outfit',sans-serif;">Reset Week</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!-- #tab-tracker -->
+
+  <!-- ══════════════════ TAB: NOTES ══════════════════ -->
+  <div id="tab-notes" class="page-section">
+    <div class="section-title">📌 Key Notes</div>
+    <div class="notes-grid">
+      <div class="note-card">
+        <h3>⏰ Tuition Schedule</h3>
+        <ul>
+          <li>Monday 7–9 AM → Maths (2 hrs)</li>
+          <li>Thursday 7–8:45 AM → Bengali (1h 45m)</li>
+          <li>Friday 7–8:45 AM → Maths (1h 45m)</li>
+          <li>Saturday 7–9 AM → Maths (2 hrs)</li>
+          <li>All tuitions morning ✅ No evening conflicts!</li>
+        </ul>
+      </div>
+      <div class="note-card">
+        <h3>🎯 Backlog Weekly Target</h3>
+        <ul>
+          <li>Sunday Block 1 → 3–4 lectures</li>
+          <li>Sunday Block 2 → 2–3 lectures</li>
+          <li>Saturday → 2–3 lectures</li>
+          <li>Tue/Wed/Thu evenings → 1 lecture each if time</li>
+          <li>Total target → 7–10 lectures/week ✅</li>
+        </ul>
+      </div>
+      <div class="note-card">
+        <h3>📊 Free Time Summary</h3>
+        <ul>
+          <li>Mon / Thu → ~45 min (heavy days)</li>
+          <li>Tue / Wed / Fri → ~1–2 hrs</li>
+          <li>Saturday → ~3–4 hrs after study</li>
+          <li>Sunday → ~5–6 hrs after study blocks</li>
+          <li>8hr sleep achievable Tue–Sun ✅</li>
+        </ul>
+      </div>
+    </div>
+  </div><!-- #tab-notes -->
+
+  <!-- ══════════════════ TAB: RULES ══════════════════ -->
+  <div id="tab-rules" class="page-section">
+    <div class="section-title">⚡ The 5 Iron Rules</div>
+    <div class="rules-wrap">
+      <div class="rules-grid">
+        <div class="rule"><strong><span class="rule-num">1</span>Cl.12 Floor</strong>Minimum 12 Class 12 lectures every week. Non-negotiable. No exceptions.</div>
+        <div class="rule"><strong><span class="rule-num">2</span>Backlog Floor</strong>Minimum 7 Class 11 backlog lectures every week until August.</div>
+        <div class="rule"><strong><span class="rule-num">3</span>Sunday is Sacred</strong>Sunday is Backlog Killing Day. Protect it fiercely. Nothing takes it.</div>
+        <div class="rule"><strong><span class="rule-num">4</span>September Gear Shift</strong>From September → Practice &gt; Lectures. Shift gears completely.</div>
+        <div class="rule"><strong><span class="rule-num">5</span>Mock Deadline</strong>Mocks must start before November. No excuses. Lock the date now.</div>
+      </div>
+    </div>
+  </div><!-- #tab-rules -->
+
+  <!-- ══════════════════ TAB: STRESS TEST ══════════════════ -->
+  <div id="tab-stress" class="page-section">
+    <div class="section-title">🔥 Schedule Stress Test</div>
+    <div class="stress-section">
+      <div class="stress-intro">Reality check mode. Select a disruption scenario to see exactly what breaks in your schedule and how to recover.</div>
+      <div class="scenarios-grid">
+        <div class="scenario-card" onclick="showScenario('fever',this)"><div class="sc-icon">🤒</div><div class="sc-title">Sick Day / Fever</div><div class="sc-sub">Down 1–3 days, missed everything</div></div>
+        <div class="scenario-card" onclick="showScenario('oversleep',this)"><div class="sc-icon">😴</div><div class="sc-title">Overslept / Missed Tuition</div><div class="sc-sub">Alarm failed, missed morning slot</div></div>
+        <div class="scenario-card" onclick="showScenario('internet',this)"><div class="sc-icon">📡</div><div class="sc-title">No Internet / Power Cut</div><div class="sc-sub">Live class gone, recordings inaccessible</div></div>
+        <div class="scenario-card" onclick="showScenario('exams',this)"><div class="sc-icon">📋</div><div class="sc-title">School Exam Week</div><div class="sc-sub">Drained evenings, no energy for JEE</div></div>
+        <div class="scenario-card" onclick="showScenario('burnout',this)"><div class="sc-icon">💀</div><div class="sc-title">Full Burnout Day</div><div class="sc-sub">Can't open a book. Zero output.</div></div>
+        <div class="scenario-card" onclick="showScenario('examplanner',this)"><div class="sc-icon">📅</div><div class="sc-title">Exam Period Planner</div><div class="sc-sub">Input exam dates → get full JEE impact & recovery plan</div></div>
+        <div class="scenario-card" style="border-style:dashed;border-color:var(--gold);" onclick="showScenario('nerd',this)"><div class="sc-icon">🧮</div><div class="sc-title">Custom Nerd Mode</div><div class="sc-sub">Set exact lectures missed → get recovery math</div></div>
+      </div>
+
+      <div id="stress-result"></div>
+      <div id="exam-planner-panel" style="display:none;"></div>
+      <div id="nerd-mode-panel" style="display:none;"></div>
+    </div>
+  </div><!-- #tab-stress -->
+
+  <!-- FOOTER BANNER -->
+  <div class="footer-banner">
+    <div>
+      <div class="fb-quote" id="motivational-quote">"The pain of discipline is nothing like the pain of <em>regret</em>."</div>
+      <div class="fb-author" id="motivational-author">— Study Philosophy</div>
+    </div>
+    <div class="fb-stats">
+      <div class="fb-stat"><div class="fb-stat-val">146</div><div class="fb-stat-lbl">Backlog Lectures</div></div>
+      <div class="fb-stat"><div class="fb-stat-val" id="fb-weeks">—</div><div class="fb-stat-lbl">Weeks to Aug</div></div>
+      <div class="fb-stat"><div class="fb-stat-val">10</div><div class="fb-stat-lbl">Lecs/Week Min</div></div>
+    </div>
+  </div>
+
+</div><!-- .main-wrap -->
+
+<script>
+// ══════════════════════════════════════
+// THEME TOGGLE
+// ══════════════════════════════════════
+let currentTheme = localStorage.getItem('jee-theme') || 'light';
+function applyTheme(t) {
+  document.documentElement.setAttribute('data-theme', t);
+  const icon  = document.getElementById('theme-icon');
+  const label = document.getElementById('theme-label');
+  if (t === 'dark') { icon.textContent = '☀️'; label.textContent = 'Light'; }
+  else              { icon.textContent = '🌙'; label.textContent = 'Dark';  }
+  localStorage.setItem('jee-theme', t);
+  currentTheme = t;
+}
+function toggleTheme() { applyTheme(currentTheme === 'dark' ? 'light' : 'dark'); }
+applyTheme(currentTheme);
+
+// ══════════════════════════════════════
+// TAB NAVIGATION
+// ══════════════════════════════════════
+document.querySelectorAll('.nav-link[data-tab]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const tab = btn.dataset.tab;
+    document.querySelectorAll('.nav-link').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
+    btn.classList.add('active');
+    const el = document.getElementById('tab-' + tab);
+    if (el) el.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+});
+
+// ══════════════════════════════════════
+// COUNTDOWN
+// ══════════════════════════════════════
+function updateCountdown() {
+  const jeeDate = new Date('2026-01-22');
+  const today   = new Date();
+  const diff    = Math.ceil((jeeDate - today) / (1000*60*60*24));
+  document.getElementById('countdown-val').textContent = diff > 0 ? diff + ' days' : 'It\'s here!';
+  // weeks to August
+  const aug = new Date('2025-08-31');
+  const wks = Math.max(0, Math.ceil((aug - today) / (1000*60*60*24*7)));
+  document.getElementById('fb-weeks').textContent = '~' + wks;
+}
+updateCountdown();
+
+// ══════════════════════════════════════
+// SCHEDULE DATA
+// ══════════════════════════════════════
+const schedule = {
+  0: [
+    {start:0,   end:480,  task:'Sleep In 😴',                      badge:'sleep-now'},
+    {start:480, end:780,  task:'Backlog Block 1 — Attack Cl.11! 🔥',badge:'on-track'},
+    {start:780, end:840,  task:'Lunch + Mental Break 🍽',           badge:'free-now'},
+    {start:840, end:1020, task:'Backlog Block 2 — Keep pushing! 🔥',badge:'on-track'},
+    {start:1020,end:1070, task:'Weekly Revision — Consolidate 📖',  badge:'on-track'},
+    {start:1070,end:1440, task:'Free Time / Rest 🙌',               badge:'free-now'},
+  ],
+  1: [
+    {start:0,   end:420,  task:'Sleep 😴',             badge:'sleep-now'},
+    {start:420, end:540,  task:'Maths Tuition 📐',     badge:'on-track'},
+    {start:540, end:570,  task:'Commute → School 🚌',  badge:'on-track'},
+    {start:570, end:980,  task:'School 🎓',            badge:'on-track'},
+    {start:980, end:1020, task:'Commute Home 🚌',      badge:'on-track'},
+    {start:1020,end:1065, task:'Freshen Up + Eat 🍽',  badge:'free-now'},
+    {start:1065,end:1095, task:'Free Window ⏳',       badge:'free-now'},
+    {start:1095,end:1200, task:'Live Coaching ✅',     badge:'on-track'},
+    {start:1200,end:1335, task:'Recorded Lecture 📹',  badge:'on-track'},
+    {start:1335,end:1385, task:'Revision + HW 📝',     badge:'on-track'},
+    {start:1385,end:1440, task:'Wind Down / Sleep 😴', badge:'sleep-now'},
+  ],
+  2: [
+    {start:0,   end:540,  task:'Sleep 😴',             badge:'sleep-now'},
+    {start:540, end:570,  task:'Commute → School 🚌',  badge:'on-track'},
+    {start:570, end:980,  task:'School 🎓',            badge:'on-track'},
+    {start:980, end:1020, task:'Commute Home 🚌',      badge:'on-track'},
+    {start:1020,end:1065, task:'Freshen Up + Eat 🍽',  badge:'free-now'},
+    {start:1065,end:1095, task:'Free Window ⏳',       badge:'free-now'},
+    {start:1095,end:1200, task:'Live Coaching ✅',     badge:'on-track'},
+    {start:1200,end:1335, task:'Recorded Lecture 📹',  badge:'on-track'},
+    {start:1335,end:1385, task:'Revision + HW 📝',     badge:'on-track'},
+    {start:1385,end:1440, task:'Wind Down / Sleep 😴', badge:'sleep-now'},
+  ],
+  3: [
+    {start:0,   end:540,  task:'Sleep 😴',             badge:'sleep-now'},
+    {start:540, end:570,  task:'Commute → School 🚌',  badge:'on-track'},
+    {start:570, end:980,  task:'School 🎓',            badge:'on-track'},
+    {start:980, end:1020, task:'Commute Home 🚌',      badge:'on-track'},
+    {start:1020,end:1065, task:'Freshen Up + Eat 🍽',  badge:'free-now'},
+    {start:1065,end:1095, task:'DPP Practice 📝',      badge:'on-track'},
+    {start:1095,end:1200, task:'Live Coaching ✅',     badge:'on-track'},
+    {start:1200,end:1335, task:'Recorded Lecture 📹',  badge:'on-track'},
+    {start:1335,end:1385, task:'Revision + HW 📝',     badge:'on-track'},
+    {start:1385,end:1440, task:'Wind Down / Sleep 😴', badge:'sleep-now'},
+  ],
+  4: [
+    {start:0,   end:420,  task:'Sleep 😴',              badge:'sleep-now'},
+    {start:420, end:525,  task:'Bengali Tuition 📐',    badge:'on-track'},
+    {start:525, end:570,  task:'Commute → School 🚌',   badge:'on-track'},
+    {start:570, end:980,  task:'School 🎓',             badge:'on-track'},
+    {start:980, end:1020, task:'Commute Home 🚌',       badge:'on-track'},
+    {start:1020,end:1065, task:'Freshen Up + Eat 🍽',   badge:'free-now'},
+    {start:1065,end:1095, task:'Free Window ⏳',        badge:'free-now'},
+    {start:1095,end:1200, task:'Live Coaching ✅',      badge:'on-track'},
+    {start:1200,end:1335, task:'Recorded Lecture 📹',   badge:'on-track'},
+    {start:1335,end:1385, task:'Revision + HW 📝',      badge:'on-track'},
+    {start:1385,end:1440, task:'Wind Down / Sleep 😴',  badge:'sleep-now'},
+  ],
+  5: [
+    {start:0,   end:420,  task:'Sleep 😴',             badge:'sleep-now'},
+    {start:420, end:525,  task:'Maths Tuition 📐',     badge:'on-track'},
+    {start:525, end:570,  task:'Commute → School 🚌',  badge:'on-track'},
+    {start:570, end:980,  task:'School 🎓',            badge:'on-track'},
+    {start:980, end:1020, task:'Commute Home 🚌',      badge:'on-track'},
+    {start:1020,end:1065, task:'Freshen Up + Eat 🍽',  badge:'free-now'},
+    {start:1065,end:1095, task:'DPP Practice 📝',      badge:'on-track'},
+    {start:1095,end:1200, task:'Live Coaching ✅',     badge:'on-track'},
+    {start:1200,end:1335, task:'Recorded Lecture 📹',  badge:'on-track'},
+    {start:1335,end:1385, task:'Revision + HW 📝',     badge:'on-track'},
+    {start:1385,end:1440, task:'Wind Down / Sleep 😴', badge:'sleep-now'},
+  ],
+  6: [
+    {start:0,   end:405,  task:'Sleep 😴',                  badge:'sleep-now'},
+    {start:405, end:420,  task:'Commute → Tuition 🚌',      badge:'on-track'},
+    {start:420, end:540,  task:'Maths Tuition 📐',          badge:'on-track'},
+    {start:540, end:565,  task:'Commute Home 🚌',           badge:'on-track'},
+    {start:565, end:570,  task:'Quick rest ⏳',             badge:'free-now'},
+    {start:570, end:780,  task:'Cl.11 Backlog Block 🔥',    badge:'on-track'},
+    {start:780, end:900,  task:'Recorded Lec (Lakshya) 📹', badge:'on-track'},
+    {start:900, end:950,  task:'Revision + HW 📝',          badge:'on-track'},
+    {start:950, end:1440, task:'Free Time / Rest 🙌',       badge:'free-now'},
+  ],
+};
+const dayNames = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+const dayShort = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+const dayIds   = ['day-sun','day-mon','day-tue','day-wed','day-thu','day-fri','day-sat'];
+
+function updateStatusBar() {
+  const now  = new Date();
+  const dow  = now.getDay();
+  const mins = now.getHours()*60 + now.getMinutes();
+  const hh   = String(now.getHours()).padStart(2,'0');
+  const mm   = String(now.getMinutes()).padStart(2,'0');
+  document.getElementById('nav-clock').textContent  = `${hh}:${mm}`;
+  document.getElementById('sb-dayname').textContent = dayNames[dow].toUpperCase();
+  document.getElementById('sb-day-chip').textContent= dayShort[dow];
+  const slots = schedule[dow] || [];
+  let found = null, nextFound = null;
+  for (let i=0; i<slots.length; i++) {
+    if (mins >= slots[i].start && mins < slots[i].end) { found = slots[i]; nextFound = slots[i+1]||null; break; }
+  }
+  if (!found) found = { task:'Rest / Wind Down 😴', badge:'sleep-now' };
+  document.getElementById('sb-task').textContent = found.task;
+  const badge = document.getElementById('sb-badge');
+  badge.className = 'sb-badge ' + found.badge;
+  const bt = { 'on-track':'On Track ✅','free-now':'Free Time 🟢','sleep-now':'Sleep Time 😴','heads-up':'Heads Up ⚠' };
+  badge.textContent = bt[found.badge] || 'On Track';
+  document.getElementById('sb-next-task').textContent = nextFound ? nextFound.task : 'End of day';
+  if (found.end && found.start !== undefined) {
+    const pct = Math.min(100,((mins-found.start)/(found.end-found.start))*100);
+    document.getElementById('progress-bar-fill').style.width = pct+'%';
+  }
+  const todayCol = document.getElementById(dayIds[dow]);
+  if (todayCol) {
+    todayCol.querySelectorAll('.block').forEach(b=>b.classList.remove('current-block'));
+    todayCol.querySelectorAll('.block[data-start]').forEach(b=>{
+      if (mins>=parseInt(b.dataset.start) && mins<parseInt(b.dataset.end)) b.classList.add('current-block');
+    });
+  }
+}
+function highlightToday() {
+  const dow = new Date().getDay();
+  const el  = document.getElementById(dayIds[dow]);
+  if (el) { el.classList.add('today'); setTimeout(()=>el.scrollIntoView({behavior:'smooth',block:'nearest'}),500); }
+}
+updateStatusBar();
+setInterval(updateStatusBar, 30000);
+highlightToday();
+
+// ══════════════════════════════════════
+// TRACKER
+// ══════════════════════════════════════
+const trackerState = { cl12:0, back:0, dpp:0 };
+const trackerMax   = { cl12:12, back:10, dpp:2 };
+function adjustTracker(key,delta) {
+  trackerState[key] = Math.max(0, Math.min(trackerMax[key], trackerState[key]+delta));
+  renderTracker();
+}
+function resetTracker() { trackerState.cl12=0; trackerState.back=0; trackerState.dpp=0; renderTracker(); }
+function renderTracker() {
+  ['cl12','back','dpp'].forEach(k=>{
+    const v=trackerState[k], m=trackerMax[k];
+    document.getElementById('wt-'+k+'-val').textContent = v;
+    document.getElementById('wt-'+k+'-big').textContent = v;
+    document.getElementById('wt-'+k+'-bar').style.width = Math.min(100,(v/m)*100)+'%';
+  });
+  const total=trackerState.cl12+trackerState.back, target=19;
+  const pct=Math.round((total/target)*100);
+  document.getElementById('wt-score').textContent = pct+'%';
+  const vEl = document.getElementById('wt-verdict');
+  if (pct>=100) vEl.textContent='🏆 Target crushed!';
+  else if (pct>=70) vEl.textContent='💪 Great pace, keep it up!';
+  else if (pct>=40) vEl.textContent='📈 Getting there — push harder';
+  else vEl.textContent='⚡ Early in the week — start strong!';
+}
+renderTracker();
+
+// ══════════════════════════════════════
+// SCENARIOS
+// ══════════════════════════════════════
+const scenarios = {
+  fever:{
+    emoji:'🤒',title:'Sick Day / Fever',sub:"You were down 1–3 days. Here's the damage and how to climb back.",
+    damage:['Missed 2–6 live lectures — unrecoverable live, watch recorded','Missed 2–4 backlog lectures (direct hit to weekly target)','No revision / HW → concepts go stale fast','If 3 days sick, weekly target drops by ~50%','Tuition might be missed too depending on timing'],
+    recovery:["Day 1 back: only recorded lectures — no pressure for backlog","Treat missed live lecs as recorded: watch at 1.5x, prioritise Cl.12","Shift Sunday backlog target up by the number missed","Compress revision to 30 min instead of 50 for 2–3 days","Do NOT try to recover everything in 1 day — you will crash again","Weekly target is advisory, not sacred when you're sick"]
+  },
+  oversleep:{
+    emoji:'😴',title:'Overslept / Missed Tuition',sub:"The alarm didn't work. Tuition is gone. Here's how to not spiral.",
+    damage:['Missed 1.75–2 hrs of tuition (Maths or Bengali)','Commute timing may be off — might be late to school','Morning routine disrupted, mental friction for rest of day','If Mon/Sat: Maths tuition missed — needs self-cover'],
+    recovery:["Don't stress it — it happens. Skip guilt, move forward.",'Cover missed maths problems during Free Window that evening','Borrow notes from tuition classmate if needed','Use the freed tuition time: it became extra backlog / revision','Fix the alarm — set 2 alarms, phone on loud across the room','One missed tuition ≠ JEE failure. Proportional response only.']
+  },
+  internet:{
+    emoji:'📡',title:'No Internet / Power Cut',sub:'Live class gone. Recordings inaccessible. What now?',
+    damage:['Live lecture missed entirely (Lakshya) — 1 live slot gone','Cannot access recorded backlog either (cloud-based)','Evening study session significantly disrupted','If power cut: phone battery too — no Pomodoro, no notes app'],
+    recovery:['Switch to offline mode: open physical textbooks (HC Verma, NCERT)','Do paper-based DPP from your printed sheets — zero internet needed','Revise formulas / short notes in notebook — zero screen required','Live class will have a recording — watch it within 48 hrs','Keep a printed weekly formula sheet for exactly these days','Power cut = unplanned offline revision day. Reframe it.']
+  },
+  exams:{
+    emoji:'📋',title:'School Exam Week',sub:'School is in full swing. Energy is low. JEE pace must adapt.',
+    damage:['Evening energy near zero after school + exam stress','Live class attendance drops — you\'re mentally fried','Backlog target cannot be met — accept this upfront','Sleep may suffer if cramming for school exams too','DPP and revision slots will likely get skipped'],
+    recovery:['Exam week rule: protect live class attendance above all else','Drop backlog target to 3–4 lecs for the week — no shame',"Don't skip recorded lectures — watch at 1.5x during commute",'Sleep 8 hrs no matter what — exhausted brain = zero retention','After exams: declare one "compensation Sunday" with full backlog push','School exams are temporary. Backlog deadline is August. Budget wisely.']
+  },
+  burnout:{
+    emoji:'💀',title:'Full Burnout Day',sub:"Can't open a book. Everything feels impossible. This is real.",
+    damage:['Zero productive output for the day','Recorded lecture missed — adds to backlog debt','Mental resistance will be higher the following day too','If burnout is mid-week, momentum loss affects 2–3 days'],
+    recovery:['Rule 1: Do NOT force study. Forcing on burnout = 2-day crash.','Take the full day. Walk, sleep, eat properly, do nothing academic.','Evening: watch ONE recorded lecture at 1.5x — low commitment','The next morning, start fresh — do NOT try to make up for yesterday','Schedule a weekly "light day" proactively (Sat evening is perfect)','Burnout means the tank was empty. Refill, then drive again.']
+  }
+};
+
+function showScenario(key, cardEl) {
+  document.querySelectorAll('.scenario-card').forEach(c=>c.classList.remove('active'));
+  if (cardEl) cardEl.classList.add('active');
+  document.getElementById('stress-result').classList.remove('visible');
+  document.getElementById('exam-planner-panel').style.display = 'none';
+  document.getElementById('nerd-mode-panel').style.display = 'none';
+
+  if (key === 'examplanner') {
+    renderExamPlanner();
+    document.getElementById('exam-planner-panel').style.display = 'block';
+    document.getElementById('exam-planner-panel').scrollIntoView({behavior:'smooth',block:'nearest'});
+    return;
+  }
+  if (key === 'nerd') {
+    renderNerdMode();
+    document.getElementById('nerd-mode-panel').style.display = 'block';
+    document.getElementById('nerd-mode-panel').scrollIntoView({behavior:'smooth',block:'nearest'});
+    calcNerd();
+    return;
+  }
+  const s = scenarios[key];
+  const el = document.getElementById('stress-result');
+  el.innerHTML = `
+    <div class="sr-header"><div class="sr-emoji">${s.emoji}</div><div><div class="sr-title">${s.title}</div><div class="sr-sub">${s.sub}</div></div></div>
+    <div class="sr-grid">
+      <div class="sr-box damage"><h4>💥 What breaks</h4><ul>${s.damage.map(d=>`<li>${d}</li>`).join('')}</ul></div>
+      <div class="sr-box recovery"><h4>🔄 Recovery protocol</h4><ul>${s.recovery.map(r=>`<li>${r}</li>`).join('')}</ul></div>
+    </div>`;
+  el.classList.add('visible');
+  el.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+// ══════════════════════════════════════
+// EXAM PERIOD PLANNER
+// ══════════════════════════════════════
+function renderExamPlanner() {
+  const panel = document.getElementById('exam-planner-panel');
+  panel.innerHTML = `
+    <div class="exam-planner">
+      <div class="ep-header">
+        <div class="ep-emoji">📅</div>
+        <div><div class="ep-title">School Exam Period Planner</div>
+        <div class="ep-sub">Enter your exam window and see exactly how your JEE schedule is impacted — week by week — with a full recovery plan.</div></div>
+      </div>
+      <div class="ep-form">
+        <div class="ep-field"><label>Exam Start Date</label><input type="date" id="ep-start" /></div>
+        <div class="ep-field"><label>Exam End Date</label><input type="date" id="ep-end" /></div>
+        <div class="ep-field"><label>Exams per week (approx)</label><input type="number" id="ep-exams-pw" min="1" max="7" value="3" /></div>
+        <div class="ep-field"><label>Current Cl.11 Backlog Remaining</label><input type="number" id="ep-backlog-rem" min="0" max="200" value="100" /></div>
+        <div class="ep-field"><label>Weeks left until August</label><input type="number" id="ep-weeks-aug" min="1" max="30" value="16" /></div>
+        <div class="ep-field"><label>JEE Study hours available during exam days</label>
+          <select id="ep-study-hrs">
+            <option value="0">0 hrs — complete zero</option>
+            <option value="1" selected>~1 hr — bare minimum</option>
+            <option value="2">~2 hrs — manage live class only</option>
+            <option value="3">~3 hrs — survive + 1 backlog</option>
+          </select>
+        </div>
+      </div>
+      <button class="ep-calc-btn" onclick="calcExamPlan()">⚡ Calculate Impact & Recovery Plan</button>
+      <div id="ep-results" class="ep-results"></div>
+    </div>`;
+}
+
+function calcExamPlan() {
+  const startStr = document.getElementById('ep-start').value;
+  const endStr   = document.getElementById('ep-end').value;
+  if (!startStr || !endStr) { alert('Please select both exam start and end dates.'); return; }
+
+  const start = new Date(startStr);
+  const end   = new Date(endStr);
+  if (end < start) { alert('End date must be after start date.'); return; }
+
+  const examsPW   = parseInt(document.getElementById('ep-exams-pw').value)||3;
+  const backlogRem= parseInt(document.getElementById('ep-backlog-rem').value)||100;
+  const weeksAug  = parseInt(document.getElementById('ep-weeks-aug').value)||16;
+  const studyHrs  = parseFloat(document.getElementById('ep-study-hrs').value)||1;
+
+  const msDay = 1000*60*60*24;
+  const examDays = Math.round((end - start) / msDay) + 1;
+  const examWeeks= Math.ceil(examDays / 7);
+  const recovWeeks = Math.min(2, Math.floor(examWeeks * 0.5)+1);
+
+  // What happens during exam period
+  const livePerWeek = 10; // normal
+  const backPerWeekNormal = 8;
+
+  // During exam period
+  let jeeHrsPerDay = studyHrs;
+  const liveProtected = examDays >= 5 ? Math.round(livePerWeek * examWeeks * 0.7) : Math.round(livePerWeek * examWeeks * 0.9);
+  const liveMissed = (livePerWeek * examWeeks) - liveProtected;
+  const backlogDoneExam = Math.floor(jeeHrsPerDay * examDays * 0.5); // 0.5 lec per study-hr
+  const backlogMissedExam = Math.max(0, (backPerWeekNormal * examWeeks) - backlogDoneExam);
+
+  // After exam: recovery needed
+  const backlogAfterExam = backlogRem - backlogDoneExam;
+  const weeksAfterExam   = weeksAug - examWeeks - recovWeeks;
+  const normalPace = weeksAfterExam > 0 ? Math.ceil(backlogAfterExam / weeksAfterExam) : 999;
+  const recovPace  = normalPace + Math.ceil(backlogMissedExam / Math.max(1, recovWeeks));
+  const onTrack    = recovPace <= 13;
+
+  // Build week-by-week view
+  const today = new Date();
+  let weeks = [];
+  // Pre-exam weeks (up to 2)
+  for (let w=0; w<Math.min(2, Math.floor((start-today)/msDay/7)); w++) {
+    const ws = new Date(today); ws.setDate(ws.getDate() + w*7);
+    weeks.push({ label:`Week ${w+1}`, type:'normal', cl12: livePerWeek, back: backPerWeekNormal, note:'Normal pace — bank as many backlogs as possible' });
+  }
+  // Exam weeks
+  for (let w=0; w<examWeeks; w++) {
+    weeks.push({ label:`Exam Wk ${w+1}`, type:'exam', cl12: Math.round(livePerWeek*0.7), back: Math.max(0,Math.round(backlogDoneExam/examWeeks)), note:`~${examsPW} exams this week · protect live class above all` });
+  }
+  // Recovery weeks
+  for (let w=0; w<recovWeeks; w++) {
+    weeks.push({ label:`Recovery Wk ${w+1}`, type:'recovery', cl12: livePerWeek, back: Math.min(15, recovPace), note:'Compensation Sundays · push backlog hard · sleep 8hrs' });
+  }
+  // Normal weeks
+  for (let w=0; w<Math.min(3, weeksAfterExam); w++) {
+    weeks.push({ label:`Normal Wk ${w+1}`, type:'normal', cl12: livePerWeek, back: normalPace, note:'Back to standard pace' });
+  }
+
+  const resultsEl = document.getElementById('ep-results');
+  resultsEl.innerHTML = `
+    <div style="margin-top:1.2rem;">
+      <div class="ep-summary">
+        <div class="ep-stat-card" style="--ec:#d84820">
+          <div class="ep-stat-label">Exam Duration</div>
+          <div class="ep-stat-val">${examDays} days</div>
+          <div class="ep-stat-sub">${examWeeks} week${examWeeks>1?'s':''}</div>
+        </div>
+        <div class="ep-stat-card" style="--ec:#c03060">
+          <div class="ep-stat-label">Backlog Missed</div>
+          <div class="ep-stat-val">${backlogMissedExam}</div>
+          <div class="ep-stat-sub">lectures behind target</div>
+        </div>
+        <div class="ep-stat-card" style="--ec:#5a9040">
+          <div class="ep-stat-label">Recovery Pace</div>
+          <div class="ep-stat-val">${Math.min(recovPace,20)}/wk</div>
+          <div class="ep-stat-sub">for ${recovWeeks} recovery week${recovWeeks>1?'s':''}</div>
+        </div>
+        <div class="ep-stat-card" style="--ec:${onTrack?'#5a9040':'#d84820'}">
+          <div class="ep-stat-label">August Target</div>
+          <div class="ep-stat-val">${onTrack?'✅ Safe':'⚠ At Risk'}</div>
+          <div class="ep-stat-sub">${onTrack ? 'Stay disciplined' : 'Need extra Sundays'}</div>
+        </div>
+      </div>
+
+      <div style="font-size:0.72rem;font-weight:600;color:var(--ink-soft);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.4px;">📅 Week-by-Week Impact</div>
+      <div class="ep-week-grid">
+        ${weeks.map(w => `
+        <div class="ep-week-row ${w.type==='exam'?'exam-week':w.type==='recovery'?'recovery-week':'normal-week'}">
+          <div class="ep-wk-label">${w.label}</div>
+          <div class="ep-wk-type ${w.type==='exam'?'exam-t':w.type==='recovery'?'recov-t':'normal-t'}">${w.type==='exam'?'EXAM WEEK':w.type==='recovery'?'RECOVERY':'NORMAL'}</div>
+          <div class="ep-wk-details">${w.note}</div>
+          <div class="ep-wk-bars">
+            <div class="ep-wk-bar-wrap">
+              <div class="ep-wk-bar-label">Cl.12 (${w.cl12}/${livePerWeek})</div>
+              <div class="ep-wk-bar-track"><div class="ep-wk-bar-fill" style="width:${Math.min(100,(w.cl12/livePerWeek)*100)}%;background:${w.type==='exam'?'#d84820':'#5a9040'}"></div></div>
+            </div>
+            <div class="ep-wk-bar-wrap">
+              <div class="ep-wk-bar-label">Backlog (${w.back}/${backPerWeekNormal})</div>
+              <div class="ep-wk-bar-track"><div class="ep-wk-bar-fill" style="width:${Math.min(100,(w.back/backPerWeekNormal)*100)}%;background:${w.type==='exam'?'#c03060':'#2090b0'}"></div></div>
+            </div>
+          </div>
+        </div>`).join('')}
+      </div>
+
+      <div class="ep-damage-recovery" style="margin-top:1rem;">
+        <div class="ep-box damage">
+          <h4>💥 JEE Damage During Exams</h4>
+          <ul>
+            <li>~${liveMissed} live lectures missed or watched late</li>
+            <li>~${backlogMissedExam} backlog lectures behind target</li>
+            <li>DPP sessions likely skipped entirely</li>
+            <li>Evening revision compressed to 15–20 min</li>
+            <li>Mental bandwidth split between school & JEE</li>
+            <li>Sleep quality may drop → retention suffers</li>
+          </ul>
+        </div>
+        <div class="ep-box recovery">
+          <h4>🔄 Recovery Blueprint</h4>
+          <ul>
+            <li>During exams: protect live class (Lakshya) — non-negotiable</li>
+            <li>Watch recorded lectures at 1.5x during commute</li>
+            <li>Declare ${recovWeeks} "Compensation Sunday${recovWeeks>1?'s':''}" immediately after</li>
+            <li>Target ${Math.min(recovPace,15)} backlog lecs/week for recovery weeks</li>
+            <li>Sleep 8 hrs during exam week — tired = zero retention</li>
+            <li>${onTrack ? '✅ August backlog target is still achievable!' : '⚠ Add extra Sun sessions — backlog at risk'}</li>
+          </ul>
+        </div>
+      </div>
+    </div>`;
+  resultsEl.classList.add('visible');
+  resultsEl.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+// ══════════════════════════════════════
+// NERD MODE
+// ══════════════════════════════════════
+function renderNerdMode() {
+  document.getElementById('nerd-mode-panel').innerHTML = `
+    <div class="nerd-divider">⚙ Custom Nerd Mode — Full Recovery Calculator</div>
+    <div class="nerd-mode">
+      <div class="nerd-title">🧮 Lecture Miss Calculator</div>
+      <div class="nerd-sub">Drag the sliders to simulate how many lectures you missed.</div>
+      <div class="nerd-grid">
+        <div class="nerd-slider-group"><label>Cl.12 Live Lectures missed this week</label><div class="nerd-slider-row"><input type="range" min="0" max="10" value="0" id="sl-live" oninput="calcNerd()"><span class="nerd-val" id="val-live">0</span></div></div>
+        <div class="nerd-slider-group"><label>Cl.12 Recorded Lectures missed this week</label><div class="nerd-slider-row"><input type="range" min="0" max="5" value="0" id="sl-rec" oninput="calcNerd()"><span class="nerd-val" id="val-rec">0</span></div></div>
+        <div class="nerd-slider-group"><label>Cl.11 Backlog Lectures missed this week</label><div class="nerd-slider-row"><input type="range" min="0" max="10" value="0" id="sl-back" oninput="calcNerd()"><span class="nerd-val" id="val-back">0</span></div></div>
+        <div class="nerd-slider-group"><label>Days remaining in this week (to recover)</label><div class="nerd-slider-row"><input type="range" min="1" max="7" value="3" id="sl-days" oninput="calcNerd()"><span class="nerd-val" id="val-days">3</span></div></div>
+        <div class="nerd-slider-group"><label>Total Cl.11 backlog remaining (lectures)</label><div class="nerd-slider-row"><input type="range" min="0" max="146" value="100" id="sl-total" oninput="calcNerd()"><span class="nerd-val" id="val-total">100</span></div></div>
+        <div class="nerd-slider-group"><label>Weeks remaining until August deadline</label><div class="nerd-slider-row"><input type="range" min="1" max="22" value="12" id="sl-weeks" oninput="calcNerd()"><span class="nerd-val" id="val-weeks">12</span></div></div>
+      </div>
+      <div class="nerd-result" id="nerd-result-box">
+        <div class="nr-stat"><span class="nr-label">Cl.12 lectures still needed this week</span><span class="nr-value" id="nr-cl12">—</span></div>
+        <div class="nr-stat"><span class="nr-label">Cl.12 extra lecs/day to catch up</span><span class="nr-value" id="nr-cl12d">—</span></div>
+        <div class="nr-stat"><span class="nr-label">Backlog still needed this week</span><span class="nr-value" id="nr-back">—</span></div>
+        <div class="nr-stat"><span class="nr-label">Backlog extra lecs/day to catch up</span><span class="nr-value" id="nr-backd">—</span></div>
+        <div class="nr-stat"><span class="nr-label">Adjusted backlog pace (lecs/week needed)</span><span class="nr-value" id="nr-pace">—</span></div>
+        <div class="nr-stat"><span class="nr-label">August deadline: on track?</span><span class="nr-value" id="nr-deadline">—</span></div>
+        <div id="nerd-verdict-box" class="nerd-verdict verdict-safe">Loading...</div>
+      </div>
+    </div>`;
+}
+
+function calcNerd() {
+  const live  = +document.getElementById('sl-live').value;
+  const rec   = +document.getElementById('sl-rec').value;
+  const back  = +document.getElementById('sl-back').value;
+  const days  = +document.getElementById('sl-days').value;
+  const total = +document.getElementById('sl-total').value;
+  const weeks = +document.getElementById('sl-weeks').value;
+  document.getElementById('val-live').textContent  = live;
+  document.getElementById('val-rec').textContent   = rec;
+  document.getElementById('val-back').textContent  = back;
+  document.getElementById('val-days').textContent  = days;
+  document.getElementById('val-total').textContent = total;
+  document.getElementById('val-weeks').textContent = weeks;
+  const cl12Catchup  = live;
+  const cl12PerDay   = (cl12Catchup/days).toFixed(1);
+  const backPerDay   = (back/days).toFixed(1);
+  const adjustedPace = Math.ceil((total+back)/weeks);
+  const onTrack      = adjustedPace<=12;
+  const cl12dNum = parseFloat(cl12PerDay);
+  const backdNum = parseFloat(backPerDay);
+  const setVal = (id,val,cls) => { const el=document.getElementById(id); if(el){el.textContent=val; el.className='nr-value '+cls;} };
+  setVal('nr-cl12',  cl12Catchup+' lecs', cl12Catchup>5?'danger':cl12Catchup>2?'':'safe');
+  setVal('nr-cl12d', cl12PerDay+'/day',   cl12dNum>2?'danger':cl12dNum>1?'':'safe');
+  setVal('nr-back',  back+' lecs',        back>6?'danger':back>3?'':'safe');
+  setVal('nr-backd', backPerDay+'/day',   backdNum>2?'danger':backdNum>1?'':'safe');
+  setVal('nr-pace',  adjustedPace+' lecs/week', adjustedPace>12?'danger':adjustedPace>9?'':'safe');
+  setVal('nr-deadline', onTrack?'✅ YES':'❌ AT RISK', onTrack?'safe':'danger');
+  const vBox = document.getElementById('nerd-verdict-box');
+  if (!vBox) return;
+  if (cl12dNum<=1&&backdNum<=1&&onTrack) { vBox.className='nerd-verdict verdict-safe'; vBox.textContent='✅ Recoverable — Stay disciplined for '+days+' days and you\'re back on track.'; }
+  else if (cl12dNum<=2&&backdNum<=2&&adjustedPace<=12) { vBox.className='nerd-verdict verdict-warn'; vBox.textContent="⚠ Tight but doable — You'll need to push hard. Don't miss another day this week."; }
+  else { vBox.className='nerd-verdict verdict-danger'; vBox.textContent='🚨 Heavy damage — Adjust weekly targets, accept partial recovery, and protect next Sunday.'; }
+}
+
+// ══════════════════════════════════════
+// TOGGLE BLOCKS
+// ══════════════════════════════════════
+function toggleBlocks(checkbox,day,type) {
+  const isOn = checkbox.checked;
+  document.querySelectorAll(`.${type}-block-${day}`).forEach(b=>isOn?b.classList.remove('hidden-block'):b.classList.add('hidden-block'));
+  document.querySelectorAll(`.freed-${type}-${day}`).forEach(f=>isOn?f.classList.remove('visible'):f.classList.add('visible'));
+}
+
+// ══════════════════════════════════════
+// MOTIVATIONAL QUOTES
+// ══════════════════════════════════════
+const quotes = [
+  {q:'"The pain of discipline is nothing like the pain of <em>regret</em>."',a:'— Study Philosophy'},
+  {q:'"You don\'t have to be perfect. You have to be <em>consistent</em>."',a:'— JEE Prep Wisdom'},
+  {q:'"Every backlog lecture you clear is a <em>weapon</em> for January."',a:'— Your Future Self'},
+  {q:'"Hard work beats talent when talent doesn\'t <em>work hard</em>."',a:'— Kevin Durant'},
+  {q:'"One lecture at a time. One day at a time. <em>One exam</em>."',a:'— The System'},
+  {q:'"The question is not who will let me — it\'s who will <em>stop me</em>."',a:'— Ayn Rand'},
+  {q:'"Your school peers are sleeping. Your <em>JEE competitors</em> are not."',a:'— Honest Truth'},
+];
+const tq = quotes[new Date().getDay()%quotes.length];
+document.getElementById('motivational-quote').innerHTML  = tq.q;
+document.getElementById('motivational-author').textContent = tq.a;
+</script>
+</body>
+</html>
