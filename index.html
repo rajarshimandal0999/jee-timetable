@@ -689,6 +689,172 @@ input:checked+.slider:before{transform:translateX(13px);}
 .npc-universal-title{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:var(--ink-muted);margin-bottom:0.4rem;}
 .npc-universal-items{display:flex;flex-wrap:wrap;gap:0.4rem;}
 .npc-tag{font-size:0.74rem;padding:0.2rem 0.55rem;border-radius:12px;background:var(--card2);border:1px solid var(--border);color:var(--ink-soft);font-weight:500;}
+
+/* ═══════════════════════════════════════════
+   v8: DAILY FOCUS CARD (Feature 1)
+═══════════════════════════════════════════ */
+.daily-focus-card{
+  background:var(--card);border:2px solid var(--gold);border-radius:14px;
+  padding:1rem 1.3rem;margin-bottom:1.2rem;box-shadow:0 4px 20px rgba(212,144,10,0.12);
+  position:relative;overflow:hidden;
+}
+.daily-focus-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),#f7c040,var(--gold));background-size:200% 100%;animation:shimmer 3s linear infinite;}
+@keyframes shimmer{0%{background-position:200% 0;}100%{background-position:-200% 0;}}
+.dfc-header{display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;}
+.dfc-icon{font-size:1.5rem;}
+.dfc-title{font-family:'Fraunces',serif;font-size:0.88rem;color:var(--ink-muted);text-transform:uppercase;letter-spacing:0.8px;}
+.dfc-urgency{font-size:0.6rem;font-weight:700;padding:0.15rem 0.5rem;border-radius:10px;text-transform:uppercase;letter-spacing:0.5px;margin-left:auto;}
+.dfc-urgency.critical{background:rgba(216,72,32,0.2);color:#d84820;border:1px solid rgba(216,72,32,0.4);}
+.dfc-urgency.warn{background:rgba(212,144,10,0.2);color:var(--gold);border:1px solid rgba(212,144,10,0.4);}
+.dfc-urgency.ok{background:rgba(34,197,94,0.15);color:#38a060;border:1px solid rgba(34,197,94,0.3);}
+.dfc-main{font-family:'Fraunces',serif;font-size:1.1rem;color:var(--ink);line-height:1.45;margin-bottom:0.5rem;}
+.dfc-sub{font-size:0.76rem;color:var(--ink-soft);line-height:1.55;}
+.dfc-tags{display:flex;flex-wrap:wrap;gap:0.35rem;margin-top:0.6rem;}
+.dfc-tag{font-size:0.65rem;font-weight:600;padding:0.2rem 0.55rem;border-radius:10px;background:var(--bg);border:1px solid var(--border);color:var(--ink-soft);}
+.dfc-tag.ph{border-color:#a855f7;color:#a855f7;}
+.dfc-tag.m{border-color:#3b82f6;color:#3b82f6;}
+.dfc-tag.pc{border-color:#f97316;color:#f97316;}
+.dfc-tag.oc{border-color:#22c55e;color:#22c55e;}
+.dfc-tag.ic{border-color:#f43f5e;color:#f43f5e;}
+.dfc-tag.goc-alert{border-color:#d84820;color:#d84820;animation:pulse-border 2s infinite;}
+@keyframes pulse-border{0%,100%{border-color:#d84820;opacity:1;}50%{border-color:#f08060;opacity:0.7;}}
+
+/* Live class badge injection */
+.live-class-info{margin-top:0.4rem;padding:0.35rem 0.5rem;border-radius:7px;background:rgba(216,72,32,0.08);border:1px solid rgba(216,72,32,0.25);font-size:0.7rem;color:var(--ink-soft);line-height:1.4;}
+.lci-subj{font-weight:700;color:var(--live-t);}
+.lci-topic{color:var(--ink-soft);}
+
+/* ═══════════════════════════════════════════
+   v8: BACKLOG COUNTDOWN ENHANCED (Feature 2)
+═══════════════════════════════════════════ */
+.backlog-counter-row{display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;margin-bottom:1rem;}
+@media(max-width:640px){.backlog-counter-row{grid-template-columns:1fr;}}
+.bc-card{background:var(--card);border:1px solid var(--border);border-radius:13px;padding:0.9rem 1.1rem;box-shadow:0 2px 10px var(--shadow);}
+.bc-card.goc-card{border-color:#d84820;background:linear-gradient(135deg,var(--live) 0%,var(--card) 100%);}
+.bc-label{font-size:0.58rem;text-transform:uppercase;letter-spacing:0.8px;color:var(--ink-muted);margin-bottom:0.15rem;}
+.bc-num{font-family:'Fraunces',serif;font-size:2rem;font-weight:900;line-height:1;color:var(--ink);}
+.bc-num.danger{color:#d84820;}
+.bc-num.warn{color:var(--gold);}
+.bc-num.safe{color:#38a060;}
+.bc-sub{font-size:0.65rem;color:var(--ink-muted);margin-top:0.1rem;}
+.bc-bar-wrap{height:5px;background:var(--border);border-radius:5px;margin-top:0.6rem;overflow:hidden;}
+.bc-bar{height:100%;border-radius:5px;transition:width 1s ease;}
+.bc-bar.red{background:linear-gradient(90deg,#d84820,#f07050);}
+.bc-bar.gold{background:linear-gradient(90deg,var(--gold),#f7c040);}
+.bc-bar.green{background:linear-gradient(90deg,#38a060,#60c880);}
+.subj-bars{display:flex;flex-direction:column;gap:0.45rem;margin-top:0.6rem;}
+.subj-bar-row{display:flex;align-items:center;gap:0.5rem;}
+.sbr-label{font-size:0.62rem;color:var(--ink-muted);min-width:90px;white-space:nowrap;}
+.sbr-track{flex:1;height:7px;background:var(--border);border-radius:5px;overflow:hidden;}
+.sbr-fill{height:100%;border-radius:5px;transition:width 0.8s ease;}
+.sbr-count{font-size:0.62rem;color:var(--ink-muted);min-width:50px;text-align:right;font-family:'Fraunces',serif;}
+
+/* GOC widget */
+.goc-widget{background:linear-gradient(135deg,rgba(216,72,32,0.1),rgba(212,144,10,0.05));border:2px solid #d84820;border-radius:12px;padding:0.8rem 1rem;margin-bottom:0.8rem;}
+.goc-header{display:flex;align-items:center;gap:0.5rem;margin-bottom:0.4rem;}
+.goc-badge{font-size:0.58rem;font-weight:800;padding:0.2rem 0.5rem;border-radius:8px;background:#d84820;color:#fff;text-transform:uppercase;letter-spacing:0.5px;animation:goc-pulse 2s infinite;}
+@keyframes goc-pulse{0%,100%{opacity:1;}50%{opacity:0.7;}}
+.goc-title{font-family:'Fraunces',serif;font-size:0.9rem;color:#d84820;}
+.goc-body{font-size:0.74rem;color:var(--ink-soft);line-height:1.5;}
+.goc-stats{display:flex;gap:1rem;margin-top:0.5rem;}
+.goc-stat{text-align:center;}
+.goc-stat-n{font-family:'Fraunces',serif;font-size:1.4rem;font-weight:700;color:#d84820;line-height:1;}
+.goc-stat-l{font-size:0.58rem;color:var(--ink-muted);text-transform:uppercase;letter-spacing:0.4px;}
+
+/* ═══════════════════════════════════════════
+   v8: EXAM SCORE TRACKER (Feature 3)
+═══════════════════════════════════════════ */
+.score-tracker-wrap{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.2rem 1.4rem;box-shadow:0 4px 20px var(--shadow);margin-bottom:1.2rem;}
+.score-series-tabs{display:flex;gap:0.4rem;margin-bottom:1rem;flex-wrap:wrap;}
+.score-series-btn{padding:0.4rem 0.9rem;border-radius:20px;border:1px solid var(--border);background:var(--bg);color:var(--ink-soft);font-family:'Outfit',sans-serif;font-size:0.72rem;font-weight:600;cursor:pointer;transition:all .2s;}
+.score-series-btn.active{background:var(--ink);color:var(--gold);border-color:transparent;}
+.score-input-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.6rem;margin-bottom:1rem;}
+@media(max-width:640px){.score-input-grid{grid-template-columns:1fr 1fr;}}
+.score-field{background:var(--bg);border:1px solid var(--border);border-radius:9px;padding:0.6rem 0.75rem;transition:border-color .2s;}
+.score-field:focus-within{border-color:var(--gold);}
+.score-field label{display:block;font-size:0.58rem;font-weight:700;text-transform:uppercase;letter-spacing:0.4px;color:var(--ink-muted);margin-bottom:0.3rem;}
+.score-inputs{display:flex;align-items:center;gap:0.3rem;}
+.score-inputs input{width:50px;padding:0.3rem 0.4rem;border-radius:5px;border:1px solid var(--border);background:var(--input-bg);color:var(--ink);font-family:'Outfit',sans-serif;font-size:0.9rem;font-weight:600;text-align:center;outline:none;}
+.score-inputs input:focus{border-color:var(--gold);}
+.score-slash{color:var(--ink-muted);font-size:0.8rem;}
+.score-pct{font-family:'Fraunces',serif;font-size:0.9rem;color:var(--ink-muted);min-width:38px;text-align:right;}
+.score-save-btn{display:flex;align-items:center;gap:0.4rem;background:var(--ink);color:var(--gold);border:none;border-radius:9px;padding:0.5rem 1.1rem;font-family:'Outfit',sans-serif;font-size:0.76rem;font-weight:600;cursor:pointer;transition:all .2s;}
+.score-save-btn:hover{opacity:.85;}
+[data-theme="dark"] .score-save-btn{background:#0d0b18;border:1px solid var(--border);}
+.score-results{margin-top:1rem;}
+.score-results-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.6rem;}
+@media(max-width:640px){.score-results-grid{grid-template-columns:1fr;}}
+.score-result-card{border:1px solid var(--border);border-radius:10px;padding:0.7rem 0.9rem;background:var(--card2);}
+.src-subj{font-size:0.7rem;font-weight:700;color:var(--ink);margin-bottom:0.4rem;}
+.src-series{display:flex;flex-direction:column;gap:0.2rem;}
+.src-row{display:flex;justify-content:space-between;align-items:center;}
+.src-series-label{font-size:0.6rem;color:var(--ink-muted);}
+.src-pct{font-family:'Fraunces',serif;font-size:0.85rem;color:var(--ink);}
+.src-pct.good{color:#38a060;}
+.src-pct.warn{color:var(--gold);}
+.src-pct.bad{color:#d84820;}
+.src-trend{font-size:0.65rem;margin-left:0.2rem;}
+.src-trend.up{color:#38a060;}
+.src-trend.down{color:#d84820;}
+.src-trend.flat{color:var(--ink-muted);}
+
+/* ═══════════════════════════════════════════
+   v8: CHAPTER BACKLOG MAP (Feature 4)
+═══════════════════════════════════════════ */
+.backlog-subject-tabs{display:flex;gap:0.3rem;flex-wrap:wrap;margin-bottom:1rem;}
+.bst-btn{padding:0.38rem 0.75rem;border-radius:20px;border:1px solid var(--border);background:var(--bg);color:var(--ink-soft);font-family:'Outfit',sans-serif;font-size:0.7rem;font-weight:600;cursor:pointer;transition:all .2s;white-space:nowrap;}
+.bst-btn.active.ph{background:rgba(168,85,247,0.2);border-color:#a855f7;color:#a855f7;}
+.bst-btn.active.m{background:rgba(59,130,246,0.2);border-color:#3b82f6;color:#3b82f6;}
+.bst-btn.active.pc{background:rgba(249,115,22,0.15);border-color:#f97316;color:#f97316;}
+.bst-btn.active.oc{background:rgba(34,197,94,0.15);border-color:#22c55e;color:#22c55e;}
+.bst-btn.active.ic{background:rgba(244,63,94,0.15);border-color:#f43f5e;color:#f43f5e;}
+.backlog-subj-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:0.8rem;flex-wrap:wrap;gap:0.4rem;}
+.bsh-title{font-family:'Fraunces',serif;font-size:1rem;color:var(--ink);}
+.bsh-stats{font-size:0.68rem;color:var(--ink-muted);}
+.chapter-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:0.7rem;}
+.chapter-card{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:0.8rem 0.9rem;box-shadow:0 2px 8px var(--shadow);transition:border-color .2s;}
+.chapter-card:hover{border-color:var(--gold);}
+.chapter-card.zero-base{border-left:3px solid #d84820;}
+.chapter-card.done{border-left:3px solid #38a060;opacity:0.75;}
+.cc-header{display:flex;align-items:flex-start;justify-content:space-between;gap:0.4rem;margin-bottom:0.5rem;}
+.cc-name{font-size:0.82rem;font-weight:600;color:var(--ink);line-height:1.35;flex:1;}
+.cc-badges{display:flex;gap:0.3rem;flex-shrink:0;align-items:center;}
+.cc-badge{font-size:0.55rem;font-weight:700;padding:0.1rem 0.38rem;border-radius:7px;text-transform:uppercase;letter-spacing:0.3px;}
+.cc-badge.t1{background:rgba(216,72,32,0.15);color:#d84820;border:1px solid rgba(216,72,32,0.3);}
+.cc-badge.t2{background:rgba(59,130,246,0.12);color:#3b82f6;border:1px solid rgba(59,130,246,0.25);}
+.cc-badge.zero{background:#d84820;color:#fff;}
+.cc-badge.done-b{background:#38a060;color:#fff;}
+.cc-badge.core{background:rgba(212,144,10,0.2);color:var(--gold);border:1px solid rgba(212,144,10,0.3);}
+.cc-progress-row{display:flex;align-items:center;gap:0.5rem;margin-bottom:0.4rem;}
+.cc-progress-track{flex:1;height:6px;background:var(--border);border-radius:6px;overflow:hidden;}
+.cc-progress-fill{height:100%;border-radius:6px;transition:width 0.7s ease;}
+.cc-progress-text{font-size:0.62rem;color:var(--ink-muted);min-width:40px;text-align:right;font-family:'Fraunces',serif;}
+.cc-controls{display:flex;align-items:center;gap:0.4rem;flex-wrap:wrap;}
+.cc-adj-btn{width:26px;height:26px;border-radius:7px;border:1px solid var(--border);background:var(--bg);color:var(--ink);font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;font-family:'Outfit',sans-serif;}
+.cc-adj-btn:hover{border-color:var(--gold);color:var(--gold);}
+.cc-done-val{font-family:'Fraunces',serif;font-size:0.95rem;color:var(--ink);min-width:18px;text-align:center;}
+.cc-meta{font-size:0.6rem;color:var(--ink-muted);flex:1;}
+.cc-mode-toggle{display:flex;background:var(--bg);border:1px solid var(--border);border-radius:7px;overflow:hidden;}
+.cc-mode-btn{border:none;background:none;padding:0.2rem 0.5rem;font-size:0.58rem;font-family:'Outfit',sans-serif;cursor:pointer;color:var(--ink-muted);transition:all .2s;}
+.cc-mode-btn.active{background:var(--ink);color:var(--gold);}
+.cc-deadline{font-size:0.6rem;padding:0.12rem 0.4rem;border-radius:6px;background:rgba(216,72,32,0.1);color:#d84820;border:1px solid rgba(216,72,32,0.25);margin-top:0.4rem;display:inline-block;}
+
+/* ═══════════════════════════════════════════
+   v8: LIVE CLASS BADGE
+═══════════════════════════════════════════ */
+.live-lec-badge{
+  margin-top:0.35rem;padding:0.3rem 0.5rem;border-radius:7px;
+  background:rgba(216,72,32,0.1);border-left:2px solid var(--live-b);
+  font-size:0.68rem;line-height:1.4;
+}
+.llb-subj{font-weight:700;font-size:0.65rem;text-transform:uppercase;letter-spacing:0.3px;}
+.llb-subj.ph{color:#a855f7;}
+.llb-subj.m{color:#3b82f6;}
+.llb-subj.pc{color:#f97316;}
+.llb-subj.oc{color:#22c55e;}
+.llb-subj.ic{color:#f43f5e;}
+.llb-topic{color:var(--ink-muted);font-size:0.65rem;}
+.llb-lec{font-size:0.6rem;color:var(--ink-muted);}
 </style>
 </head>
 <body>
@@ -704,6 +870,8 @@ input:checked+.slider:before{transform:translateX(13px);}
     <button class="nav-link" data-tab="notes">Notes</button>
     <button class="nav-link" data-tab="rules">Iron Rules</button>
     <button class="nav-link" data-tab="stress">Stress Test</button>
+    <button class="nav-link" data-tab="backlog">🔥 Backlog</button>
+    <button class="nav-link" data-tab="scores">📈 Scores</button>
   </div>
   <div class="nav-right">
     <button class="nav-hamburger" id="hamburger" onclick="toggleMobileMenu()" aria-label="Menu">
@@ -726,6 +894,8 @@ input:checked+.slider:before{transform:translateX(13px);}
   <button class="nav-link" data-tab="notes" onclick="mobileNav(this)">📌 Notes</button>
   <button class="nav-link" data-tab="rules" onclick="mobileNav(this)">⚡ Iron Rules</button>
   <button class="nav-link" data-tab="stress" onclick="mobileNav(this)">🔥 Stress Test</button>
+  <button class="nav-link" data-tab="backlog" onclick="mobileNav(this)">🗂 Backlog Map</button>
+  <button class="nav-link" data-tab="scores" onclick="mobileNav(this)">📈 Score Tracker</button>
 </div>
 
 <!-- JEE 2027 Progress Bar -->
@@ -825,6 +995,19 @@ input:checked+.slider:before{transform:translateX(13px);}
 
   <!-- ══════════════════════ TAB: SCHEDULE ══════════════════════ -->
   <div id="tab-schedule" class="page-section active">
+
+    <!-- v8 FEATURE 1: DAILY FOCUS CARD -->
+    <div class="daily-focus-card" id="daily-focus-card">
+      <div class="dfc-header">
+        <span class="dfc-icon" id="dfc-icon">⚡</span>
+        <span class="dfc-title">Daily Focus</span>
+        <span class="dfc-urgency" id="dfc-urgency">Loading…</span>
+      </div>
+      <div class="dfc-main" id="dfc-main">Calculating today's priority…</div>
+      <div class="dfc-sub" id="dfc-sub"></div>
+      <div class="dfc-tags" id="dfc-tags"></div>
+    </div>
+
     <div class="metrics-row">
       <div class="metric-card" style="--mc-accent:#d84820;"><div class="mc-icon">📘</div><div class="mc-label">Phase 1</div><div class="mc-val">Now → Aug</div><div class="mc-sub">Cl.12 + Tier 1 Backlog</div></div>
       <div class="metric-card" style="--mc-accent:#2878c8;"><div class="mc-icon">📗</div><div class="mc-label">Phase 2</div><div class="mc-val">Sep – Oct</div><div class="mc-sub">PYQs · Weak Chapters</div></div>
@@ -1021,6 +1204,58 @@ input:checked+.slider:before{transform:translateX(13px);}
             <button onclick="resetTracker()" style="margin-top:0.5rem;font-size:0.58rem;background:none;border:1px solid var(--border);color:var(--ink-muted);padding:0.18rem 0.55rem;border-radius:6px;cursor:pointer;font-family:'Outfit',sans-serif;">Reset Week</button>
           </div>
         </div>
+      </div>
+    </div>
+
+    <!-- v8 FEATURE 2: BACKLOG COUNTDOWN -->
+    <div class="section-title" style="margin-top:1.4rem;">🔥 Backlog Countdown — Core 184 Lectures</div>
+
+    <!-- GOC URGENT WIDGET -->
+    <div class="goc-widget" id="goc-widget">
+      <div class="goc-header">
+        <span class="goc-badge">🚨 URGENT</span>
+        <span class="goc-title">Organic GOC — ZERO BASE CRISIS</span>
+      </div>
+      <div class="goc-body">
+        GOC (39 lecs) + Hydrocarbons (7 lecs) = <strong>46 lectures</strong> must be done before June 1 when Pankaj Sir's live Organic starts with Optical Isomerism (needs GOC as foundation).
+        <strong style="color:#d84820;"> Start TONIGHT. Not next week.</strong>
+      </div>
+      <div class="goc-stats">
+        <div class="goc-stat"><div class="goc-stat-n" id="goc-days-left">62</div><div class="goc-stat-l">Days to Jun 1</div></div>
+        <div class="goc-stat"><div class="goc-stat-n">46</div><div class="goc-stat-l">GOC Lecs Needed</div></div>
+        <div class="goc-stat"><div class="goc-stat-n" id="goc-per-day">0.7</div><div class="goc-stat-l">Lecs/Day Needed</div></div>
+      </div>
+    </div>
+
+    <div class="backlog-counter-row">
+      <div class="bc-card">
+        <div class="bc-label">Total Core Backlog Remaining</div>
+        <div class="bc-num danger" id="bc-remaining">184</div>
+        <div class="bc-sub" id="bc-sub">lectures · update progress in Backlog tab</div>
+        <div class="bc-bar-wrap"><div class="bc-bar red" id="bc-bar" style="width:0%"></div></div>
+      </div>
+      <div class="bc-card">
+        <div class="bc-label">Weeks to Aug 31 Deadline</div>
+        <div class="bc-num" id="bc-weeks">—</div>
+        <div class="bc-sub" id="bc-pace-sub">needed per week to clear all backlog</div>
+        <div class="bc-bar-wrap"><div class="bc-bar gold" id="bc-pace-bar" style="width:50%"></div></div>
+      </div>
+    </div>
+    <div class="subj-bars" id="bc-subj-bars"></div>
+
+    <!-- v8 FEATURE 3: EXAM SCORE TRACKER -->
+    <div class="section-title" style="margin-top:1.8rem;">📈 School Exam Score Tracker</div>
+    <div class="score-tracker-wrap">
+      <div class="score-series-tabs">
+        <button class="score-series-btn active" onclick="selectScoreSeries('PRE-MID',this)">Pre-Mid (40 marks)</button>
+        <button class="score-series-btn" onclick="selectScoreSeries('MID',this)">Mid Term (70/80)</button>
+        <button class="score-series-btn" onclick="selectScoreSeries('PRE-BOARDS',this)">Pre-Boards (70/80)</button>
+      </div>
+      <div id="score-input-area"></div>
+      <button class="score-save-btn" onclick="saveScores()">💾 Save Marks</button>
+      <div class="score-results" id="score-results" style="display:none;">
+        <div class="section-title" style="font-size:0.75rem;margin:1rem 0 0.5rem;">Results Summary</div>
+        <div class="score-results-grid" id="score-results-grid"></div>
       </div>
     </div>
   </div>
@@ -1297,6 +1532,45 @@ input:checked+.slider:before{transform:translateX(13px);}
       <div id="stress-result"></div>
       <div id="exam-planner-panel" style="display:none;"></div>
       <div id="nerd-mode-panel" style="display:none;"></div>
+    </div>
+  </div>
+
+  </div>
+
+  <!-- ══════════════════════ TAB: BACKLOG MAP (Feature 4) ══════════════════════ -->
+  <div id="tab-backlog" class="page-section">
+    <div class="section-title">🗂 Chapter Backlog Map — Class 11 Pending</div>
+    <p style="font-size:0.72rem;color:var(--ink-muted);margin-bottom:1rem;line-height:1.6;">Track every pending Class 11 chapter. Increment lecture count as you watch. Progress persists in localStorage.</p>
+    <div class="backlog-subject-tabs" id="backlog-subj-tabs">
+      <button class="bst-btn active ph" onclick="switchBacklogSubj('physics',this)">⚡ Physics</button>
+      <button class="bst-btn m" onclick="switchBacklogSubj('maths',this)">📐 Maths</button>
+      <button class="bst-btn pc" onclick="switchBacklogSubj('physchem',this)">🧪 Phys Chem</button>
+      <button class="bst-btn oc" onclick="switchBacklogSubj('orgchem',this)">🌿 Org Chem</button>
+      <button class="bst-btn ic" onclick="switchBacklogSubj('inorgchem',this)">⚗️ Inorg Chem</button>
+    </div>
+    <div class="backlog-subj-header">
+      <div class="bsh-title" id="bsh-title">Physics — Class 11 Backlog</div>
+      <div class="bsh-stats" id="bsh-stats">Loading…</div>
+    </div>
+    <div class="chapter-grid" id="chapter-grid">
+      <!-- JS injected -->
+    </div>
+  </div>
+
+  <!-- ══════════════════════ TAB: SCORES (Feature 3) ══════════════════════ -->
+  <div id="tab-scores" class="page-section">
+    <div class="section-title">📈 Exam Score Tracker</div>
+    <p style="font-size:0.72rem;color:var(--ink-muted);margin-bottom:1rem;line-height:1.6;">Enter marks after each exam series. % auto-calculated. Trend arrows show improvement or drop. Stored in localStorage.</p>
+    <div class="score-tracker-wrap">
+      <div class="score-series-tabs">
+        <button class="score-series-btn active" onclick="selectScoreSeries2('PRE-MID',this)">Pre-Mid (40 marks)</button>
+        <button class="score-series-btn" onclick="selectScoreSeries2('MID',this)">Mid Term (70/80)</button>
+        <button class="score-series-btn" onclick="selectScoreSeries2('PRE-BOARDS',this)">Pre-Boards (70/80)</button>
+      </div>
+      <div id="score-input-area2"></div>
+      <button class="score-save-btn" onclick="saveScores2()" style="margin-bottom:1rem;">💾 Save Marks</button>
+      <div class="section-title" style="font-size:0.75rem;margin-bottom:0.6rem;">All Results by Subject</div>
+      <div class="score-results-grid" id="score-results-grid2"></div>
     </div>
   </div>
 
@@ -1974,6 +2248,705 @@ const quotes=[
 const tq=quotes[new Date().getDay()%quotes.length];
 document.getElementById('motivational-quote').innerHTML=tq.q;
 document.getElementById('motivational-author').textContent=tq.a;
+
+// ════════════════════════════════════════════════════════════
+// v8 FEATURE 5: LIVE CLASS SCHEDULE DATA
+// ════════════════════════════════════════════════════════════
+const LIVE_CLASSES = {
+  // PHYSICS — Saleem Ahmad Sir
+  '2026-04-06':[{subj:'ph',label:'Physics',chapter:'Electrostatics',topic:'Introduction',lec:1,faculty:'Saleem Ahmad Sir'}],
+  '2026-04-09':[{subj:'ph',label:'Physics',chapter:'Electrostatics',topic:'Charge',lec:2,faculty:'Saleem Ahmad Sir'}],
+  '2026-04-10':[{subj:'ph',label:'Physics',chapter:'Electrostatics',topic:"Coulomb's Law",lec:3,faculty:'Saleem Ahmad Sir'}],
+  '2026-04-13':[{subj:'ph',label:'Physics',chapter:'Electrostatics',topic:'Electric Field',lec:4,faculty:'Saleem Ahmad Sir'}],
+  '2026-04-14':[{subj:'ph',label:'Physics',chapter:'Electrostatics',topic:'Conductors & Insulators',lec:5,faculty:'Saleem Ahmad Sir'}],
+  '2026-04-15':[{subj:'ph',label:'Physics',chapter:'Electrostatics',topic:'Field of Continuous Charge Distribution',lec:6,faculty:'Saleem Ahmad Sir'}],
+  '2026-04-20':[{subj:'ph',label:'Physics',chapter:'Electrostatics',topic:'Charged Particle in Uniform E-Field',lec:7,faculty:'Saleem Ahmad Sir'}],
+  '2026-04-21':[{subj:'ph',label:'Physics',chapter:'Electrostatics',topic:'Electric Field Lines',lec:8,faculty:'Saleem Ahmad Sir'}],
+  '2026-04-22':[{subj:'ph',label:'Physics',chapter:'Electrostatics',topic:'Electric Flux',lec:9,faculty:'Saleem Ahmad Sir'}],
+  '2026-04-27':[{subj:'ph',label:'Physics',chapter:'Electrostatics',topic:'Gauss Law',lec:10,faculty:'Saleem Ahmad Sir'}],
+  '2026-04-28':[{subj:'ph',label:'Physics',chapter:'Electrostatics',topic:'Application of Gauss Law',lec:11,faculty:'Saleem Ahmad Sir'}],
+  '2026-04-29':[{subj:'ph',label:'Physics',chapter:'Electrostatics',topic:'Electric Dipole',lec:12,faculty:'Saleem Ahmad Sir'}],
+  '2026-05-04':[{subj:'ph',label:'Physics',chapter:'Electrostatics',topic:'Dipole in Uniform External Field',lec:13,faculty:'Saleem Ahmad Sir'}],
+  '2026-05-05':[{subj:'ph',label:'Physics',chapter:'Electrostatics',topic:'Short Dipole in Non-Uniform Field',lec:14,faculty:'Saleem Ahmad Sir'}],
+  '2026-05-06':[{subj:'ph',label:'Physics',chapter:'Electrostatics',topic:'Short Dipole in Non-Uniform Field',lec:15,faculty:'Saleem Ahmad Sir'}],
+  '2026-05-11':[{subj:'ph',label:'Physics',chapter:'Electrostatics',topic:'Electrostatic Potential — Intro',lec:16,faculty:'Saleem Ahmad Sir'}],
+  '2026-05-12':[{subj:'ph',label:'Physics',chapter:'Electrostatics',topic:'Electrostatic Potential',lec:17,faculty:'Saleem Ahmad Sir'}],
+  '2026-05-13':[{subj:'ph',label:'Physics',chapter:'Electrostatics',topic:'E & V Relation',lec:18,faculty:'Saleem Ahmad Sir'}],
+  '2026-05-14':[{subj:'ph',label:'Physics',chapter:'Electrostatics',topic:'Equipotential Surface',lec:19,faculty:'Saleem Ahmad Sir'}],
+  '2026-05-15':[{subj:'ph',label:'Physics',chapter:'Electrostatics',topic:'Electrostatic PE',lec:20,faculty:'Saleem Ahmad Sir'}],
+  '2026-05-16':[{subj:'ph',label:'Physics',chapter:'Electrostatics',topic:'Potential due to Dipole',lec:21,faculty:'Saleem Ahmad Sir'}],
+  '2026-05-18':[{subj:'ph',label:'Physics',chapter:'Electrostatics',topic:'Intro to Conductors in Electrostatics',lec:22,faculty:'Saleem Ahmad Sir'}],
+  '2026-05-19':[{subj:'ph',label:'Physics',chapter:'Electrostatics',topic:'Electrostatics of Conductor',lec:23,faculty:'Saleem Ahmad Sir'}],
+  '2026-05-20':[{subj:'ph',label:'Physics',chapter:'Electrostatics',topic:'Properties of Conductors (Equilibrium)',lec:24,faculty:'Saleem Ahmad Sir'}],
+  '2026-05-21':[{subj:'ph',label:'Physics',chapter:'Electrostatics',topic:'Applications',lec:25,faculty:'Saleem Ahmad Sir'}],
+  '2026-05-22':[{subj:'ph',label:'Physics',chapter:'Current Electricity',topic:'Electric Current',lec:1,faculty:'Saleem Ahmad Sir'}],
+  '2026-05-23':[{subj:'ph',label:'Physics',chapter:'Current Electricity',topic:'Electric Current',lec:2,faculty:'Saleem Ahmad Sir'}],
+  '2026-05-25':[{subj:'ph',label:'Physics',chapter:'Current Electricity',topic:'Current in Conductors',lec:3,faculty:'Saleem Ahmad Sir'}],
+  '2026-05-26':[{subj:'ph',label:'Physics',chapter:'Current Electricity',topic:'Current in Conductors',lec:4,faculty:'Saleem Ahmad Sir'}],
+  '2026-05-28':[{subj:'ph',label:'Physics',chapter:'Current Electricity',topic:'Current in Conductors',lec:5,faculty:'Saleem Ahmad Sir'}],
+  '2026-05-29':[{subj:'ph',label:'Physics',chapter:'Current Electricity',topic:"Kirchhoff's Laws + Resistances",lec:6,faculty:'Saleem Ahmad Sir'}],
+  '2026-05-30':[{subj:'ph',label:'Physics',chapter:'Current Electricity',topic:"Kirchhoff's Laws + Resistances",lec:7,faculty:'Saleem Ahmad Sir'}],
+  '2026-06-01':[{subj:'ph',label:'Physics',chapter:'Current Electricity',topic:'Wheatstone Bridge',lec:8,faculty:'Saleem Ahmad Sir'},{subj:'oc',label:'Organic Chem',chapter:'Optical Isomerism',topic:'Optical Activity + Rotation',lec:1,faculty:'Pankaj Sijariya Sir'}],
+  '2026-06-02':[{subj:'ph',label:'Physics',chapter:'Current Electricity',topic:'Wheatstone Bridge',lec:9,faculty:'Saleem Ahmad Sir'},{subj:'oc',label:'Organic Chem',chapter:'Optical Isomerism',topic:'Definition + Examples',lec:2,faculty:'Pankaj Sijariya Sir'}],
+  '2026-06-03':[{subj:'ph',label:'Physics',chapter:'Current Electricity',topic:'Heating Effect',lec:10,faculty:'Saleem Ahmad Sir'},{subj:'oc',label:'Organic Chem',chapter:'Optical Isomerism',topic:'Criteria for Optical Activity',lec:3,faculty:'Pankaj Sijariya Sir'}],
+  '2026-06-04':[{subj:'ph',label:'Physics',chapter:'Current Electricity',topic:'Heating Effect',lec:11,faculty:'Saleem Ahmad Sir'},{subj:'oc',label:'Organic Chem',chapter:'Optical Isomerism',topic:'Absolute + Relative Config',lec:4,faculty:'Pankaj Sijariya Sir'}],
+  '2026-06-05':[{subj:'ph',label:'Physics',chapter:'Current Electricity',topic:'Cells & Combination',lec:12,faculty:'Saleem Ahmad Sir'},{subj:'oc',label:'Organic Chem',chapter:'Optical Isomerism',topic:'One Stereocenter',lec:5,faculty:'Pankaj Sijariya Sir'}],
+  '2026-06-06':[{subj:'ph',label:'Physics',chapter:'Current Electricity',topic:'Measuring Instruments',lec:13,faculty:'Saleem Ahmad Sir'},{subj:'oc',label:'Organic Chem',chapter:'Optical Isomerism',topic:'One Stereocenter',lec:6,faculty:'Pankaj Sijariya Sir'}],
+  '2026-06-08':[{subj:'ph',label:'Physics',chapter:'Current Electricity',topic:'Measuring Instruments',lec:14,faculty:'Saleem Ahmad Sir'},{subj:'oc',label:'Organic Chem',chapter:'Optical Isomerism',topic:'Without Chiral Centre',lec:7,faculty:'Pankaj Sijariya Sir'}],
+  '2026-06-09':[{subj:'ph',label:'Physics',chapter:'Current Electricity',topic:'Measuring Instruments',lec:15,faculty:'Saleem Ahmad Sir'},{subj:'oc',label:'Organic Chem',chapter:'Optical Isomerism',topic:'Without Chiral Centre',lec:8,faculty:'Pankaj Sijariya Sir'}],
+  '2026-06-10':[{subj:'ph',label:'Physics',chapter:'Capacitance',topic:'Intro to Capacitance',lec:1,faculty:'Saleem Ahmad Sir'},{subj:'oc',label:'Organic Chem',chapter:'Optical Isomerism',topic:'Properties of Enantiomers',lec:9,faculty:'Pankaj Sijariya Sir'}],
+  '2026-06-11':[{subj:'ph',label:'Physics',chapter:'Capacitance',topic:'Capacitors & Capacitance',lec:2,faculty:'Saleem Ahmad Sir'},{subj:'oc',label:'Organic Chem',chapter:'Optical Isomerism',topic:'Properties of Diastereomers',lec:10,faculty:'Pankaj Sijariya Sir'}],
+  '2026-06-12':[{subj:'ph',label:'Physics',chapter:'Capacitance',topic:'Combination of Capacitors',lec:3,faculty:'Saleem Ahmad Sir'},{subj:'oc',label:'Organic Chem',chapter:'Optical Isomerism',topic:'Number of Optical Isomers (trick)',lec:11,faculty:'Pankaj Sijariya Sir'}],
+  '2026-06-13':[{subj:'ph',label:'Physics',chapter:'Capacitance',topic:'Dielectrics & Polarization',lec:4,faculty:'Saleem Ahmad Sir'},{subj:'oc',label:'Organic Chem',chapter:'Hydrocarbon',topic:'Alkane Introduction',lec:1,faculty:'Pankaj Sijariya Sir'}],
+  '2026-06-15':[{subj:'ph',label:'Physics',chapter:'Capacitance',topic:'Conductor & Capacitance',lec:5,faculty:'Saleem Ahmad Sir'},{subj:'oc',label:'Organic Chem',chapter:'Hydrocarbon',topic:'Preparation of Alkane',lec:2,faculty:'Pankaj Sijariya Sir'}],
+  '2026-06-16':[{subj:'ph',label:'Physics',chapter:'Capacitance',topic:'Charging of Capacitor',lec:6,faculty:'Saleem Ahmad Sir'},{subj:'oc',label:'Organic Chem',chapter:'Hydrocarbon',topic:'Physical Properties Alkane',lec:3,faculty:'Pankaj Sijariya Sir'}],
+  '2026-06-17':[{subj:'ph',label:'Physics',chapter:'Capacitance',topic:'Combination of Capacitors',lec:7,faculty:'Saleem Ahmad Sir'},{subj:'oc',label:'Organic Chem',chapter:'Hydrocarbon',topic:'Chemical Properties Alkane',lec:4,faculty:'Pankaj Sijariya Sir'}],
+  '2026-06-18':[{subj:'ph',label:'Physics',chapter:'Capacitance',topic:'Dielectric Insertion Effects',lec:8,faculty:'Saleem Ahmad Sir'},{subj:'oc',label:'Organic Chem',chapter:'Hydrocarbon',topic:'Alkene (Prep + Properties)',lec:5,faculty:'Pankaj Sijariya Sir'}],
+  '2026-06-19':[{subj:'ph',label:'Physics',chapter:'Capacitance',topic:'Redistribution of Charge',lec:9,faculty:'Saleem Ahmad Sir'},{subj:'oc',label:'Organic Chem',chapter:'Hydrocarbon',topic:'Alkene (continued)',lec:6,faculty:'Pankaj Sijariya Sir'}],
+  '2026-06-20':[{subj:'ph',label:'Physics',chapter:'Capacitance',topic:'Redistribution of Charge',lec:10,faculty:'Saleem Ahmad Sir'},{subj:'oc',label:'Organic Chem',chapter:'Hydrocarbon',topic:'Alkyne Preparation + Physical Props',lec:7,faculty:'Pankaj Sijariya Sir'}],
+  '2026-06-22':[{subj:'ph',label:'Physics',chapter:'Moving Charges & Magnetism',topic:"Biot-Savart's Law",lec:1,faculty:'Saleem Ahmad Sir'},{subj:'oc',label:'Organic Chem',chapter:'Hydrocarbon',topic:'Alkyne Preparation (continued)',lec:8,faculty:'Pankaj Sijariya Sir'}],
+  '2026-06-23':[{subj:'ph',label:'Physics',chapter:'Moving Charges & Magnetism',topic:'B-field due to Ring/Rod',lec:2,faculty:'Saleem Ahmad Sir'},{subj:'oc',label:'Organic Chem',chapter:'Hydrocarbon',topic:'Chemical Properties Alkyne',lec:9,faculty:'Pankaj Sijariya Sir'}],
+  '2026-06-24':[{subj:'ph',label:'Physics',chapter:'Moving Charges & Magnetism',topic:'B-field due to Ring/Rod',lec:3,faculty:'Saleem Ahmad Sir'},{subj:'oc',label:'Organic Chem',chapter:'Hydrocarbon',topic:'Uses Alkyne + Internal vs Terminal',lec:10,faculty:'Pankaj Sijariya Sir'}],
+  '2026-06-25':[{subj:'ph',label:'Physics',chapter:'Moving Charges & Magnetism',topic:"Ampere's Law",lec:4,faculty:'Saleem Ahmad Sir'},{subj:'oc',label:'Organic Chem',chapter:'Hydrocarbon',topic:'Aromatic Hydrocarbon',lec:11,faculty:'Pankaj Sijariya Sir'}],
+  '2026-06-26':[{subj:'ph',label:'Physics',chapter:'Moving Charges & Magnetism',topic:"Ampere's Law",lec:5,faculty:'Saleem Ahmad Sir'},{subj:'oc',label:'Organic Chem',chapter:'Hydrocarbon',topic:'Benzene Preparation',lec:12,faculty:'Pankaj Sijariya Sir'}],
+  '2026-06-27':[{subj:'ph',label:'Physics',chapter:'Moving Charges & Magnetism',topic:'Force on Moving Charge',lec:6,faculty:'Saleem Ahmad Sir'},{subj:'oc',label:'Organic Chem',chapter:'Hydrocarbon',topic:'Physical Properties Benzene',lec:13,faculty:'Pankaj Sijariya Sir'}],
+  '2026-06-29':[{subj:'ph',label:'Physics',chapter:'Moving Charges & Magnetism',topic:'Lorentz Force',lec:7,faculty:'Saleem Ahmad Sir'},{subj:'oc',label:'Organic Chem',chapter:'Hydrocarbon',topic:'Chemical Properties Benzene',lec:14,faculty:'Pankaj Sijariya Sir'}],
+  '2026-06-30':[{subj:'ph',label:'Physics',chapter:'Moving Charges & Magnetism',topic:'Particle in E+B Field',lec:8,faculty:'Saleem Ahmad Sir'},{subj:'oc',label:'Organic Chem',chapter:'Hydrocarbon',topic:'Benzene Uses + EAS',lec:15,faculty:'Pankaj Sijariya Sir'}],
+  '2026-07-02':[{subj:'ph',label:'Physics',chapter:'Moving Charges & Magnetism',topic:'Force on Current Conductor',lec:10,faculty:'Saleem Ahmad Sir'}],
+  '2026-07-03':[{subj:'oc',label:'Organic Chem',chapter:'Haloalkanes & Haloarenes',topic:'Introduction',lec:1,faculty:'Pankaj Sijariya Sir'}],
+  '2026-07-04':[{subj:'oc',label:'Organic Chem',chapter:'Haloalkanes & Haloarenes',topic:'Classification',lec:2,faculty:'Pankaj Sijariya Sir'}],
+  '2026-07-06':[{subj:'ph',label:'Physics',chapter:'Moving Charges & Magnetism',topic:'Force on Current Conductor',lec:11,faculty:'Saleem Ahmad Sir'},{subj:'oc',label:'Organic Chem',chapter:'Haloalkanes & Haloarenes',topic:'IUPAC + C-X Bond',lec:3,faculty:'Pankaj Sijariya Sir'}],
+  '2026-07-07':[{subj:'ph',label:'Physics',chapter:'Moving Charges & Magnetism',topic:'Force on Current Conductor',lec:12,faculty:'Saleem Ahmad Sir'},{subj:'oc',label:'Organic Chem',chapter:'Haloalkanes & Haloarenes',topic:'Preparation of Haloalkanes',lec:4,faculty:'Pankaj Sijariya Sir'}],
+  '2026-07-08':[{subj:'ph',label:'Physics',chapter:'Moving Charges & Magnetism',topic:'Force on Current Conductor',lec:13,faculty:'Saleem Ahmad Sir'}],
+  '2026-07-09':[{subj:'ph',label:'Physics',chapter:'Moving Charges & Magnetism',topic:'Gyromagnetic Ratio, Torque',lec:14,faculty:'Saleem Ahmad Sir'}],
+  '2026-07-10':[{subj:'oc',label:'Organic Chem',chapter:'Haloalkanes & Haloarenes',topic:'Properties of Haloalkanes',lec:5,faculty:'Pankaj Sijariya Sir'}],
+  '2026-07-11':[{subj:'oc',label:'Organic Chem',chapter:'Haloalkanes & Haloarenes',topic:'Nucleophilicity',lec:6,faculty:'Pankaj Sijariya Sir'}],
+  '2026-07-13':[{subj:'ph',label:'Physics',chapter:'Magnetism & Matter',topic:'Bar Magnet Properties',lec:1,faculty:'Saleem Ahmad Sir'},{subj:'oc',label:'Organic Chem',chapter:'Haloalkanes & Haloarenes',topic:'Reaction with Metals',lec:7,faculty:'Pankaj Sijariya Sir'}],
+  '2026-07-14':[{subj:'ph',label:'Physics',chapter:'Magnetism & Matter',topic:'Oscillation Magnetometer',lec:2,faculty:'Saleem Ahmad Sir'},{subj:'oc',label:'Organic Chem',chapter:'Haloalkanes & Haloarenes',topic:'Grignard Reagents',lec:8,faculty:'Pankaj Sijariya Sir'}],
+  '2026-07-15':[{subj:'ph',label:'Physics',chapter:'Magnetism & Matter',topic:'Magnetic Materials + Ferromagnetism',lec:3,faculty:'Saleem Ahmad Sir'}],
+  '2026-07-16':[{subj:'ph',label:'Physics',chapter:'Electromagnetic Induction',topic:'Magnetic Flux + Lenz Law',lec:1,faculty:'Saleem Ahmad Sir'}],
+  '2026-07-17':[{subj:'oc',label:'Organic Chem',chapter:'Haloalkanes & Haloarenes',topic:'Grignard Reagents Part 2',lec:9,faculty:'Pankaj Sijariya Sir'}],
+  '2026-07-18':[{subj:'oc',label:'Organic Chem',chapter:'Haloalkanes & Haloarenes',topic:'Preparation of Haloarenes',lec:10,faculty:'Pankaj Sijariya Sir'}],
+  '2026-07-20':[{subj:'ph',label:'Physics',chapter:'Electromagnetic Induction',topic:"Faraday's Law",lec:2,faculty:'Saleem Ahmad Sir'},{subj:'oc',label:'Organic Chem',chapter:'Haloalkanes & Haloarenes',topic:'Preparation of Haloarenes',lec:11,faculty:'Pankaj Sijariya Sir'}],
+  '2026-07-21':[{subj:'ph',label:'Physics',chapter:'Electromagnetic Induction',topic:'Induced EMF Calculation',lec:3,faculty:'Saleem Ahmad Sir'},{subj:'oc',label:'Organic Chem',chapter:'Haloalkanes & Haloarenes',topic:'Properties of Haloarenes',lec:12,faculty:'Pankaj Sijariya Sir'}],
+  '2026-07-22':[{subj:'ph',label:'Physics',chapter:'Electromagnetic Induction',topic:'Induced EMF Calculation',lec:4,faculty:'Saleem Ahmad Sir'}],
+  '2026-07-23':[{subj:'ph',label:'Physics',chapter:'Electromagnetic Induction',topic:'Self Inductance',lec:5,faculty:'Saleem Ahmad Sir'}],
+  '2026-07-24':[{subj:'oc',label:'Organic Chem',chapter:'Haloalkanes & Haloarenes',topic:'PYQs Discussion',lec:13,faculty:'Pankaj Sijariya Sir'}],
+  '2026-07-25':[{subj:'oc',label:'Organic Chem',chapter:'Alcohols Phenols Ethers',topic:'Reduction',lec:1,faculty:'Pankaj Sijariya Sir'}],
+  '2026-07-27':[{subj:'ph',label:'Physics',chapter:'Electromagnetic Induction',topic:'Self Inductance',lec:6,faculty:'Saleem Ahmad Sir'},{subj:'oc',label:'Organic Chem',chapter:'Alcohols Phenols Ethers',topic:'Reduction',lec:2,faculty:'Pankaj Sijariya Sir'}],
+  '2026-07-28':[{subj:'ph',label:'Physics',chapter:'Electromagnetic Induction',topic:'Mutual Inductance',lec:7,faculty:'Saleem Ahmad Sir'},{subj:'oc',label:'Organic Chem',chapter:'Alcohols Phenols Ethers',topic:'Reduction',lec:3,faculty:'Pankaj Sijariya Sir'}],
+  '2026-07-29':[{subj:'ph',label:'Physics',chapter:'Electromagnetic Induction',topic:'Mutual Inductance',lec:8,faculty:'Saleem Ahmad Sir'}],
+  '2026-07-30':[{subj:'ph',label:'Physics',chapter:'Electromagnetic Induction',topic:'Inductor in Circuits',lec:9,faculty:'Saleem Ahmad Sir'}],
+  '2026-07-31':[{subj:'oc',label:'Organic Chem',chapter:'Alcohols Phenols Ethers',topic:'Reduction',lec:4,faculty:'Pankaj Sijariya Sir'}],
+  '2026-08-01':[{subj:'oc',label:'Organic Chem',chapter:'Alcohols Phenols Ethers',topic:'Oxidation',lec:5,faculty:'Pankaj Sijariya Sir'}],
+  '2026-08-03':[{subj:'ph',label:'Physics',chapter:'Electromagnetic Induction',topic:'Induced Electric Field',lec:10,faculty:'Saleem Ahmad Sir'},{subj:'oc',label:'Organic Chem',chapter:'Alcohols Phenols Ethers',topic:'Oxidation',lec:6,faculty:'Pankaj Sijariya Sir'}],
+  '2026-08-04':[{subj:'ph',label:'Physics',chapter:'Electromagnetic Induction',topic:'Induced Electric Field',lec:11,faculty:'Saleem Ahmad Sir'},{subj:'oc',label:'Organic Chem',chapter:'Alcohols Phenols Ethers',topic:'POC',lec:7,faculty:'Pankaj Sijariya Sir'}],
+  '2026-08-05':[{subj:'ph',label:'Physics',chapter:'Electromagnetic Induction',topic:'Induced Electric Field',lec:12,faculty:'Saleem Ahmad Sir'}],
+  '2026-08-06':[{subj:'ph',label:'Physics',chapter:'Alternating Current',topic:'AC Intro + Avg & RMS',lec:1,faculty:'Saleem Ahmad Sir'}],
+  '2026-08-07':[{subj:'oc',label:'Organic Chem',chapter:'Alcohols Phenols Ethers',topic:'POC',lec:8,faculty:'Pankaj Sijariya Sir'}],
+  '2026-08-08':[{subj:'oc',label:'Organic Chem',chapter:'Alcohols Phenols Ethers',topic:'Carbene & Nitrene',lec:9,faculty:'Pankaj Sijariya Sir'}],
+  '2026-08-10':[{subj:'ph',label:'Physics',chapter:'Alternating Current',topic:'AC Intro + Avg & RMS',lec:2,faculty:'Saleem Ahmad Sir'},{subj:'oc',label:'Organic Chem',chapter:'Alcohols Phenols Ethers',topic:'Carbene & Nitrene',lec:10,faculty:'Pankaj Sijariya Sir'}],
+  '2026-08-11':[{subj:'ph',label:'Physics',chapter:'Alternating Current',topic:'AC Circuits, Power Factor',lec:3,faculty:'Saleem Ahmad Sir'},{subj:'oc',label:'Organic Chem',chapter:'Aldehydes Ketones & Carboxylic Acids',topic:'Intro + Nomenclature',lec:1,faculty:'Pankaj Sijariya Sir'}],
+  '2026-08-12':[{subj:'ph',label:'Physics',chapter:'Alternating Current',topic:'AC Circuits, Power Factor',lec:4,faculty:'Saleem Ahmad Sir'}],
+  '2026-08-13':[{subj:'ph',label:'Physics',chapter:'Alternating Current',topic:'LCR Circuit + Resonance',lec:5,faculty:'Saleem Ahmad Sir'}],
+  '2026-08-14':[{subj:'oc',label:'Organic Chem',chapter:'Aldehydes Ketones & Carboxylic Acids',topic:'Prep of Aldehydes + Ketones',lec:2,faculty:'Pankaj Sijariya Sir'}],
+  '2026-08-17':[{subj:'ph',label:'Physics',chapter:'Alternating Current',topic:'LCR Circuit + Resonance',lec:6,faculty:'Saleem Ahmad Sir'},{subj:'oc',label:'Organic Chem',chapter:'Aldehydes Ketones & Carboxylic Acids',topic:'Prep of Aldehydes + Physical Props',lec:3,faculty:'Pankaj Sijariya Sir'}],
+  '2026-08-18':[{subj:'ph',label:'Physics',chapter:'Alternating Current',topic:'LC Oscillations + Transformer',lec:7,faculty:'Saleem Ahmad Sir'},{subj:'oc',label:'Organic Chem',chapter:'Aldehydes Ketones & Carboxylic Acids',topic:'Nucleophilic Addition',lec:4,faculty:'Pankaj Sijariya Sir'}],
+  '2026-08-19':[{subj:'ph',label:'Physics',chapter:'Alternating Current',topic:'LC Oscillations + Transformer',lec:8,faculty:'Saleem Ahmad Sir'}],
+  '2026-08-20':[{subj:'ph',label:'Physics',chapter:'Electromagnetic Waves',topic:'EM Wave Characteristics',lec:1,faculty:'Saleem Ahmad Sir'}],
+  '2026-08-21':[{subj:'oc',label:'Organic Chem',chapter:'Aldehydes Ketones & Carboxylic Acids',topic:'Aldol + Perkin + Knoevenagel',lec:5,faculty:'Pankaj Sijariya Sir'}],
+  '2026-08-22':[{subj:'oc',label:'Organic Chem',chapter:'Aldehydes Ketones & Carboxylic Acids',topic:'Cannizzaro + Tishchenko',lec:6,faculty:'Pankaj Sijariya Sir'}],
+  '2026-08-24':[{subj:'ph',label:'Physics',chapter:'Electromagnetic Waves',topic:'EM Wave Characteristics',lec:2,faculty:'Saleem Ahmad Sir'}],
+  '2026-08-25':[{subj:'ph',label:'Physics',chapter:'Ray Optics',topic:'Plane Mirrors',lec:1,faculty:'Saleem Ahmad Sir'},{subj:'oc',label:'Organic Chem',chapter:'Aldehydes Ketones & Carboxylic Acids',topic:'Tests of Aldehydes vs Ketones',lec:7,faculty:'Pankaj Sijariya Sir'}],
+  '2026-08-26':[{subj:'ph',label:'Physics',chapter:'Ray Optics',topic:'Plane Mirrors',lec:2,faculty:'Saleem Ahmad Sir'}],
+  '2026-08-27':[{subj:'ph',label:'Physics',chapter:'Ray Optics',topic:'Plane Mirrors',lec:3,faculty:'Saleem Ahmad Sir'}],
+  '2026-08-29':[{subj:'oc',label:'Organic Chem',chapter:'Aldehydes Ketones & Carboxylic Acids',topic:'Miscellaneous Reactions',lec:'misc',faculty:'Pankaj Sijariya Sir'}],
+  '2026-08-31':[{subj:'ph',label:'Physics',chapter:'Ray Optics',topic:'Reflection from Curved Surface',lec:4,faculty:'Saleem Ahmad Sir'},{subj:'oc',label:'Organic Chem',chapter:'Aldehydes Ketones & Carboxylic Acids',topic:'Carboxylic Acids',lec:8,faculty:'Pankaj Sijariya Sir'}],
+  // MATHEMATICS — Sachin Jakhar Sir
+  '2026-04-07':[{subj:'m',label:'Maths',chapter:'Determinants',topic:'Minor and Cofactor',lec:2,faculty:'Sachin Jakhar Sir'}],
+  '2026-04-08':[{subj:'m',label:'Maths',chapter:'Determinants',topic:'General Properties',lec:3,faculty:'Sachin Jakhar Sir'}],
+  '2026-04-16':[{subj:'m',label:'Maths',chapter:'Determinants',topic:'Addition/Summation',lec:5,faculty:'Sachin Jakhar Sir'}],
+  '2026-04-17':[{subj:'m',label:'Maths',chapter:'Determinants',topic:'Addition/Summation',lec:6,faculty:'Sachin Jakhar Sir'}],
+  '2026-04-23':[{subj:'m',label:'Maths',chapter:'Determinants',topic:'Solution of Equation',lec:8,faculty:'Sachin Jakhar Sir'}],
+  '2026-04-24':[{subj:'m',label:'Maths',chapter:'Determinants',topic:'Solution of Equation',lec:9,faculty:'Sachin Jakhar Sir'}],
+  '2026-04-30':[{subj:'m',label:'Maths',chapter:'Matrices',topic:'Trace, Determinants, Operations',lec:2,faculty:'Sachin Jakhar Sir'}],
+  '2026-05-07':[{subj:'m',label:'Maths',chapter:'Matrices',topic:'Adjoint + Invertible Matrix',lec:5,faculty:'Sachin Jakhar Sir'}],
+  '2026-05-08':[{subj:'m',label:'Maths',chapter:'Matrices',topic:'Elementary Operations',lec:6,faculty:'Sachin Jakhar Sir'}],
+  // Physical Chemistry — Faisal Razaq Sir
+  '2026-04-09':[{subj:'pc',label:'Phys Chem',chapter:'Solutions',topic:'Concentration Terms',lec:3,faculty:'Faisal Razaq Sir'}],
+  '2026-04-10':[{subj:'pc',label:'Phys Chem',chapter:'Solutions',topic:'Concentration Terms',lec:4,faculty:'Faisal Razaq Sir'}],
+  '2026-04-14':[{subj:'pc',label:'Phys Chem',chapter:'Solutions',topic:'Solubility',lec:5,faculty:'Faisal Razaq Sir'}],
+  '2026-04-15':[{subj:'pc',label:'Phys Chem',chapter:'Solutions',topic:'Solubility',lec:6,faculty:'Faisal Razaq Sir'}],
+  '2026-04-16':[{subj:'pc',label:'Phys Chem',chapter:'Solutions',topic:'Vapour Pressure',lec:7,faculty:'Faisal Razaq Sir'}],
+  '2026-04-17':[{subj:'pc',label:'Phys Chem',chapter:'Solutions',topic:'Vapour Pressure (Determination)',lec:8,faculty:'Faisal Razaq Sir'}],
+  '2026-04-20':[{subj:'pc',label:'Phys Chem',chapter:'Solutions',topic:'Ideal and Non-ideal Solutions',lec:9,faculty:'Faisal Razaq Sir'}],
+  '2026-04-21':[{subj:'pc',label:'Phys Chem',chapter:'Solutions',topic:'Colligative Properties',lec:10,faculty:'Faisal Razaq Sir'}],
+  '2026-04-23':[{subj:'pc',label:'Phys Chem',chapter:'Solutions',topic:'Colligative Properties',lec:11,faculty:'Faisal Razaq Sir'}],
+  '2026-04-24':[{subj:'pc',label:'Phys Chem',chapter:'Solutions',topic:'Colligative Properties',lec:12,faculty:'Faisal Razaq Sir'}],
+  '2026-04-27':[{subj:'pc',label:'Phys Chem',chapter:'Solutions',topic:'Colligative Properties',lec:13,faculty:'Faisal Razaq Sir'}],
+  '2026-04-28':[{subj:'pc',label:'Phys Chem',chapter:'Solutions',topic:'Osmosis + Osmotic Pressure',lec:14,faculty:'Faisal Razaq Sir'}],
+  '2026-04-30':[{subj:'pc',label:'Phys Chem',chapter:'Solutions',topic:"Abnormal Molar Mass + Van't Hoff",lec:15,faculty:'Faisal Razaq Sir'}],
+  '2026-05-19':[{subj:'pc',label:'Phys Chem',chapter:'Electrochemistry',topic:'Conductors + Molar Conductivity',lec:1,faculty:'Faisal Razaq Sir'}],
+  '2026-05-20':[{subj:'pc',label:'Phys Chem',chapter:'Electrochemistry',topic:"Kohlrausch's Law + Mobilities",lec:2,faculty:'Faisal Razaq Sir'}],
+  '2026-05-21':[{subj:'pc',label:'Phys Chem',chapter:'Electrochemistry',topic:'Conductometric Titrations + Cells',lec:3,faculty:'Faisal Razaq Sir'}],
+  '2026-05-22':[{subj:'pc',label:'Phys Chem',chapter:'Electrochemistry',topic:'Electrochemical Cell + Galvanic',lec:4,faculty:'Faisal Razaq Sir'}],
+  '2026-05-23':[{subj:'pc',label:'Phys Chem',chapter:'Electrochemistry',topic:'Electrodes + Electrode Potential',lec:5,faculty:'Faisal Razaq Sir'}],
+  '2026-05-25':[{subj:'pc',label:'Phys Chem',chapter:'Electrochemistry',topic:'Electrochemical Series',lec:6,faculty:'Faisal Razaq Sir'}],
+  '2026-05-26':[{subj:'pc',label:'Phys Chem',chapter:'Electrochemistry',topic:'Nernst Equation',lec:7,faculty:'Faisal Razaq Sir'}],
+  '2026-05-28':[{subj:'pc',label:'Phys Chem',chapter:'Electrochemistry',topic:'Equilibrium Constant + Gibbs Energy',lec:8,faculty:'Faisal Razaq Sir'}],
+  '2026-05-29':[{subj:'pc',label:'Phys Chem',chapter:'Electrochemistry',topic:'Concentration Cell + Galvanic Thermo',lec:9,faculty:'Faisal Razaq Sir'}],
+  '2026-05-30':[{subj:'pc',label:'Phys Chem',chapter:'Electrochemistry',topic:"Electrolytic Cell + Faraday's Laws",lec:10,faculty:'Faisal Razaq Sir'}],
+  // INORGANIC CHEMISTRY — Kunwar Om Pandey Sir
+  '2026-09-22':[{subj:'ic',label:'Inorg Chem',chapter:'Coordination Compounds',topic:'Introduction + Complex Types',lec:1,faculty:'Kunwar Om Pandey Sir'}],
+  '2026-09-25':[{subj:'ic',label:'Inorg Chem',chapter:'Coordination Compounds',topic:'Terms in Coordination Compounds',lec:2,faculty:'Kunwar Om Pandey Sir'}],
+  '2026-09-26':[{subj:'ic',label:'Inorg Chem',chapter:'Coordination Compounds',topic:'Classification of Ligand',lec:3,faculty:'Kunwar Om Pandey Sir'}],
+  '2026-09-28':[{subj:'ic',label:'Inorg Chem',chapter:'Coordination Compounds',topic:'Classification of Ligand',lec:4,faculty:'Kunwar Om Pandey Sir'}],
+  '2026-09-29':[{subj:'ic',label:'Inorg Chem',chapter:'Coordination Compounds',topic:'Classification of Ligand',lec:5,faculty:'Kunwar Om Pandey Sir'}],
+  '2026-10-03':[{subj:'ic',label:'Inorg Chem',chapter:'Coordination Compounds',topic:'Werner Theory + Nomenclature + VBT',lec:6,faculty:'Kunwar Om Pandey Sir'}],
+  '2026-10-05':[{subj:'ic',label:'Inorg Chem',chapter:'Coordination Compounds',topic:'Valence Bond Theory',lec:7,faculty:'Kunwar Om Pandey Sir'}],
+  '2026-10-06':[{subj:'ic',label:'Inorg Chem',chapter:'Coordination Compounds',topic:'Valence Bond Theory',lec:8,faculty:'Kunwar Om Pandey Sir'}],
+  '2026-10-09':[{subj:'ic',label:'Inorg Chem',chapter:'Coordination Compounds',topic:'Crystal Field Theory',lec:9,faculty:'Kunwar Om Pandey Sir'}],
+  '2026-10-10':[{subj:'ic',label:'Inorg Chem',chapter:'Coordination Compounds',topic:'Crystal Field Theory',lec:10,faculty:'Kunwar Om Pandey Sir'}],
+  '2026-10-12':[{subj:'ic',label:'Inorg Chem',chapter:'Coordination Compounds',topic:'Stability of Complexes',lec:11,faculty:'Kunwar Om Pandey Sir'}],
+  '2026-10-13':[{subj:'ic',label:'Inorg Chem',chapter:'Coordination Compounds',topic:'Isomerism',lec:12,faculty:'Kunwar Om Pandey Sir'}],
+  '2026-10-16':[{subj:'ic',label:'Inorg Chem',chapter:'Coordination Compounds',topic:'Isomerism + Organometallic',lec:13,faculty:'Kunwar Om Pandey Sir'}],
+  '2026-10-17':[{subj:'ic',label:'Inorg Chem',chapter:'Coordination Compounds',topic:'Applications',lec:14,faculty:'Kunwar Om Pandey Sir'}],
+  '2026-10-19':[{subj:'ic',label:'Inorg Chem',chapter:'Coordination Compounds',topic:'Isomerism',lec:15,faculty:'Kunwar Om Pandey Sir'}],
+  '2026-10-23':[{subj:'ic',label:'Inorg Chem',chapter:'Coordination Compounds',topic:'Organometallic + Applications',lec:16,faculty:'Kunwar Om Pandey Sir'}],
+  '2026-10-24':[{subj:'ic',label:'Inorg Chem',chapter:'p-Block (XII)',topic:'Group 15 — Nitrogen Family',lec:1,faculty:'Kunwar Om Pandey Sir'}],
+  '2026-10-26':[{subj:'ic',label:'Inorg Chem',chapter:'p-Block (XII)',topic:'Phosphorus + Oxoacids',lec:2,faculty:'Kunwar Om Pandey Sir'}],
+  '2026-10-27':[{subj:'ic',label:'Inorg Chem',chapter:'p-Block (XII)',topic:'Group 16 — Oxygen Family',lec:3,faculty:'Kunwar Om Pandey Sir'}],
+  '2026-10-30':[{subj:'ic',label:'Inorg Chem',chapter:'p-Block (XII)',topic:'Sulphur + Ozone + O2',lec:4,faculty:'Kunwar Om Pandey Sir'}],
+  '2026-10-31':[{subj:'ic',label:'Inorg Chem',chapter:'p-Block (XII)',topic:'SO2 + Group 17 Halogens',lec:5,faculty:'Kunwar Om Pandey Sir'}],
+  '2026-11-02':[{subj:'ic',label:'Inorg Chem',chapter:'p-Block (XII)',topic:'Fluorine + Chlorine + Pseudohalogens',lec:6,faculty:'Kunwar Om Pandey Sir'}],
+  '2026-11-03':[{subj:'ic',label:'Inorg Chem',chapter:'p-Block (XII)',topic:'Interhalogen + Oxyacids',lec:7,faculty:'Kunwar Om Pandey Sir'}],
+  '2026-11-10':[{subj:'ic',label:'Inorg Chem',chapter:'p-Block (XII)',topic:'Group 18 Noble Gases',lec:8,faculty:'Kunwar Om Pandey Sir'}],
+};
+
+// Merge dates that have both Maths and Physics (Apr 6 special)
+LIVE_CLASSES['2026-04-06'] = LIVE_CLASSES['2026-04-06'] || [];
+LIVE_CLASSES['2026-04-06'].push({subj:'m',label:'Maths',chapter:'Determinants',topic:'Introduction',lec:1,faculty:'Sachin Jakhar Sir'});
+LIVE_CLASSES['2026-04-07'] = LIVE_CLASSES['2026-04-07'] || [];
+LIVE_CLASSES['2026-04-07'].push({subj:'pc',label:'Phys Chem',chapter:'Solutions',topic:'Concentration Terms',lec:1,faculty:'Faisal Razaq Sir'});
+LIVE_CLASSES['2026-04-08'] = LIVE_CLASSES['2026-04-08'] || [];
+LIVE_CLASSES['2026-04-08'].push({subj:'pc',label:'Phys Chem',chapter:'Solutions',topic:'Concentration Terms',lec:2,faculty:'Faisal Razaq Sir'});
+LIVE_CLASSES['2026-04-13'] = LIVE_CLASSES['2026-04-13'] || [];
+LIVE_CLASSES['2026-04-13'].push({subj:'m',label:'Maths',chapter:'Determinants',topic:'General Properties',lec:4,faculty:'Sachin Jakhar Sir'});
+LIVE_CLASSES['2026-04-22'] = LIVE_CLASSES['2026-04-22'] || [];
+LIVE_CLASSES['2026-04-22'].push({subj:'m',label:'Maths',chapter:'Determinants',topic:'Product + Differentiation',lec:7,faculty:'Sachin Jakhar Sir'});
+LIVE_CLASSES['2026-04-29'] = LIVE_CLASSES['2026-04-29'] || [];
+LIVE_CLASSES['2026-04-29'].push({subj:'m',label:'Maths',chapter:'Matrices',topic:'Introduction + Types + Equality',lec:1,faculty:'Sachin Jakhar Sir'});
+LIVE_CLASSES['2026-05-04'] = LIVE_CLASSES['2026-05-04'] || [];
+// Chemical Kinetics
+LIVE_CLASSES['2026-05-07'] = LIVE_CLASSES['2026-05-07'] || [];
+LIVE_CLASSES['2026-05-07'].push({subj:'pc',label:'Phys Chem',chapter:'Chemical Kinetics',topic:'Factors + Order + Molecularity',lec:2,faculty:'Faisal Razaq Sir'});
+LIVE_CLASSES['2026-05-08'].push({subj:'pc',label:'Phys Chem',chapter:'Chemical Kinetics',topic:'Integrated Rate Equations',lec:3,faculty:'Faisal Razaq Sir'});
+LIVE_CLASSES['2026-05-11'].push({subj:'pc',label:'Phys Chem',chapter:'Chemical Kinetics',topic:'Pseudo First Order + Exp. Determination',lec:4,faculty:'Faisal Razaq Sir'});
+LIVE_CLASSES['2026-05-12'].push({subj:'pc',label:'Phys Chem',chapter:'Chemical Kinetics',topic:'Collision Theory + Activation Energy',lec:5,faculty:'Faisal Razaq Sir'});
+LIVE_CLASSES['2026-05-12'].push({subj:'m',label:'Maths',chapter:'Matrices',topic:'Transpose + Conjugate',lec:3,faculty:'Sachin Jakhar Sir'});
+LIVE_CLASSES['2026-05-13'].push({subj:'pc',label:'Phys Chem',chapter:'Chemical Kinetics',topic:'Temperature Dependence',lec:6,faculty:'Faisal Razaq Sir'});
+LIVE_CLASSES['2026-05-13'].push({subj:'m',label:'Maths',chapter:'Matrices',topic:'Symmetric + Skew + Orthogonal',lec:4,faculty:'Sachin Jakhar Sir'});
+LIVE_CLASSES['2026-05-14'].push({subj:'pc',label:'Phys Chem',chapter:'Chemical Kinetics',topic:'Parallel + Series Reactions',lec:7,faculty:'Faisal Razaq Sir'});
+LIVE_CLASSES['2026-05-14'].push({subj:'m',label:'Maths',chapter:'Matrices',topic:'Adjoint + Invertible Matrix',lec:5,faculty:'Sachin Jakhar Sir'});
+LIVE_CLASSES['2026-05-15'].push({subj:'pc',label:'Phys Chem',chapter:'Chemical Kinetics',topic:'Catalyst + Enzyme + Nuclear Chemistry',lec:8,faculty:'Faisal Razaq Sir'});
+LIVE_CLASSES['2026-05-15'].push({subj:'m',label:'Maths',chapter:'Matrices',topic:'Elementary Operations',lec:6,faculty:'Sachin Jakhar Sir'});
+LIVE_CLASSES['2026-05-16'].push({subj:'pc',label:'Phys Chem',chapter:'Chemical Kinetics',topic:'Radioactive Series + Applications',lec:9,faculty:'Faisal Razaq Sir'});
+LIVE_CLASSES['2026-05-16'].push({subj:'m',label:'Maths',chapter:'Relations & Functions',topic:'Relation',lec:1,faculty:'Sachin Jakhar Sir'});
+LIVE_CLASSES['2026-05-18'].push({subj:'pc',label:'Phys Chem',chapter:'Chemical Kinetics',topic:'Radioactive Series + Applications',lec:10,faculty:'Faisal Razaq Sir'});
+LIVE_CLASSES['2026-05-18'].push({subj:'m',label:'Maths',chapter:'Relations & Functions',topic:'Type of Relations',lec:2,faculty:'Sachin Jakhar Sir'});
+LIVE_CLASSES['2026-05-19'].push({subj:'m',label:'Maths',chapter:'Relations & Functions',topic:'Type of Relations',lec:3,faculty:'Sachin Jakhar Sir'});
+LIVE_CLASSES['2026-05-20'].push({subj:'m',label:'Maths',chapter:'Relations & Functions',topic:'Functions',lec:4,faculty:'Sachin Jakhar Sir'});
+LIVE_CLASSES['2026-05-21'].push({subj:'m',label:'Maths',chapter:'Relations & Functions',topic:'Domain and Range',lec:5,faculty:'Sachin Jakhar Sir'});
+LIVE_CLASSES['2026-05-22'].push({subj:'m',label:'Maths',chapter:'Relations & Functions',topic:'Domain and Range',lec:6,faculty:'Sachin Jakhar Sir'});
+LIVE_CLASSES['2026-05-23'].push({subj:'m',label:'Maths',chapter:'Relations & Functions',topic:'Type of Functions',lec:7,faculty:'Sachin Jakhar Sir'});
+LIVE_CLASSES['2026-05-25'].push({subj:'m',label:'Maths',chapter:'Relations & Functions',topic:'Type of Functions',lec:8,faculty:'Sachin Jakhar Sir'});
+LIVE_CLASSES['2026-05-26'].push({subj:'m',label:'Maths',chapter:'Relations & Functions',topic:'Equal Function',lec:9,faculty:'Sachin Jakhar Sir'});
+LIVE_CLASSES['2026-05-04'].push({subj:'pc',label:'Phys Chem',chapter:'Chemical Kinetics',topic:'Intro + Rate + Rate Law',lec:1,faculty:'Faisal Razaq Sir'});
+LIVE_CLASSES['2026-05-04'].push({subj:'m',label:'Maths',chapter:'Matrices',topic:'Inverse of Matrix',lec:7,faculty:'Sachin Jakhar Sir'});
+
+// ════════════════════════════════════════════════════════════
+// v8 FEATURE 5: LIVE CLASS INJECTION INTO STATUS BAR & SCHEDULE
+// ════════════════════════════════════════════════════════════
+function getTodayLiveClasses(){
+  const today=new Date();
+  const ds=today.getFullYear()+'-'+String(today.getMonth()+1).padStart(2,'0')+'-'+String(today.getDate()).padStart(2,'0');
+  return LIVE_CLASSES[ds]||[];
+}
+function getLiveClassesForDate(ds){ return LIVE_CLASSES[ds]||[]; }
+
+// Inject live class info into live blocks on the schedule
+function injectLiveClassBadges(){
+  const today=new Date();
+  const lc=getTodayLiveClasses();
+  if(!lc.length) return;
+  const liveBlocks=document.querySelectorAll('.b-live');
+  liveBlocks.forEach(block=>{
+    block.querySelectorAll('.live-lec-badge').forEach(b=>b.remove());
+    lc.forEach(c=>{
+      const div=document.createElement('div');
+      div.className='live-lec-badge';
+      div.innerHTML=`<div class="llb-subj ${c.subj}">${c.label} — ${c.chapter}</div><div class="llb-topic">${c.topic}</div><div class="llb-lec">Lec ${c.lec} · ${c.faculty}</div>`;
+      block.appendChild(div);
+    });
+  });
+}
+injectLiveClassBadges();
+
+// ════════════════════════════════════════════════════════════
+// v8 FEATURE 1: DAILY FOCUS CARD
+// ════════════════════════════════════════════════════════════
+function buildDailyFocusCard(){
+  const today=new Date(); today.setHours(0,0,0,0);
+  const todayStr=today.getFullYear()+'-'+String(today.getMonth()+1).padStart(2,'0')+'-'+String(today.getDate()).padStart(2,'0');
+  const icon=document.getElementById('dfc-icon');
+  const main=document.getElementById('dfc-main');
+  const sub=document.getElementById('dfc-sub');
+  const tags=document.getElementById('dfc-tags');
+  const urgencyEl=document.getElementById('dfc-urgency');
+  if(!main) return;
+
+  // Priority 1: exam within 3 days
+  const nearExam=EXAMS.find(e=>{ const d=daysUntil(e.date); return d>=0&&d<=3; });
+  if(nearExam){
+    const d=daysUntil(nearExam.date);
+    icon.textContent='📋';
+    urgencyEl.textContent='EXAM ALERT';urgencyEl.className='dfc-urgency critical';
+    main.textContent=d===0?`${nearExam.subj} exam TODAY — review formula sheet once, eat breakfast, no new topics.`:`${nearExam.subj} (${nearExam.series}) in ${d} day${d>1?'s':''} — tonight: formula sheet + past paper MCQs. Sleep by 10:30 PM.`;
+    sub.textContent='Conservative mode tonight. Skip backlog. School prep = 2 hrs max. Alarm ×2.';
+    tags.innerHTML=`<span class="dfc-tag">School first</span><span class="dfc-tag">Formula sheet</span><span class="dfc-tag">Sleep 10:30 PM</span>`;
+    return;
+  }
+
+  // Priority 2: vacation
+  const inVac=isInVacation(today);
+  if(inVac){
+    icon.textContent='🏖️';
+    urgencyEl.textContent='SPRINT MODE';urgencyEl.className='dfc-urgency warn';
+    const tocGOC=daysUntil('2026-06-01');
+    if(tocGOC>0&&tocGOC<=62){
+      main.textContent=`VACATION SPRINT — ${inVac.label}. Target: 5–6 backlog lectures today. GOC is ${tocGOC} days away. Do GOC first.`;
+      sub.textContent='Organic GOC is zero base. Must complete before June 1. Every vacation day = ~6 GOC lectures.';
+      tags.innerHTML=`<span class="dfc-tag oc">Organic GOC Priority</span><span class="dfc-tag">5–6 lecs today</span><span class="dfc-tag">DPP daily</span>`;
+    } else {
+      main.textContent=`VACATION SPRINT — ${inVac.label}. Target: 5–6 backlog lectures today. No school pressure. Max assault.`;
+      sub.textContent='Vacation = mandatory sprint, not rest. 2 DPP sessions today. Sleep by midnight.';
+      tags.innerHTML=`<span class="dfc-tag">5–6 lecs today</span><span class="dfc-tag">DPP daily</span><span class="dfc-tag">2 recorded sessions</span>`;
+    }
+    return;
+  }
+
+  // Priority 3: GOC not done + before Jun 1
+  const daysToGOC=daysUntil('2026-06-01');
+  // Read backlog progress from localStorage
+  const backlogData=JSON.parse(localStorage.getItem('jee-backlog-v8')||'{}');
+  const gocDoneTotal=(backlogData.orgchem_goc1||0)+(backlogData.orgchem_goc2||0)+(backlogData.orgchem_goc3||0);
+  if(daysToGOC>0&&daysToGOC<=62&&gocDoneTotal<39){
+    const gocRem=39-gocDoneTotal;
+    const perDay=(gocRem/Math.max(1,daysToGOC)).toFixed(1);
+    icon.textContent='🚨';
+    urgencyEl.textContent='CRITICAL';urgencyEl.className='dfc-urgency critical';
+    main.textContent=`GOC crisis: ${gocRem} lectures remaining, ${daysToGOC} days to June 1. Need ${perDay} GOC lec/day. Start tonight, every night.`;
+    sub.textContent='Tonight after live class: 1 GOC lecture minimum. No excuses. The live organic batch in June assumes this is done.';
+    tags.innerHTML=`<span class="dfc-tag goc-alert">🚨 GOC Deadline</span><span class="dfc-tag oc">${gocRem} lecs remaining</span><span class="dfc-tag">${perDay}/day needed</span>`;
+    return;
+  }
+
+  // Priority 4: check weekly backlog deficit
+  const weekTracker=JSON.parse(localStorage.getItem('jee-tracker-week')||'{"cl12":0,"back":0,"dpp":0}');
+  const backDeficit=10-weekTracker.back;
+  if(backDeficit>=3){
+    icon.textContent='⚠️';
+    urgencyEl.textContent='BEHIND';urgencyEl.className='dfc-urgency warn';
+    main.textContent=`Behind on backlog this week — ${weekTracker.back} done, need 10. Gap: ${backDeficit} lectures.`;
+    sub.textContent='Tonight: squeeze 2 backlog lectures after live class. Tonight is not optional.';
+    tags.innerHTML=`<span class="dfc-tag">${backDeficit} lec deficit</span><span class="dfc-tag">Push tonight</span>`;
+    return;
+  }
+
+  // Priority 5: default — today's schedule + live class info
+  const lc=getTodayLiveClasses();
+  const dayOfWeek=today.getDay();
+  const dayMap=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  icon.textContent='📅';
+  urgencyEl.textContent='ON TRACK';urgencyEl.className='dfc-urgency ok';
+  if(lc.length){
+    const lcSummary=lc.map(c=>`${c.label} (${c.chapter} Lec ${c.lec})`).join(' + ');
+    main.textContent=`${dayMap[dayOfWeek]}: Live — ${lcSummary}. Tonight: 1 backlog lecture after class.`;
+    sub.textContent=`Faculty: ${[...new Set(lc.map(c=>c.faculty))].join(', ')}. Watch live, take notes, do 1 backlog after.`;
+    const tagHtml=lc.map(c=>`<span class="dfc-tag ${c.subj}">${c.label}: ${c.chapter}</span>`).join('');
+    tags.innerHTML=tagHtml+'<span class="dfc-tag">+ 1 backlog tonight</span>';
+  } else {
+    const isWeekend=(dayOfWeek===0||dayOfWeek===6);
+    main.textContent=isWeekend?`${dayMap[dayOfWeek]}: Backlog day. Target 3–5 lectures today. No live class — full focus on clearing debt.`:`${dayMap[dayOfWeek]}: No live class today. Use the slot for 2 backlog lectures + DPP.`;
+    sub.textContent=isWeekend?'Sunday/Saturday backlog is sacred. 3–5 lecs. Full DPP. Then rest.':'Free from live class. Backlog + DPP window. Protect it.';
+    tags.innerHTML=`<span class="dfc-tag">${isWeekend?'3–5 lecs':' 2 lecs'} target</span><span class="dfc-tag">DPP session</span>`;
+  }
+}
+buildDailyFocusCard();
+
+// ════════════════════════════════════════════════════════════
+// v8 FEATURE 2: BACKLOG COUNTDOWN CARDS
+// ════════════════════════════════════════════════════════════
+const BACKLOG_CHAPTERS = {
+  physics: [
+    {key:'wpe',name:'Work, Power & Energy',total:11,dpp:7,tier:1,deadline:'Aug 2026'},
+    {key:'com',name:'Centre of Mass',total:16,dpp:9,tier:1,deadline:'Aug 2026'},
+    {key:'rot',name:'Rotational Motion',total:25,dpp:8,tier:1,deadline:'Aug 2026'},
+    {key:'osc',name:'Oscillations',total:10,dpp:7,tier:1,deadline:'Aug 2026'},
+    {key:'wav',name:'Waves',total:13,dpp:9,tier:1,deadline:'Aug 2026'},
+    {key:'err',name:'Errors & Measurement',total:3,dpp:0,tier:2},
+    {key:'therm',name:'Thermal Properties',total:12,dpp:7,tier:2},
+    {key:'ktg',name:'KTG & Thermodynamics',total:6,dpp:2,tier:2},
+    {key:'grav',name:'Gravitation',total:5,dpp:3,tier:2},
+    {key:'mech1',name:'Mechanical Properties 1',total:2,dpp:0,tier:2},
+    {key:'mech2',name:'Mechanical Properties 2',total:13,dpp:7,tier:2},
+  ],
+  maths: [
+    {key:'quad',name:'Quadratic Equations',total:14,dpp:13,tier:1,deadline:'Aug 2026'},
+    {key:'seq',name:'Sequence & Series',total:12,dpp:12,tier:1,deadline:'Aug 2026'},
+    {key:'pc',name:'Permutations & Combinations',total:12,dpp:12,tier:1,deadline:'Aug 2026'},
+    {key:'comp',name:'Complex Numbers',total:10,dpp:9,tier:1,deadline:'Aug 2026'},
+    {key:'sl',name:'Straight Lines',total:13,dpp:10,tier:1,deadline:'Aug 2026'},
+    {key:'cir',name:'Circles',total:10,dpp:8,tier:1,deadline:'Aug 2026'},
+    {key:'par',name:'Parabola',total:9,dpp:7,tier:1,deadline:'Aug 2026'},
+    {key:'ell',name:'Ellipse',total:6,dpp:5,tier:2},
+    {key:'hyp',name:'Hyperbola',total:5,dpp:4,tier:2},
+    {key:'prob11',name:'Probability (XI)',total:1,dpp:1,tier:2},
+    {key:'li',name:'Linear Inequalities',total:1,dpp:1,tier:2},
+    {key:'sol3d',name:'Intro to 3D',total:1,dpp:1,tier:2},
+    {key:'stat',name:'Statistics',total:3,dpp:2,tier:2},
+    {key:'sot',name:'Solution of Triangle',total:2,dpp:2,tier:2},
+  ],
+  physchem: [
+    {key:'thermo',name:'Thermodynamics',total:13,dpp:9,tier:1,deadline:'Aug 2026'},
+    {key:'ionic',name:'Ionic Equilibrium',total:7,dpp:3,tier:1,deadline:'Aug 2026'},
+    {key:'redox',name:'Redox Reactions',total:5,dpp:3,tier:2},
+    {key:'som',name:'State of Matter',total:9,dpp:6,tier:2},
+  ],
+  orgchem: [
+    {key:'orgchem_goc1',name:'GOC Part 1 (Some Basic Principles)',total:11,dpp:10,tier:1,deadline:'May 31, 2026',zeroBase:true},
+    {key:'orgchem_goc2',name:'GOC Part 2 (Some Basic Principles)',total:12,dpp:10,tier:1,deadline:'May 31, 2026',zeroBase:true},
+    {key:'orgchem_goc3',name:'GOC Part 3 (Some Basic Principles)',total:16,dpp:14,tier:1,deadline:'May 31, 2026',zeroBase:true},
+    {key:'hc11',name:'Hydrocarbons (Class 11)',total:7,dpp:6,tier:1,deadline:'May 31, 2026',zeroBase:true},
+    {key:'qa11',name:'Qualitative Analysis (Cl.11)',total:2,dpp:1,tier:2},
+    {key:'env',name:'Environmental Chemistry',total:1,dpp:1,tier:2},
+  ],
+  inorgchem: [
+    {key:'cb_rem',name:'Chemical Bonding (13 remaining)',total:13,dpp:14,tier:1,deadline:'Jun 2026'},
+    {key:'pb11',name:'P-Block Elements (XI)',total:8,dpp:4,tier:2},
+    {key:'sb',name:'S-Block Elements',total:3,dpp:2,tier:2},
+    {key:'hyd',name:'Hydrogen',total:1,dpp:1,tier:2},
+  ],
+};
+
+const SUBJ_COLORS={physics:'#a855f7',maths:'#3b82f6',physchem:'#f97316',orgchem:'#22c55e',inorgchem:'#f43f5e'};
+const SUBJ_LABELS={physics:'Physics',maths:'Mathematics','physchem':'Phys Chemistry','orgchem':'Org Chemistry','inorgchem':'Inorg Chemistry'};
+
+function getBacklogState(){ return JSON.parse(localStorage.getItem('jee-backlog-v8')||'{}'); }
+function saveBacklogState(s){ localStorage.setItem('jee-backlog-v8',JSON.stringify(s)); }
+
+function computeTotals(){
+  const state=getBacklogState();
+  let totalRemaining=0, subj={};
+  for(const [skey,chapters] of Object.entries(BACKLOG_CHAPTERS)){
+    let sr=0, st=0;
+    for(const ch of chapters){
+      const done=state[ch.key]||0;
+      sr+=Math.max(0,ch.total-done);
+      st+=ch.total;
+    }
+    subj[skey]={remaining:sr,total:st};
+    totalRemaining+=sr;
+  }
+  return {totalRemaining, subj};
+}
+
+function buildBacklogCountdown(){
+  const {totalRemaining, subj}=computeTotals();
+  const el=document.getElementById('bc-remaining');
+  const sub=document.getElementById('bc-sub');
+  const bar=document.getElementById('bc-bar');
+  if(el){ el.textContent=totalRemaining; el.className='bc-num '+(totalRemaining>100?'danger':totalRemaining>50?'warn':'safe'); }
+  if(sub) sub.textContent=`lectures remaining of 184 total core backlog`;
+  const pct=Math.max(0,Math.min(100,(1-totalRemaining/184)*100));
+  if(bar){ bar.style.width=pct+'%'; bar.className='bc-bar '+(pct<30?'red':pct<70?'gold':'green'); }
+
+  // Weeks + pace
+  const aug=new Date('2026-08-31'); const today2=new Date(); today2.setHours(0,0,0,0);
+  const wks=Math.max(0,Math.ceil((aug-today2)/604800000));
+  const pace=wks>0?Math.ceil(totalRemaining/wks):999;
+  const wEl=document.getElementById('bc-weeks'); if(wEl){wEl.textContent=wks; wEl.className='bc-num '+(wks<8?'danger':wks<14?'warn':'safe');}
+  const pSub=document.getElementById('bc-pace-sub'); if(pSub) pSub.textContent=`${pace} lecs/week needed — target is 9–10/week`;
+  const pBar=document.getElementById('bc-pace-bar'); if(pBar){pBar.style.width=Math.min(100,(pace/13)*100)+'%';pBar.className='bc-bar '+(pace>12?'red':pace>9?'gold':'green');}
+
+  // Subject bars
+  const sbEl=document.getElementById('bc-subj-bars');
+  if(sbEl){
+    sbEl.innerHTML='';
+    for(const [sk,vals] of Object.entries(subj)){
+      const pct2=Math.max(0,Math.min(100,(1-vals.remaining/Math.max(1,vals.total))*100));
+      const row=document.createElement('div'); row.className='subj-bar-row';
+      row.innerHTML=`<span class="sbr-label">${SUBJ_LABELS[sk]}</span><div class="sbr-track"><div class="sbr-fill" style="width:${pct2}%;background:${SUBJ_COLORS[sk]}"></div></div><span class="sbr-count">${vals.remaining}/${vals.total} left</span>`;
+      sbEl.appendChild(row);
+    }
+  }
+
+  // GOC widget
+  const gocEl=document.getElementById('goc-widget');
+  const gocDays=daysUntil('2026-06-01');
+  const state=getBacklogState();
+  const gocDone=(state['orgchem_goc1']||0)+(state['orgchem_goc2']||0)+(state['orgchem_goc3']||0)+(state['hc11']||0);
+  const gocRem=46-gocDone;
+  if(gocEl){
+    if(gocDays<0||gocRem<=0){gocEl.style.display='none';}
+    else{
+      const el2=document.getElementById('goc-days-left'); if(el2) el2.textContent=gocDays;
+      const el3=document.getElementById('goc-per-day'); if(el3) el3.textContent=(gocRem/Math.max(1,gocDays)).toFixed(1);
+    }
+  }
+}
+buildBacklogCountdown();
+
+// ════════════════════════════════════════════════════════════
+// v8 FEATURE 4: CHAPTER BACKLOG MAP
+// ════════════════════════════════════════════════════════════
+let currentBacklogSubj='physics';
+const SUBJ_CLASS_MAP={physics:'ph',maths:'m',physchem:'pc',orgchem:'oc',inorgchem:'ic'};
+
+function switchBacklogSubj(subj,btn){
+  currentBacklogSubj=subj;
+  document.querySelectorAll('.bst-btn').forEach(b=>b.classList.remove('active','ph','m','pc','oc','ic'));
+  const cl=SUBJ_CLASS_MAP[subj];
+  btn.classList.add('active',cl);
+  renderChapterGrid();
+}
+
+function renderChapterGrid(){
+  const chapters=BACKLOG_CHAPTERS[currentBacklogSubj]||[];
+  const state=getBacklogState();
+  const grid=document.getElementById('chapter-grid');
+  const title=document.getElementById('bsh-title');
+  const statsEl=document.getElementById('bsh-stats');
+  if(!grid) return;
+
+  let totalDone=0,totalAll=0;
+  chapters.forEach(ch=>{ totalDone+=Math.min(state[ch.key]||0,ch.total); totalAll+=ch.total; });
+  if(title) title.textContent=SUBJ_LABELS[currentBacklogSubj]+' — Class 11 Backlog';
+  if(statsEl) statsEl.textContent=`${totalDone}/${totalAll} lecs done · ${totalAll-totalDone} remaining`;
+
+  grid.innerHTML='';
+  const cl=SUBJ_CLASS_MAP[currentBacklogSubj];
+  chapters.forEach(ch=>{
+    const done=Math.min(state[ch.key]||0,ch.total);
+    const pct=Math.round((done/ch.total)*100);
+    const isDone=done>=ch.total;
+    const card=document.createElement('div');
+    card.className='chapter-card'+(ch.zeroBase?' zero-base':isDone?' done':'');
+    const modeKey='mode_'+ch.key;
+    const mode=state[modeKey]||'lec';
+    const dppDone=state['dpp_'+ch.key]||0;
+    card.innerHTML=`
+      <div class="cc-header">
+        <div class="cc-name">${ch.name}</div>
+        <div class="cc-badges">
+          ${ch.zeroBase?'<span class="cc-badge zero">Zero Base</span>':''}
+          <span class="cc-badge ${ch.tier===1?'t1':'t2'}">T${ch.tier}</span>
+          ${ch.deadline?`<span class="cc-badge core">⏰ ${ch.deadline}</span>`:''}
+          ${isDone?'<span class="cc-badge done-b">✓ Done</span>':''}
+        </div>
+      </div>
+      <div class="cc-progress-row">
+        <div class="cc-progress-track"><div class="cc-progress-fill" style="width:${pct}%;background:${SUBJ_COLORS[currentBacklogSubj]}"></div></div>
+        <span class="cc-progress-text">${done}/${ch.total}</span>
+      </div>
+      <div class="cc-controls">
+        <button class="cc-adj-btn" onclick="adjustChapter('${ch.key}',-1)">−</button>
+        <span class="cc-done-val">${done}</span>
+        <button class="cc-adj-btn" onclick="adjustChapter('${ch.key}',1)">+</button>
+        <span class="cc-meta">${ch.total} lecs · ${ch.dpp} DPP</span>
+        <div class="cc-mode-toggle">
+          <button class="cc-mode-btn ${mode==='lec'?'active':''}" onclick="setMode('${ch.key}','lec',this)">Lec</button>
+          <button class="cc-mode-btn ${mode==='os'?'active':''}" onclick="setMode('${ch.key}','os',this)">OS</button>
+        </div>
+      </div>
+      ${ch.deadline?`<div class="cc-deadline">⏰ Needed before ${ch.deadline}</div>`:''}
+    `;
+    grid.appendChild(card);
+  });
+}
+
+function adjustChapter(key, delta){
+  const state=getBacklogState();
+  const ch=(BACKLOG_CHAPTERS[currentBacklogSubj]||[]).find(c=>c.key===key);
+  if(!ch) return;
+  state[key]=Math.max(0,Math.min(ch.total,(state[key]||0)+delta));
+  saveBacklogState(state);
+  renderChapterGrid();
+  buildBacklogCountdown();
+  buildDailyFocusCard();
+}
+
+function setMode(key, mode, btn){
+  const state=getBacklogState();
+  state['mode_'+key]=mode;
+  saveBacklogState(state);
+  // toggle active on siblings
+  const parent=btn.closest('.cc-mode-toggle');
+  parent.querySelectorAll('.cc-mode-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+// Render when backlog tab is switched to
+const origSwitchTab=window.switchTab;
+window.switchTab=function(tabId){
+  origSwitchTab&&origSwitchTab(tabId);
+  if(tabId==='backlog'){
+    const cl=SUBJ_CLASS_MAP[currentBacklogSubj];
+    renderChapterGrid();
+  }
+  if(tabId==='scores'||tabId==='tracker'){
+    renderScoreResults2();
+  }
+};
+
+// ════════════════════════════════════════════════════════════
+// v8 FEATURE 3: EXAM SCORE TRACKER
+// ════════════════════════════════════════════════════════════
+const SCORE_SUBJECTS=['Bengali','English','Physics','Chemistry','Maths','CS'];
+const SCORE_MAX={'PRE-MID':{Bengali:40,English:40,Physics:40,Chemistry:40,Maths:40,CS:40},'MID':{Bengali:70,English:70,Physics:70,Chemistry:70,Maths:80,CS:70},'PRE-BOARDS':{Bengali:70,English:70,Physics:70,Chemistry:70,Maths:80,CS:70}};
+let currentSeries='PRE-MID';
+
+function getScores(){ return JSON.parse(localStorage.getItem('jee-scores-v8')||'{}'); }
+function saveScoresLS(data){ localStorage.setItem('jee-scores-v8',JSON.stringify(data)); }
+
+function buildScoreInputArea(areaId, series){
+  const area=document.getElementById(areaId);
+  if(!area) return;
+  const maxes=SCORE_MAX[series];
+  const scores=getScores();
+  let html='<div class="score-input-grid">';
+  SCORE_SUBJECTS.forEach(subj=>{
+    const max=maxes[subj];
+    const val=scores[series]&&scores[series][subj]!==undefined?scores[series][subj]:'';
+    const pct=val!==''?Math.round((val/max)*100)+'%':'—';
+    html+=`<div class="score-field">
+      <label>${subj} / ${max}</label>
+      <div class="score-inputs">
+        <input type="number" id="${areaId}-${series}-${subj}" min="0" max="${max}" value="${val}" placeholder="—" oninput="updatePct(this,${max},'${areaId}-pct-${subj}')">
+        <span class="score-slash">/</span>
+        <span class="score-pct" id="${areaId}-pct-${subj}">${pct}</span>
+      </div>
+    </div>`;
+  });
+  html+='</div>';
+  area.innerHTML=html;
+}
+
+function updatePct(inp, max, pctId){
+  const pctEl=document.getElementById(pctId);
+  if(pctEl) pctEl.textContent=inp.value!==''?Math.round((parseInt(inp.value)||0)/max*100)+'%':'—';
+}
+
+function selectScoreSeries(series, btn){
+  currentSeries=series;
+  document.querySelectorAll('.score-series-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  buildScoreInputArea('score-input-area',series);
+}
+
+function saveScores(){
+  const scores=getScores();
+  if(!scores[currentSeries]) scores[currentSeries]={};
+  SCORE_SUBJECTS.forEach(subj=>{
+    const inp=document.getElementById(`score-input-area-${currentSeries}-${subj}`);
+    if(inp&&inp.value!=='') scores[currentSeries][subj]=parseInt(inp.value)||0;
+  });
+  saveScoresLS(scores);
+  renderScoreResults();
+}
+
+function renderScoreResults(){
+  const scores=getScores();
+  const res=document.getElementById('score-results');
+  const grid=document.getElementById('score-results-grid');
+  if(!res||!grid) return;
+  const allSeries=['PRE-MID','MID','PRE-BOARDS'];
+  let hasData=false;
+  SCORE_SUBJECTS.forEach(subj=>{
+    allSeries.forEach(s=>{ if(scores[s]&&scores[s][subj]!==undefined) hasData=true; });
+  });
+  if(!hasData){res.style.display='none';return;}
+  res.style.display='block';
+  grid.innerHTML='';
+  SCORE_SUBJECTS.forEach(subj=>{
+    let html=`<div class="score-result-card"><div class="src-subj">${subj}</div><div class="src-series">`;
+    let prevPct=null;
+    allSeries.forEach(s=>{
+      const max=SCORE_MAX[s][subj];
+      const val=scores[s]&&scores[s][subj]!==undefined?scores[s][subj]:null;
+      if(val===null){html+=`<div class="src-row"><span class="src-series-label">${s}</span><span class="src-pct" style="color:var(--ink-muted)">—</span></div>`;return;}
+      const pct=Math.round((val/max)*100);
+      const cls=pct>=75?'good':pct>=50?'warn':'bad';
+      let trend='';
+      if(prevPct!==null){ trend=pct>prevPct?'<span class="src-trend up">↑</span>':pct<prevPct?'<span class="src-trend down">↓</span>':'<span class="src-trend flat">→</span>'; }
+      html+=`<div class="src-row"><span class="src-series-label">${s}</span><span class="src-pct ${cls}">${val}/${max} (${pct}%)${trend}</span></div>`;
+      prevPct=pct;
+    });
+    html+='</div></div>';
+    grid.innerHTML+=html;
+  });
+}
+
+// Scores tab (Feature 3 full page)
+let currentSeries2='PRE-MID';
+function selectScoreSeries2(series, btn){
+  currentSeries2=series;
+  document.querySelectorAll('#tab-scores .score-series-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  buildScoreInputArea('score-input-area2',series);
+}
+function saveScores2(){
+  const scores=getScores();
+  if(!scores[currentSeries2]) scores[currentSeries2]={};
+  SCORE_SUBJECTS.forEach(subj=>{
+    const inp=document.getElementById(`score-input-area2-${currentSeries2}-${subj}`);
+    if(inp&&inp.value!=='') scores[currentSeries2][subj]=parseInt(inp.value)||0;
+  });
+  saveScoresLS(scores);
+  renderScoreResults();
+  renderScoreResults2();
+}
+function renderScoreResults2(){
+  const scores=getScores();
+  const grid2=document.getElementById('score-results-grid2');
+  if(!grid2) return;
+  const allSeries=['PRE-MID','MID','PRE-BOARDS'];
+  grid2.innerHTML='';
+  SCORE_SUBJECTS.forEach(subj=>{
+    let html=`<div class="score-result-card"><div class="src-subj">${subj}</div><div class="src-series">`;
+    let prevPct=null;
+    allSeries.forEach(s=>{
+      const max=SCORE_MAX[s][subj];
+      const val=scores[s]&&scores[s][subj]!==undefined?scores[s][subj]:null;
+      if(val===null){html+=`<div class="src-row"><span class="src-series-label">${s}</span><span class="src-pct" style="color:var(--ink-muted)">—</span></div>`;return;}
+      const pct=Math.round((val/max)*100);
+      const cls=pct>=75?'good':pct>=50?'warn':'bad';
+      let trend='';
+      if(prevPct!==null){ trend=pct>prevPct?'<span class="src-trend up">↑</span>':pct<prevPct?'<span class="src-trend down">↓</span>':'<span class="src-trend flat">→</span>'; }
+      html+=`<div class="src-row"><span class="src-series-label">${s}</span><span class="src-pct ${cls}">${val}/${max} (${pct}%)${trend}</span></div>`;
+      prevPct=pct;
+    });
+    html+='</div></div>';
+    grid2.innerHTML+=html;
+  });
+}
+
+// Init score inputs on page load
+buildScoreInputArea('score-input-area','PRE-MID');
+buildScoreInputArea('score-input-area2','PRE-MID');
+renderScoreResults();
+renderScoreResults2();
+renderChapterGrid();
 </script>
 </body>
 </html>
